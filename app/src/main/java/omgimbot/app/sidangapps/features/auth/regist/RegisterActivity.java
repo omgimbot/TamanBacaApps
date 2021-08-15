@@ -43,6 +43,8 @@ public class RegisterActivity extends AppCompatActivity implements IRegistView{
     EditText mAlamat;
     @BindView(R.id.mPassword)
     EditText mPassword;
+
+
     RegistPresenter presenter;
     SweetAlertDialog sweetAlertDialog;
     String username , role , nidnDosenPembimbing;

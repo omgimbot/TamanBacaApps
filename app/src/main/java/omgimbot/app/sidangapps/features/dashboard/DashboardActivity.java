@@ -29,6 +29,8 @@ import butterknife.OnClick;
 import omgimbot.app.sidangapps.R;
 import omgimbot.app.sidangapps.Utils.AdapterSliderBanner;
 import omgimbot.app.sidangapps.Utils.ModelSliderBanner;
+import omgimbot.app.sidangapps.features.donasi.list_donasi.ListDonasiActivity;
+import omgimbot.app.sidangapps.features.donasi.riwayat_donasi.RiwayatDonasiActivity;
 import omgimbot.app.sidangapps.features.taman_baca.TamanBacaActivity;
 import omgimbot.app.sidangapps.ui.DrawerHeader;
 import omgimbot.app.sidangapps.ui.DrawerMenuItem;
@@ -168,10 +170,18 @@ public class DashboardActivity extends AppCompatActivity {
         startActivity(new Intent(this , TamanBacaActivity.class));
         finish();
     }
+
+//    @OnClick(R.id.mDonasi)
+//    void gotoDonasi() {
+//        startActivity(new Intent(this , ListDonasiActivity.class));
+//        finish();
+//    }
+
+
     @OnClick(R.id.mRiwayat)
     void goToSempro() {
-//        startActivity(new Intent(this , SemproDosenActivity.class));
-//        finish();
+        startActivity(new Intent(this , RiwayatDonasiActivity.class));
+        finish();
     }
 
     @OnClick(R.id.mAbout)

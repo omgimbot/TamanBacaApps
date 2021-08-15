@@ -103,15 +103,16 @@ public class LoginActivity extends AppCompatActivity implements ILoginView {
 
     @OnClick(R.id.signin)
     void login() {
-        String username = mUsername.getText().toString();
-        String pass = mPassword.getText().toString();
-        if (username.isEmpty()) {
-            Toast.makeText(getApplicationContext(), "Nik tidak boleh kosong", Toast.LENGTH_LONG).show();
-        } else if (pass.isEmpty()) {
-            Toast.makeText(getApplicationContext(), "Password tidak boleh kosong", Toast.LENGTH_LONG).show();
-        } else {
-            presenter.login(username, pass);
-        }
+//        String username = mUsername.getText().toString();
+//        String pass = mPassword.getText().toString();
+//        if (username.isEmpty()) {
+//            Toast.makeText(getApplicationContext(), "Nik tidak boleh kosong", Toast.LENGTH_LONG).show();
+//        } else if (pass.isEmpty()) {
+//            Toast.makeText(getApplicationContext(), "Password tidak boleh kosong", Toast.LENGTH_LONG).show();
+//        } else {
+//            presenter.login(username, pass);
+//        }
+        this.gotoDashboard();
     }
 
     public void goToRegist() {

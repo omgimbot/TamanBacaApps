@@ -17,12 +17,16 @@ import android.view.View;
 import com.google.gson.Gson;
 import com.ontbee.legacyforks.cn.pedant.SweetAlert.SweetAlertDialog;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
+import butterknife.OnClick;
 import omgimbot.app.sidangapps.App;
 import omgimbot.app.sidangapps.R;
+import omgimbot.app.sidangapps.features.dashboard.DashboardActivity;
+import omgimbot.app.sidangapps.features.donasi.add_donasi.AddDonasiActivity;
 import omgimbot.app.sidangapps.features.donasi.list_donasi.ListDonasiActivity;
 import omgimbot.app.sidangapps.features.taman_baca.model.TamanBaca;
 import omgimbot.app.sidangapps.ui.SweetDialogs;
@@ -32,9 +36,11 @@ public class TamanBacaActivity extends AppCompatActivity implements TamanBacaAda
     Toolbar mToolbar;
     @BindView(R.id.recycler_view)
     RecyclerView mRecyclerView;
+
     SweetAlertDialog sweetAlertDialog;
     TamanBacaAdapter adapter ;
     TamanBacaPresenter presenter ;
+    List<TamanBaca> result ;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -42,7 +48,12 @@ public class TamanBacaActivity extends AppCompatActivity implements TamanBacaAda
         ButterKnife.bind(this);
         presenter = new TamanBacaPresenter(this);
         this.initView();
-        presenter.showPerpus();
+        setSupportActionBar(mToolbar);
+        getSupportActionBar().setTitle("Taman Baca");
+        mToolbar.setTitleTextColor(getResources().getColor(R.color.color_default_blue));
+        getSupportActionBar().setHomeAsUpIndicator(getResources().getDrawable(R.drawable.ic_back_left));
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+//        presenter.showPerpus();
     }
 
     @Override
@@ -102,9 +113,9 @@ public class TamanBacaActivity extends AppCompatActivity implements TamanBacaAda
 
     @Override
     public void goToDashboard() {
-//        Intent a = new Intent(this, DashboardMhsActivity.class);
-//        startActivity(a);
-//        finish();
+        Intent a = new Intent(this, DashboardActivity.class);
+        startActivity(a);
+        finish();
     }
 
     @Override
@@ -122,4 +133,12 @@ public class TamanBacaActivity extends AppCompatActivity implements TamanBacaAda
         startActivity(i);
         finish();
     }
+
+    @OnClick(R.id.mDonasi)
+    public void gootDonasi(){
+        Intent i = new Intent(this, AddDonasiActivity.class);
+        startActivity(i);
+        finish();
+    }
+
 }
