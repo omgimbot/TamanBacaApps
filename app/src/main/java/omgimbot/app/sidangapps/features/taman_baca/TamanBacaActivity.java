@@ -32,8 +32,8 @@ import omgimbot.app.sidangapps.features.taman_baca.model.TamanBaca;
 import omgimbot.app.sidangapps.ui.SweetDialogs;
 
 public class TamanBacaActivity extends AppCompatActivity implements TamanBacaAdapter.onSelected, ITamanBacaView {
-    @BindView(R.id.toolbar_default_in)
-    Toolbar mToolbar;
+//    @BindView(R.id.toolbar_default_in)
+//    Toolbar mToolbar;
     @BindView(R.id.recycler_view)
     RecyclerView mRecyclerView;
 
@@ -48,11 +48,11 @@ public class TamanBacaActivity extends AppCompatActivity implements TamanBacaAda
         ButterKnife.bind(this);
         presenter = new TamanBacaPresenter(this);
         this.initView();
-        setSupportActionBar(mToolbar);
-        getSupportActionBar().setTitle("Taman Baca");
-        mToolbar.setTitleTextColor(getResources().getColor(R.color.color_default_blue));
-        getSupportActionBar().setHomeAsUpIndicator(getResources().getDrawable(R.drawable.ic_back_left));
-        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+//        setSupportActionBar(mToolbar);
+//        getSupportActionBar().setTitle("Taman Baca");
+//        mToolbar.setTitleTextColor(getResources().getColor(R.color.color_default_blue));
+//        getSupportActionBar().setHomeAsUpIndicator(getResources().getDrawable(R.drawable.ic_back_left));
+//        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 //        presenter.showPerpus();
     }
 

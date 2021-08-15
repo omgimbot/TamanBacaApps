@@ -25,7 +25,9 @@ import omgimbot.app.sidangapps.Utils.GsonHelper;
 import omgimbot.app.sidangapps.features.auth.login.model.LoginResponse;
 import omgimbot.app.sidangapps.features.auth.regist.RegisterActivity;
 import omgimbot.app.sidangapps.features.dashboard.DashboardActivity;
+import omgimbot.app.sidangapps.features.dashboard.DashboardAdminActivity;
 import omgimbot.app.sidangapps.ui.SweetDialogs;
+import omgimbot.app.sidangapps.ui.TopSnakbar;
 
 public class LoginActivity extends AppCompatActivity implements ILoginView {
     @BindView(R.id.mBtnRegis)
@@ -103,8 +105,8 @@ public class LoginActivity extends AppCompatActivity implements ILoginView {
 
     @OnClick(R.id.signin)
     void login() {
-//        String username = mUsername.getText().toString();
-//        String pass = mPassword.getText().toString();
+        String username = mUsername.getText().toString();
+        String pass = mPassword.getText().toString();
 //        if (username.isEmpty()) {
 //            Toast.makeText(getApplicationContext(), "Nik tidak boleh kosong", Toast.LENGTH_LONG).show();
 //        } else if (pass.isEmpty()) {
@@ -112,7 +114,13 @@ public class LoginActivity extends AppCompatActivity implements ILoginView {
 //        } else {
 //            presenter.login(username, pass);
 //        }
-        this.gotoDashboard();
+
+        if(username.equals("admin") && pass.equals("admin"))
+            this.gotoDashboardAdmin();
+        else if(username.equals("user") && pass.equals("user"))
+            this.gotoDashboard();
+        else
+            TopSnakbar.showWarning(this, "username atau password anda salah");
     }
 
     public void goToRegist() {
@@ -122,6 +130,11 @@ public class LoginActivity extends AppCompatActivity implements ILoginView {
 
     public void gotoDashboard() {
         startActivity(new Intent(this, DashboardActivity.class));
+        finish();
+    }
+
+    public void gotoDashboardAdmin() {
+        startActivity(new Intent(this, DashboardAdminActivity.class));
         finish();
     }
 

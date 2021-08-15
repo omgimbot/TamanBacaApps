@@ -10,25 +10,26 @@
 
     <include
         android:id="@+id/toolbars"
-        layout="@layout/toolbar_default_in" />
+        layout="@layout/toolbar_search" />
 
-        <LinearLayout
-            android:visibility="gone"
-            android:id="@+id/statusHide"
+    <LinearLayout
+        android:id="@+id/statusHide"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/grey"
+        android:visibility="gone">
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/recycler_view"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:background="@color/grey">
+            android:layout_height="match_parent"
+            tools:itemCount="1"
+            tools:listitem="@layout/item_taman_baca">
 
-            <androidx.recyclerview.widget.RecyclerView
-                android:id="@+id/recycler_view"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                tools:itemCount="1"
-                tools:listitem="@layout/item_taman_baca">
+        </androidx.recyclerview.widget.RecyclerView>
 
-            </androidx.recyclerview.widget.RecyclerView>
+    </LinearLayout>
 
-        </LinearLayout>
     <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
         xmlns:app="http://schemas.android.com/apk/res-auto"
         android:layout_width="match_parent"
@@ -56,12 +57,13 @@
                     android:orientation="vertical"
                     android:padding="10dp">
 
-                    <RelativeLayout
+                    <LinearLayout
                         android:id="@+id/main_layout"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
+                        android:layout_weight="2"
                         android:gravity="center"
-                        android:orientation="vertical">
+                        android:orientation="horizontal">
 
 
                         <ImageView
@@ -76,7 +78,9 @@
 
 
                         <LinearLayout
-                            android:layout_width="match_parent"
+                            android:layout_weight="0.5"
+                            android:id="@+id/layoutList"
+                            android:layout_width="fill_parent"
                             android:layout_height="wrap_content"
                             android:layout_centerVertical="true"
                             android:layout_marginStart="10dp"
@@ -114,16 +118,52 @@
                                 android:text="Alamat"
                                 android:textSize="10dp" />
 
+                            <TextView
+                                android:id="@+id/mAlamat"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_alignParentLeft="true"
+                                android:layout_weight="1"
+                                android:backgroundTint="@color/c_black"
+                                android:text="Judul Buku"
+                                android:textStyle="bold|italic"
+                                android:textSize="12dp" />
+
+                            <TextView
+                                android:textColor="@color/color_default_blue"
+                                android:id="@+id/mAlamat"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_alignParentLeft="true"
+                                android:layout_weight="1"
+                                android:backgroundTint="@color/c_black"
+                                android:text="Kategori"
+                                android:textSize="10dp" />
+
 
                         </LinearLayout>
-                    </RelativeLayout>
+
+                        <LinearLayout
+                            android:layout_weight="1"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content">
+
+                            <Button
+                                android:id="@+id/mDonasi"
+                                android:background="@color/color_default_blue"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_toRightOf="@+id/layoutList"
+                                android:text="Donasi" />
+
+                        </LinearLayout>
+                    </LinearLayout>
 
                 </LinearLayout>
 
             </LinearLayout>
 
         </androidx.cardview.widget.CardView>
-
         <androidx.cardview.widget.CardView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -143,12 +183,13 @@
                     android:orientation="vertical"
                     android:padding="10dp">
 
-                    <RelativeLayout
+                    <LinearLayout
                         android:id="@+id/main_layout"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
+                        android:layout_weight="2"
                         android:gravity="center"
-                        android:orientation="vertical">
+                        android:orientation="horizontal">
 
 
                         <ImageView
@@ -163,7 +204,9 @@
 
 
                         <LinearLayout
-                            android:layout_width="match_parent"
+                            android:layout_weight="0.5"
+                            android:id="@+id/layoutList"
+                            android:layout_width="fill_parent"
                             android:layout_height="wrap_content"
                             android:layout_centerVertical="true"
                             android:layout_marginStart="10dp"
@@ -177,7 +220,7 @@
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
                                 android:maxLines="1"
-                                android:text="Perpustakaan B"
+                                android:text="Perpustakaan A"
                                 android:textSize="15dp" />
 
 
@@ -201,24 +244,54 @@
                                 android:text="Alamat"
                                 android:textSize="10dp" />
 
+                            <TextView
+                                android:id="@+id/mAlamat"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_alignParentLeft="true"
+                                android:layout_weight="1"
+                                android:backgroundTint="@color/c_black"
+                                android:text="Judul Buku"
+                                android:textStyle="bold|italic"
+                                android:textSize="12dp" />
+
+                            <TextView
+                                android:textColor="@color/color_default_blue"
+                                android:id="@+id/mAlamat"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_alignParentLeft="true"
+                                android:layout_weight="1"
+                                android:backgroundTint="@color/c_black"
+                                android:text="Kategori"
+                                android:textSize="10dp" />
+
 
                         </LinearLayout>
-                    </RelativeLayout>
+
+                        <LinearLayout
+                            android:layout_weight="1"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content">
+
+                            <Button
+                                android:id="@+id/mDonasii"
+                                android:background="@color/color_default_blue"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_toRightOf="@+id/layoutList"
+                                android:text="Donasi" />
+
+                        </LinearLayout>
+                    </LinearLayout>
 
                 </LinearLayout>
 
             </LinearLayout>
 
         </androidx.cardview.widget.CardView>
+
     </LinearLayout>
 
-    <Button
-        android:id="@+id/mDonasi"
-        android:textStyle="bold"
-        android:background="@color/color_default_blue"
-        android:layout_alignParentBottom="true"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="Donasi"></Button>
 
 </RelativeLayout>

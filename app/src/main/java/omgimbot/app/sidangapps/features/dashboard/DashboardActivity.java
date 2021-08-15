@@ -11,6 +11,7 @@ import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.Gravity;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.ImageButton;
 import android.widget.ImageView;
@@ -29,6 +30,7 @@ import butterknife.OnClick;
 import omgimbot.app.sidangapps.R;
 import omgimbot.app.sidangapps.Utils.AdapterSliderBanner;
 import omgimbot.app.sidangapps.Utils.ModelSliderBanner;
+import omgimbot.app.sidangapps.features.auth.login.LoginActivity;
 import omgimbot.app.sidangapps.features.donasi.list_donasi.ListDonasiActivity;
 import omgimbot.app.sidangapps.features.donasi.riwayat_donasi.RiwayatDonasiActivity;
 import omgimbot.app.sidangapps.features.taman_baca.TamanBacaActivity;
@@ -188,6 +190,31 @@ public class DashboardActivity extends AppCompatActivity {
     void goToMunaqosah() {
 //        startActivity(new Intent(this , MunaqosahDosenActivity.class));
 //        finish();
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        switch (item.getItemId()) {
+            case android.R.id.home:
+                onBackPressed();
+                return true;
+            default:
+                return super.onOptionsItemSelected(item);
+        }
+    }
+
+    public void goToDashboard() {
+        Intent a = new Intent(this, LoginActivity.class);
+        startActivity(a);
+        finish();
+    }
+
+    @Override
+    public void onBackPressed() {
+        // ...
+
+        this.goToDashboard();
+        super.onBackPressed();
     }
 
 }
