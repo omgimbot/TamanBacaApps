@@ -8,7 +8,7 @@
 
     <androidx.cardview.widget.CardView
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="match_parent"
         android:foreground="?android:attr/selectableItemBackground"
         app:cardCornerRadius="5dp"
         app:cardUseCompatPadding="true">
@@ -55,39 +55,25 @@
                         android:padding="3dp">
 
                         <TextView
-                            android:id="@+id/mNama"
+                            android:id="@+id/mJudulBuku"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:maxLines="1"
-                            android:text="Taman Baca"
+                            android:textAlignment="center"
+                            android:text="Judul Buku"
+                            android:textSize="16dp" />
+
+                        <Button
+                            android:layout_marginTop="10dp"
+                            android:layout_gravity="center"
+                            android:layout_width="200dp"
+                            android:layout_height="40dp"
+                            android:backgroundTint="@color/color_default_blue"
+                            android:maxLines="1"
+                            android:text="Donasi"
                             android:textSize="15dp" />
-
-
-                        <TextView
-                            android:id="@+id/mDeskripsi"
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:maxLines="1"
-                            android:text="Deskripsi"
-                            android:textColor="@color/c_black"
-                            android:textSize="12dp" />
-
-
-
-                            <TextView
-                                android:layout_weight="1"
-                                android:id="@+id/mAlamat"
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:layout_alignParentLeft="true"
-                                android:backgroundTint="@color/c_black"
-                                android:text="Alamat"
-                                android:textSize="10dp" />
-
-
                     </LinearLayout>
                 </RelativeLayout>
-
             </LinearLayout>
 
         </LinearLayout>

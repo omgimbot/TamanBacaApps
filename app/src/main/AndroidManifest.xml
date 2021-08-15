@@ -18,7 +18,11 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
         android:usesCleartextTraffic="true">
-        <activity android:name=".features.taman_baca.TamanBacaActivity"></activity>
+        <activity android:name=".features.donasi.riwayat_donasi.RiwayatDonasiActivity"></activity>
+        <activity android:name=".features.donasi.add_donasi.AddDonasiActivity" />
+        <activity android:name=".features.taman_baca.add_taman_baca.AddTamanBacaActivity" />
+        <activity android:name=".features.donasi.list_donasi.ListDonasiActivity" />
+        <activity android:name=".features.taman_baca.TamanBacaActivity" />
         <activity android:name=".features.dashboard.DashboardActivity" />
         <activity android:name=".features.auth.regist.RegisterActivity" />
         <activity

@@ -26,12 +26,13 @@ public class TamanBacaAdapter extends RecyclerView.Adapter<TamanBacaAdapter.View
     AlertDialog.Builder dialogBuilder;
     AlertDialog alertDialog;
     private TamanBacaAdapter.onSelected listener;
+
     public interface onSelected {
-        void onDownload(TamanBaca data);
+        void onClick(TamanBaca data);
     }
 
 
-    public TamanBacaAdapter(List<TamanBaca> data, Activity context) {
+    public TamanBacaAdapter(List<TamanBaca> data, Activity context, TamanBacaAdapter.onSelected listener) {
         this.ruts = data;
         this.context = context;
         this.listener = listener ;
@@ -52,6 +53,10 @@ public class TamanBacaAdapter extends RecyclerView.Adapter<TamanBacaAdapter.View
         holder.mAlamat.setText(data.getAlamat());
         holder.mDeskripsi.setText(data.getDeskripsi());
 
+
+
+        holder.onClick.setOnClickListener(View -> listener.onClick(data));
+
     }
 
     @Override
@@ -63,12 +68,14 @@ public class TamanBacaAdapter extends RecyclerView.Adapter<TamanBacaAdapter.View
     }
 
     class ViewHolder extends RecyclerView.ViewHolder {
+        RelativeLayout onClick;
         TextView mNama, mAlamat,mDeskripsi;
         ImageView icon_image;
 
 
         ViewHolder(View view) {
             super(view);
+            onClick = view.findViewById(R.id.main_layout);
             mNama = view.findViewById(R.id.mNama);
             mAlamat = view.findViewById(R.id.mAlamat);
             mDeskripsi = view.findViewById(R.id.mDeskripsi);

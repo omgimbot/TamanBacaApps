@@ -55,34 +55,42 @@
                         android:padding="3dp">
 
                         <TextView
-                            android:id="@+id/mNama"
+                            android:id="@+id/mJudulBuku"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:maxLines="1"
-                            android:text="Taman Baca"
+                            android:text="Judul Buku : Pemrograman I"
                             android:textSize="15dp" />
 
 
                         <TextView
-                            android:id="@+id/mDeskripsi"
+                            android:id="@+id/mJumlah"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:maxLines="1"
-                            android:text="Deskripsi"
+                            android:text="Jumlah : 1"
                             android:textColor="@color/c_black"
                             android:textSize="12dp" />
 
+                        <TextView
+                            android:layout_weight="1"
+                            android:id="@+id/mTamanBaca"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_alignParentLeft="true"
+                            android:backgroundTint="@color/c_black"
+                            android:text="Taman Baca : xxxx"
+                            android:textSize="10dp" />
 
-
-                            <TextView
-                                android:layout_weight="1"
-                                android:id="@+id/mAlamat"
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:layout_alignParentLeft="true"
-                                android:backgroundTint="@color/c_black"
-                                android:text="Alamat"
-                                android:textSize="10dp" />
+                        <TextView
+                            android:layout_weight="1"
+                            android:id="@+id/mPengiriman"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_alignParentLeft="true"
+                            android:backgroundTint="@color/c_black"
+                            android:text="Metode Pengiriman : Diantar"
+                            android:textSize="10dp" />
 
 
                     </LinearLayout>

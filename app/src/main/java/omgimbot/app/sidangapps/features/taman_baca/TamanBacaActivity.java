@@ -23,10 +23,11 @@ import butterknife.BindView;
 import butterknife.ButterKnife;
 import omgimbot.app.sidangapps.App;
 import omgimbot.app.sidangapps.R;
+import omgimbot.app.sidangapps.features.donasi.list_donasi.ListDonasiActivity;
 import omgimbot.app.sidangapps.features.taman_baca.model.TamanBaca;
 import omgimbot.app.sidangapps.ui.SweetDialogs;
 
-public class TamanBacaActivity extends AppCompatActivity implements ITamanBacaView {
+public class TamanBacaActivity extends AppCompatActivity implements TamanBacaAdapter.onSelected, ITamanBacaView {
     @BindView(R.id.toolbar_default_in)
     Toolbar mToolbar;
     @BindView(R.id.recycler_view)
@@ -76,7 +77,7 @@ public class TamanBacaActivity extends AppCompatActivity implements ITamanBacaVi
     @Override
     public void onDataReady(List<TamanBaca> result) {
         Log.d("data" , new Gson().toJson(result));
-        adapter = new TamanBacaAdapter(result, this);
+        adapter = new TamanBacaAdapter(result, this,this);
         mRecyclerView.setAdapter(adapter);
         adapter.notifyDataSetChanged();
     }
@@ -112,5 +113,13 @@ public class TamanBacaActivity extends AppCompatActivity implements ITamanBacaVi
 
         this.goToDashboard();
         super.onBackPressed();
+    }
+
+    @Override
+    public void onClick(TamanBaca data) {
+        Log.d("datanya : ", new Gson().toJson(data));
+        Intent i = new Intent(this, ListDonasiActivity.class);
+        startActivity(i);
+        finish();
     }
 }

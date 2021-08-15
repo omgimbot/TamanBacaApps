@@ -1,0 +1,233 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:theme="@style/AppThemeSubs"
+    tools:context=".features.donasi.add_donasi.AddDonasiActivity">
+
+    <include layout="@layout/toolbar_default_in" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_gravity="center_vertical"
+        android:layout_margin="10dp"
+        android:gravity="center_vertical"
+        android:orientation="vertical">
+
+        <LinearLayout
+            android:layout_marginBottom="20dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <ImageView
+                android:visibility="visible"
+                android:layout_marginTop="10dp"
+                android:id="@+id/mTakeImg"
+                android:layout_gravity="center"
+                android:padding="50dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:srcCompat="@drawable/ic_about"/>
+
+            <ImageView
+                android:id="@+id/mShowImg"
+                android:visibility="gone"
+                android:layout_gravity="center"
+                android:padding="50dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:srcCompat="@drawable/ic_about"/>
+
+            <LinearLayout
+                android:layout_marginTop="10dp"
+                android:layout_gravity="center"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content">
+
+                <TextView
+                    android:id="@+id/mJudulBuku"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Judul Buku"
+                    android:textSize="16dp"
+                    />
+
+            </LinearLayout>
+
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <com.google.android.material.textfield.TextInputLayout
+                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="Nama Lengkap"
+                android:paddingLeft="25dp"
+                android:paddingRight="25dp"
+                app:boxStrokeColor="@color/color_default_blue"
+                app:hintTextColor="@color/color_default_black"
+                app:startIconDrawable="@drawable/ic_userz">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/mNamaLengkap"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:inputType="text"
+                    android:padding="5dp"
+                    android:textColor="@color/color_default_blue"
+                    android:textSize="15sp" />
+
+            </com.google.android.material.textfield.TextInputLayout>
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_marginTop="10dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <com.google.android.material.textfield.TextInputLayout
+                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="No telepon"
+                android:paddingLeft="25dp"
+                android:paddingRight="25dp"
+                app:boxStrokeColor="@color/color_default_blue"
+                app:endIconMode="custom"
+                app:hintTextColor="@color/color_default_black"
+                app:startIconDrawable="@drawable/ic_card">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/mNohp"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:inputType="text"
+                    android:padding="5dp"
+                    android:textColor="@color/color_default_blue"
+                    android:textSize="15sp" />
+
+            </com.google.android.material.textfield.TextInputLayout>
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_marginTop="10dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <com.google.android.material.textfield.TextInputLayout
+                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="Taman Baca"
+                android:paddingLeft="25dp"
+                android:paddingRight="25dp"
+                app:boxStrokeColor="@color/color_default_blue"
+                app:hintTextColor="@color/color_default_black"
+                app:startIconDrawable="@drawable/ic_list">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/mTamanBaca"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:inputType="text"
+                    android:padding="5dp"
+                    android:textColor="@color/color_default_blue"
+                    android:textSize="15sp" />
+
+            </com.google.android.material.textfield.TextInputLayout>
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_marginTop="10dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <com.google.android.material.textfield.TextInputLayout
+                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="Jumlah"
+                android:paddingLeft="25dp"
+                android:paddingRight="25dp"
+                app:boxStrokeColor="@color/color_default_blue"
+                app:hintTextColor="@color/color_default_black"
+                app:startIconDrawable="@drawable/ic_list">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/mjumlah"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:inputType="number"
+                    android:padding="5dp"
+                    android:textColor="@color/color_default_blue"
+                    android:textSize="18sp" />
+
+            </com.google.android.material.textfield.TextInputLayout>
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_marginTop="10dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/mLabelPengiriman"
+                android:layout_marginLeft="30dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Pengiriman : "
+                android:textSize="15sp"
+                />
+
+            <LinearLayout
+                android:layout_marginTop="10dp"
+                android:layout_gravity="center"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <com.google.android.material.radiobutton.MaterialRadioButton
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Diantar"/>
+
+                <com.google.android.material.radiobutton.MaterialRadioButton
+                    android:layout_marginLeft="10dp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Diambil"/>
+
+            </LinearLayout>
+
+        </LinearLayout>
+
+        <Button
+            android:id="@+id/mSubmit"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="SUBMIT"
+            android:layout_marginTop="30dp"
+            android:background="@color/tomato"
+            android:textColor="@color/white"/>
+
+    </LinearLayout>
+
+</LinearLayout>

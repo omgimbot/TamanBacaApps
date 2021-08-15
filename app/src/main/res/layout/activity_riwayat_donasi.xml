@@ -6,7 +6,7 @@
     android:layout_height="match_parent"
     android:orientation="vertical"
     android:theme="@style/AppThemeSubs"
-    tools:context=".features.taman_baca.TamanBacaActivity">
+    tools:context=".features.donasi.riwayat_donasi.RiwayatDonasiActivity">
 
     <include layout="@layout/toolbar_default_in" />
 
@@ -21,7 +21,7 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             tools:itemCount="1"
-            tools:listitem="@layout/item_taman_baca">
+            tools:listitem="@layout/item_riwayat_donasi">
 
         </androidx.recyclerview.widget.RecyclerView>
 
