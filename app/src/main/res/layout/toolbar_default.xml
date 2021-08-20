@@ -27,7 +27,7 @@
                 <ImageView
                     android:layout_width="40dp"
                     android:layout_height="match_parent"
-                    app:srcCompat="@drawable/icon_uin"
+                    app:srcCompat="@drawable/ic_open_book"
                     android:contentDescription="@string/app_name_detail"/>
 
             </LinearLayout>

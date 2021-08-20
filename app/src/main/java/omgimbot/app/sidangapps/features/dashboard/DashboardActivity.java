@@ -68,8 +68,8 @@ public class DashboardActivity extends AppCompatActivity {
         viewPager = findViewById(R.id.viewPager);
         indicatorDot = findViewById(R.id.bannerDot);
         models = new ArrayList<>();
-        models.add(new ModelSliderBanner(R.drawable.content1));
-        models.add(new ModelSliderBanner(R.drawable.content2));
+        models.add(new ModelSliderBanner(R.drawable.banner_1));
+        models.add(new ModelSliderBanner(R.drawable.banner_2));
 
         adapter = new AdapterSliderBanner(models, this);
         dotsCount = adapter.getCount();

@@ -15,27 +15,24 @@
         layout="@layout/toolbar_default" />
 
     <androidx.core.widget.NestedScrollView
-        android:layout_marginTop="10dp"
         android:id="@+id/nestedScroll"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_below="@id/toolbar">
+        android:layout_below="@id/toolbar"
+        android:layout_marginTop="10dp">
 
         <LinearLayout
             android:id="@+id/LayoutRegist"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_margin="10dp"
             android:layout_weight="3"
             android:orientation="vertical">
 
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="10dp"
-                android:paddingLeft="25dp"
-                android:paddingTop="10dp"
-                android:paddingRight="25dp"
-                android:paddingBottom="10dp"
+                android:layout_margin="25dp"
                 android:text="Masukkan Data Anda"
                 android:textColor="@color/color_default_blue"
                 android:textSize="20sp"
@@ -52,8 +49,8 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:hint="@string/nama"
-                    android:paddingLeft="25dp"
-                    android:paddingRight="25dp"
+                    android:paddingLeft="15dp"
+                    android:paddingRight="15dp"
                     app:boxStrokeColor="@color/color_default_blue"
                     app:hintTextColor="@color/color_default_black"
                     app:startIconDrawable="@drawable/ic_userz">
@@ -84,8 +81,8 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:hint="Email"
-                    android:paddingLeft="25dp"
-                    android:paddingRight="25dp"
+                    android:paddingLeft="15dp"
+                    android:paddingRight="15dp"
                     app:boxStrokeColor="@color/color_default_blue"
                     app:endIconMode="custom"
                     app:hintTextColor="@color/color_default_black"
@@ -115,8 +112,8 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:hint="No Telepon"
-                    android:paddingLeft="25dp"
-                    android:paddingRight="25dp"
+                    android:paddingLeft="15dp"
+                    android:paddingRight="15dp"
                     app:boxStrokeColor="@color/color_default_blue"
                     app:endIconMode="custom"
                     app:hintTextColor="@color/color_default_black"
@@ -149,8 +146,8 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:hint="@string/alamat"
-                    android:paddingLeft="25dp"
-                    android:paddingRight="25dp"
+                    android:paddingLeft="15dp"
+                    android:paddingRight="15dp"
                     app:boxStrokeColor="@color/color_default_blue"
                     app:hintTextColor="@color/color_default_black"
                     app:startIconDrawable="@drawable/ic_address">
@@ -182,8 +179,8 @@
                     android:layout_height="wrap_content"
                     android:layout_marginTop="5dp"
                     android:hint="@string/pass"
-                    android:paddingLeft="25dp"
-                    android:paddingRight="25dp"
+                    android:paddingLeft="15dp"
+                    android:paddingRight="15dp"
                     app:boxStrokeColor="@color/color_default_blue"
                     app:hintTextColor="@color/color_default_black"
                     app:passwordToggleEnabled="true"
@@ -196,7 +193,7 @@
                         android:inputType="textPassword"
                         android:padding="5dp"
                         android:textColor="@color/color_default_black"
-                        android:textSize="15dp" />
+                        android:textSize="15sp" />
 
                 </com.google.android.material.textfield.TextInputLayout>
 
@@ -206,8 +203,8 @@
                     android:layout_height="wrap_content"
                     android:layout_marginTop="5dp"
                     android:hint="@string/confirm_pass"
-                    android:paddingLeft="25dp"
-                    android:paddingRight="25dp"
+                    android:paddingLeft="15dp"
+                    android:paddingRight="15dp"
                     app:boxStrokeColor="@color/color_default_blue"
                     app:hintTextColor="@color/color_default_black"
                     app:passwordToggleEnabled="true"
@@ -220,7 +217,7 @@
                         android:inputType="textPassword"
                         android:padding="5dp"
                         android:textColor="@color/color_default_black"
-                        android:textSize="15dp" />
+                        android:textSize="15sp" />
 
                 </com.google.android.material.textfield.TextInputLayout>
 
@@ -236,12 +233,16 @@
 
                 <Button
                     android:id="@+id/mSubmit"
-                    android:layout_width="250dp"
-                    android:layout_height="wrap_content"
+                    android:layout_width="match_parent"
+                    android:layout_height="45dp"
+                    android:layout_marginStart="35dp"
                     android:layout_marginTop="20dp"
+                    android:layout_marginEnd="35dp"
                     android:text="@string/signup"
+                    android:textSize="12sp"
                     android:textColor="@color/white"
                     app:backgroundTint="@color/color_default_blue" />
+
             </LinearLayout>
 
         </LinearLayout>

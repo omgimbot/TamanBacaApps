@@ -132,18 +132,6 @@
                         android:orientation="horizontal"
                         android:paddingRight="10dp">
 
-                        <Button
-                            android:id="@+id/mDownloadFile"
-                            android:layout_width="120dp"
-                            android:layout_height="20dp"
-                            android:layout_alignParentStart="true"
-                            android:background="@color/color_default_blue"
-                            android:gravity="center"
-                            android:text="Download File"
-                            android:textAllCaps="false"
-                            android:textColor="@color/white"
-                            android:textSize="12sp" />
-
                         <LinearLayout
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
