@@ -53,10 +53,10 @@ public class LoginActivity extends AppCompatActivity implements ILoginView {
                     App.getPref().getString(Prefs.PREF_STORE_PROFILE, ""),
                     new LoginResponse()
             );
-            if (Integer.parseInt(mProfile.getResult().getRole()) == 2) {
+            if (mProfile.getResult().getRole().equals("TamanBaca")) {
+                this.gotoDashboardAdmin();
+            } else if (mProfile.getResult().getRole().equals("Donatur")) {
                 this.gotoDashboard();
-            } else if (mProfile.getResult().getRole().equals("MAHASISWA")) {
-                this.goToDashboardMhs();
             }
         } else {
             this.initViews();
@@ -74,10 +74,10 @@ public class LoginActivity extends AppCompatActivity implements ILoginView {
     @Override
     public void onSigninSuccess(LoginResponse response) {
         presenter.storeProfile(new Gson().toJson(response));
-        if (Integer.parseInt(response.getResult().getRole()) == 2) {
+        if (response.getResult().getRole().equals("TamanBaca")) {
+            this.gotoDashboardAdmin();
+        } else if (response.getResult().getRole().equals("Donatur")) {
             this.gotoDashboard();
-        } else if (response.getResult().getRole().equals("MAHASISWA")) {
-            this.goToDashboardMhs();
         }
 
     }
@@ -107,20 +107,14 @@ public class LoginActivity extends AppCompatActivity implements ILoginView {
     void login() {
         String username = mUsername.getText().toString();
         String pass = mPassword.getText().toString();
-//        if (username.isEmpty()) {
-//            Toast.makeText(getApplicationContext(), "Nik tidak boleh kosong", Toast.LENGTH_LONG).show();
-//        } else if (pass.isEmpty()) {
-//            Toast.makeText(getApplicationContext(), "Password tidak boleh kosong", Toast.LENGTH_LONG).show();
-//        } else {
-//            presenter.login(username, pass);
-//        }
+        if (username.isEmpty()) {
+            Toast.makeText(getApplicationContext(), "Nik tidak boleh kosong", Toast.LENGTH_LONG).show();
+        } else if (pass.isEmpty()) {
+            Toast.makeText(getApplicationContext(), "Password tidak boleh kosong", Toast.LENGTH_LONG).show();
+        } else {
+            presenter.login(username, pass );
+        }
 
-        if(username.equals("admin") && pass.equals("admin"))
-            this.gotoDashboardAdmin();
-        else if(username.equals("user") && pass.equals("user"))
-            this.gotoDashboard();
-        else
-            TopSnakbar.showWarning(this, "username atau password anda salah");
     }
 
     public void goToRegist() {
@@ -138,8 +132,4 @@ public class LoginActivity extends AppCompatActivity implements ILoginView {
         finish();
     }
 
-    public void goToDashboardMhs() {
-//        startActivity(new Intent(this, DashboardMhsActivity.class));
-//        finish();
-    }
 }

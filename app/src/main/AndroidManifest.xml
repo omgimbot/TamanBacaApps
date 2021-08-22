@@ -18,7 +18,8 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
         android:usesCleartextTraffic="true">
-        <activity android:name=".features.input_buku.InputBukuActivity"></activity>
+        <activity android:name=".features.taman_baca.buku.listbuku.BukuActivity"></activity>
+        <activity android:name=".features.taman_baca.buku.tambahbuku.AddBukuActivity" />
         <activity android:name=".features.dashboard.DashboardAdminActivity" />
         <activity android:name=".features.donasi.riwayat_donasi.RiwayatDonasiActivity" />
         <activity android:name=".features.donasi.add_donasi.AddDonasiActivity" />

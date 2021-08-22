@@ -40,11 +40,13 @@
 
             <LinearLayout
                 android:id="@+id/nameHide"
+                android:orientation="vertical"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:visibility="visible">
 
                 <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/TextinputTamanBaca"
                     style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
@@ -224,6 +226,51 @@
             </LinearLayout>
 
             <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:orientation="horizontal"
+                android:visibility="visible">
+
+
+                <com.google.android.material.textfield.TextInputLayout
+                    style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="5dp"
+                    android:paddingLeft="15dp"
+                    android:paddingRight="15dp"
+                    app:boxStrokeColor="@color/color_default_blue"
+                    app:hintTextColor="@color/color_default_black">
+
+                    <RadioGroup
+                        android:id="@+id/radioGroup"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:orientation="horizontal">
+
+                        <RadioButton
+                            android:id="@+id/radioTamanBaca"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Taman Baca" />
+
+                        <RadioButton
+                            android:layout_marginLeft="20dp"
+                            android:id="@+id/radioDonatur"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Donatur" />
+
+
+                    </RadioGroup>
+
+                </com.google.android.material.textfield.TextInputLayout>
+
+            </LinearLayout>
+
+            <LinearLayout
                 android:id="@+id/buttonHide"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -239,8 +286,8 @@
                     android:layout_marginTop="20dp"
                     android:layout_marginEnd="35dp"
                     android:text="@string/signup"
-                    android:textSize="12sp"
                     android:textColor="@color/white"
+                    android:textSize="12sp"
                     app:backgroundTint="@color/color_default_blue" />
 
             </LinearLayout>

@@ -9,9 +9,12 @@ import omgimbot.app.sidangapps.Utils.CommonRespon;
 import omgimbot.app.sidangapps.features.auth.login.model.Listdosen;
 import omgimbot.app.sidangapps.features.auth.login.model.LoginResponse;
 import omgimbot.app.sidangapps.features.auth.login.model.Users;
+import omgimbot.app.sidangapps.features.taman_baca.buku.model.Buku;
+import omgimbot.app.sidangapps.features.taman_baca.buku.model.Respon;
 import omgimbot.app.sidangapps.features.taman_baca.model.Response;
 import retrofit2.Call;
 import retrofit2.http.Body;
+import retrofit2.http.DELETE;
 import retrofit2.http.FieldMap;
 import retrofit2.http.FormUrlEncoded;
 import retrofit2.http.GET;
@@ -30,6 +33,17 @@ public interface NetworkService {
     @POST("users/signup")
     Call<CommonRespon> signup(@Body Users registModel);
 
+    @POST("buku/create")
+    Call<Respon> createBuku(@Body Buku model);
+
+    @PUT("buku/update/{id}")
+    Call<Respon> updateBuku(@Path("id") String id,@Body Buku model);
+
+    @GET("buku")
+    Call<Respon> showBuku();
+
+    @DELETE("buku/delete/{id}")
+    Call<Respon> deleteBuku(@Path("id") String id);
 
     @FormUrlEncoded
     @POST("tolak")
