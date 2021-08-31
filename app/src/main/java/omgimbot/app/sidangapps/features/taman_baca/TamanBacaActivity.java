@@ -1,7 +1,6 @@
 package omgimbot.app.sidangapps.features.taman_baca;
 
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.appcompat.widget.Toolbar;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
@@ -17,16 +16,13 @@ import android.view.View;
 import com.google.gson.Gson;
 import com.ontbee.legacyforks.cn.pedant.SweetAlert.SweetAlertDialog;
 
-import java.util.ArrayList;
 import java.util.List;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
-import butterknife.OnClick;
 import omgimbot.app.sidangapps.App;
 import omgimbot.app.sidangapps.R;
-import omgimbot.app.sidangapps.features.dashboard.DashboardActivity;
-import omgimbot.app.sidangapps.features.donasi.add_donasi.AddDonasiActivity;
+import omgimbot.app.sidangapps.features.dashboard.DashboardTamanBacaActivity;
 import omgimbot.app.sidangapps.features.donasi.list_donasi.ListDonasiActivity;
 import omgimbot.app.sidangapps.features.taman_baca.model.TamanBaca;
 import omgimbot.app.sidangapps.ui.SweetDialogs;
@@ -113,7 +109,7 @@ public class TamanBacaActivity extends AppCompatActivity implements TamanBacaAda
 
     @Override
     public void goToDashboard() {
-        Intent a = new Intent(this, DashboardActivity.class);
+        Intent a = new Intent(this, DashboardTamanBacaActivity.class);
         startActivity(a);
         finish();
     }

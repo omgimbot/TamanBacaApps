@@ -112,6 +112,16 @@
                             android:textSize="12sp"
                             android:textColor="@color/white"/>
 
+                        <Button
+                            android:id="@+id/mDonasi"
+                            android:background="@drawable/button_blue"
+                            android:layout_width="wrap_content"
+                            android:layout_height="25dp"
+                            android:layout_toRightOf="@+id/layoutList"
+                            android:text="DONASI"
+                            android:textSize="12sp"
+                            android:textColor="@color/white"/>
+
                     </LinearLayout>
 
                 </LinearLayout>

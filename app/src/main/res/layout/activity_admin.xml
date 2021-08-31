@@ -6,7 +6,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:fitsSystemWindows="true"
-    tools:context=".features.dashboard.DashboardAdminActivity">
+    tools:context=".features.dashboard.DashboardDonaturActivity">
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -140,7 +140,7 @@
                                         android:layout_width="wrap_content"
                                         android:layout_height="wrap_content"
                                         android:layout_marginTop="3dp"
-                                        android:text="Tambah Buku"
+                                        android:text="Buku"
                                         android:textColor="#999C9E" />
 
                                 </LinearLayout>

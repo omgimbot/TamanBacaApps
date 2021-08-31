@@ -10,8 +10,7 @@ import android.view.MenuItem;
 import butterknife.BindView;
 import butterknife.ButterKnife;
 import omgimbot.app.sidangapps.R;
-import omgimbot.app.sidangapps.features.dashboard.DashboardActivity;
-import omgimbot.app.sidangapps.features.taman_baca.TamanBacaActivity;
+import omgimbot.app.sidangapps.features.dashboard.DashboardTamanBacaActivity;
 
 public class RiwayatDonasiActivity extends AppCompatActivity {
     @BindView(R.id.toolbar_default_in)
@@ -42,7 +41,7 @@ public class RiwayatDonasiActivity extends AppCompatActivity {
     }
 
     public void goToDashboard() {
-        Intent a = new Intent(this, DashboardActivity.class);
+        Intent a = new Intent(this, DashboardTamanBacaActivity.class);
         startActivity(a);
         finish();
     }

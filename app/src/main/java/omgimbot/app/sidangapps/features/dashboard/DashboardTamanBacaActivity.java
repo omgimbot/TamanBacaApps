@@ -34,12 +34,13 @@ import omgimbot.app.sidangapps.features.auth.login.LoginActivity;
 import omgimbot.app.sidangapps.features.donasi.list_donasi.ListDonasiActivity;
 import omgimbot.app.sidangapps.features.donasi.riwayat_donasi.RiwayatDonasiActivity;
 import omgimbot.app.sidangapps.features.taman_baca.TamanBacaActivity;
+import omgimbot.app.sidangapps.features.taman_baca.buku.listbuku.BukuActivity;
 import omgimbot.app.sidangapps.ui.DrawerHeader;
 import omgimbot.app.sidangapps.ui.DrawerMenuItem;
 
 import static omgimbot.app.sidangapps.App.getContext;
 
-public class DashboardActivity extends AppCompatActivity {
+public class DashboardTamanBacaActivity extends AppCompatActivity {
     @BindView(R.id.drawerView)
     PlaceHolderView mDrawerView;
     @BindView(R.id.mainMenu)
@@ -167,9 +168,9 @@ public class DashboardActivity extends AppCompatActivity {
         });
     }
 
-    @OnClick(R.id.mTamanBaca)
+    @OnClick(R.id.mBuku)
     void goToTamanBaca() {
-        startActivity(new Intent(this , TamanBacaActivity.class));
+        startActivity(new Intent(this , BukuActivity.class));
         finish();
     }
 

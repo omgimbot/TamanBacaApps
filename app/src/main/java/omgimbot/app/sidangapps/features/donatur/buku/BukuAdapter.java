@@ -1,4 +1,4 @@
-package omgimbot.app.sidangapps.features.taman_baca.buku.listbuku;
+package omgimbot.app.sidangapps.features.donatur.buku;
 
 import android.annotation.SuppressLint;
 import android.app.Activity;
@@ -17,7 +17,6 @@ import java.util.List;
 
 import omgimbot.app.sidangapps.R;
 import omgimbot.app.sidangapps.features.taman_baca.buku.model.Buku;
-import omgimbot.app.sidangapps.features.taman_baca.model.TamanBaca;
 
 
 public class BukuAdapter extends RecyclerView.Adapter<BukuAdapter.ViewHolder> {
@@ -28,8 +27,7 @@ public class BukuAdapter extends RecyclerView.Adapter<BukuAdapter.ViewHolder> {
     private BukuAdapter.onSelected listener;
 
     public interface onSelected {
-        void edit(Buku data);
-        void delete(Buku data);
+        void onDonasi(Buku data);
     }
 
 
@@ -50,13 +48,13 @@ public class BukuAdapter extends RecyclerView.Adapter<BukuAdapter.ViewHolder> {
     @Override
     public void onBindViewHolder(final BukuAdapter.ViewHolder holder, final int position) {
         final Buku data = ruts.get(position);
+        holder.mDelete.setVisibility(View.GONE);
+        holder.mEdit.setVisibility(View.GONE);
         holder.mNama.setText(data.getJudul());
         holder.mDeskripsi.setText(data.getDeskripsi());
         holder.mKategori.setText(data.getDeskripsi());
 
-        holder.mDelete.setOnClickListener(View -> listener.delete(data));
-        holder.mEdit.setOnClickListener(View -> listener.edit(data));
-        holder.mDonasi.setVisibility(View.GONE);
+        holder.mDonasi.setOnClickListener(View -> listener.onDonasi(data));
 
     }
 
@@ -72,7 +70,7 @@ public class BukuAdapter extends RecyclerView.Adapter<BukuAdapter.ViewHolder> {
         RelativeLayout onClick;
         TextView mNama, mKategori,mDeskripsi;
         ImageView icon_image;
-        Button mDelete , mEdit ,mDonasi;
+        Button mDelete , mEdit , mDonasi ;
 
 
         ViewHolder(View view) {
@@ -83,8 +81,8 @@ public class BukuAdapter extends RecyclerView.Adapter<BukuAdapter.ViewHolder> {
             mDeskripsi = view.findViewById(R.id.mDeskripsi);
             icon_image = view.findViewById(R.id.icon_image);
             mDelete = view.findViewById(R.id.mDelete);
-            mDonasi = view.findViewById(R.id.mDonasi);
             mEdit = view.findViewById(R.id.mEdit);
+            mDonasi = view.findViewById(R.id.mDonasi);
 
         }
 

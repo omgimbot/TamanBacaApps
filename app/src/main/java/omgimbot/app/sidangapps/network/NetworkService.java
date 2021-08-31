@@ -9,6 +9,8 @@ import omgimbot.app.sidangapps.Utils.CommonRespon;
 import omgimbot.app.sidangapps.features.auth.login.model.Listdosen;
 import omgimbot.app.sidangapps.features.auth.login.model.LoginResponse;
 import omgimbot.app.sidangapps.features.auth.login.model.Users;
+import omgimbot.app.sidangapps.features.donatur.model.Donasi;
+import omgimbot.app.sidangapps.features.donatur.model.ResponDonatur;
 import omgimbot.app.sidangapps.features.taman_baca.buku.model.Buku;
 import omgimbot.app.sidangapps.features.taman_baca.buku.model.Respon;
 import omgimbot.app.sidangapps.features.taman_baca.model.Response;
@@ -32,6 +34,9 @@ public interface NetworkService {
 
     @POST("users/signup")
     Call<CommonRespon> signup(@Body Users registModel);
+
+    @POST("donasi/create")
+    Call<ResponDonatur> donasi(@Body Donasi model);
 
     @POST("buku/create")
     Call<Respon> createBuku(@Body Buku model);

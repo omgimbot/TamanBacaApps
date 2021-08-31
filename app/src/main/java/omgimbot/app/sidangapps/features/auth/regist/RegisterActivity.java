@@ -71,7 +71,7 @@ public class RegisterActivity extends AppCompatActivity implements IRegistView {
     }
 
     public void initViews() {
-        role = "kosong" ;
+        role = "kosong";
         mSubmit.setOnClickListener(view -> onRegist());
         sweetAlertDialog = new SweetAlertDialog(this, SweetAlertDialog.PROGRESS_TYPE);
         sweetAlertDialog.setTitleText("Loading ...");
@@ -132,8 +132,8 @@ public class RegisterActivity extends AppCompatActivity implements IRegistView {
                 model.setAlamat(mAlamat.getText().toString());
                 model.setRole(role);
                 presenter.signup(model);
-            }else{
-                TopSnakbar.showWarning(this,"password yang anda masukkan tidak sama");
+            } else {
+                TopSnakbar.showWarning(this, "password yang anda masukkan tidak sama");
             }
         }
     }

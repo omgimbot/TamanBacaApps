@@ -6,6 +6,9 @@ public class Users {
     @SerializedName("namaLengkap")
     private String nama;
 
+    @SerializedName("_id")
+    private String _id;
+
     @SerializedName("email")
     private String email;
 
@@ -20,6 +23,14 @@ public class Users {
 
     @SerializedName("noTelpon")
     private String noTelpon;
+
+    public String get_id() {
+        return _id;
+    }
+
+    public void set_id(String _id) {
+        this._id = _id;
+    }
 
     public String getNama() {
         return nama;

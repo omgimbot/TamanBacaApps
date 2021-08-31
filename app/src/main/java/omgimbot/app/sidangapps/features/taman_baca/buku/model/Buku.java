@@ -9,6 +9,9 @@ public class Buku implements Serializable {
     @SerializedName("_id")
     private String id;
 
+    @SerializedName("idUser")
+    private String idUser;
+
     @SerializedName("nama")
     private String nama;
 
@@ -23,6 +26,14 @@ public class Buku implements Serializable {
 
     @SerializedName("jumlah")
     private int jumlah;
+
+    public String getIdUser() {
+        return idUser;
+    }
+
+    public void setIdUser(String idUser) {
+        this.idUser = idUser;
+    }
 
     public String getId() {
         return id;

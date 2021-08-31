@@ -24,12 +24,12 @@ import butterknife.OnClick;
 import omgimbot.app.sidangapps.R;
 import omgimbot.app.sidangapps.Utils.AdapterSliderBanner;
 import omgimbot.app.sidangapps.features.auth.login.LoginActivity;
-import omgimbot.app.sidangapps.features.taman_baca.buku.listbuku.BukuActivity;
+import omgimbot.app.sidangapps.features.donatur.buku.BukuActivity;
 import omgimbot.app.sidangapps.features.taman_baca.buku.tambahbuku.AddBukuActivity;
 import omgimbot.app.sidangapps.ui.DrawerHeader;
 import omgimbot.app.sidangapps.ui.DrawerMenuItem;
 
-public class DashboardAdminActivity extends AppCompatActivity {
+public class DashboardDonaturActivity extends AppCompatActivity {
     @BindView(R.id.drawerView)
     PlaceHolderView mDrawerView;
     @BindView(R.id.mainMenu)

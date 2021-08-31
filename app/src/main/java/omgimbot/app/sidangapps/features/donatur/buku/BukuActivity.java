@@ -1,4 +1,4 @@
-package omgimbot.app.sidangapps.features.taman_baca.buku.listbuku;
+package omgimbot.app.sidangapps.features.donatur.buku;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
@@ -14,6 +14,7 @@ import android.util.Log;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
+import android.widget.Toast;
 
 import com.google.gson.Gson;
 import com.ontbee.legacyforks.cn.pedant.SweetAlert.SweetAlertDialog;
@@ -26,12 +27,11 @@ import butterknife.ButterKnife;
 import omgimbot.app.sidangapps.App;
 import omgimbot.app.sidangapps.R;
 import omgimbot.app.sidangapps.features.dashboard.DashboardDonaturActivity;
-import omgimbot.app.sidangapps.features.dashboard.DashboardTamanBacaActivity;
+import omgimbot.app.sidangapps.features.donatur.add_donasi.AddDonasiActivity;
 import omgimbot.app.sidangapps.features.taman_baca.buku.model.Buku;
-import omgimbot.app.sidangapps.features.taman_baca.buku.tambahbuku.AddBukuActivity;
 import omgimbot.app.sidangapps.ui.SweetDialogs;
 
-public class BukuActivity extends AppCompatActivity implements IBukuView , BukuAdapter.onSelected {
+public class BukuActivity extends AppCompatActivity implements IBukuView , omgimbot.app.sidangapps.features.donatur.buku.BukuAdapter.onSelected {
     @BindView(R.id.recycler_view)
     RecyclerView mRecyclerView;
     @BindView(R.id.mTambah)
@@ -44,9 +44,9 @@ public class BukuActivity extends AppCompatActivity implements IBukuView , BukuA
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_buku_tamanbaca);
+        setContentView(R.layout.activity_buku_donatur);
         ButterKnife.bind(this);
-        presenter= new BukuPresenter(this);
+        presenter= new omgimbot.app.sidangapps.features.donatur.buku.BukuPresenter(this);
         setSupportActionBar(mToolbar);
         getSupportActionBar().setTitle("Buku");
         mToolbar.setTitleTextColor(getResources().getColor(R.color.color_default_blue));
@@ -65,7 +65,7 @@ public class BukuActivity extends AppCompatActivity implements IBukuView , BukuA
         mRecyclerView.setHasFixedSize(true);
         mRecyclerView.setLayoutManager(linearLayoutManager);
         mRecyclerView.clearFocus();
-        mTambah.setOnClickListener(view ->this.goToAddBuku());
+//        mTambah.setOnClickListener(view ->this.goToAddBuku());
     }
 
     @Override
@@ -89,7 +89,7 @@ public class BukuActivity extends AppCompatActivity implements IBukuView , BukuA
     @Override
     public void onDataReady(List<Buku> result) {
         Log.d("data" , new Gson().toJson(result));
-        adapter = new BukuAdapter(result, this,this);
+        adapter = new omgimbot.app.sidangapps.features.donatur.buku.BukuAdapter(result, this,this);
         mRecyclerView.setAdapter(adapter);
         adapter.notifyDataSetChanged();
     }
@@ -114,21 +114,14 @@ public class BukuActivity extends AppCompatActivity implements IBukuView , BukuA
 
     @Override
     public void goToDashboard() {
-        Intent a = new Intent(this, DashboardTamanBacaActivity.class);
-        startActivity(a);
-        finish();
-    }
-
-    @Override
-    public void goToAddBuku() {
-        Intent a = new Intent(this, AddBukuActivity.class);
+        Intent a = new Intent(this, DashboardDonaturActivity.class);
         startActivity(a);
         finish();
     }
 
     @Override
     public void refresh() {
-        Intent a = new Intent(this, BukuActivity.class);
+        Intent a = new Intent(this, omgimbot.app.sidangapps.features.taman_baca.buku.listbuku.BukuActivity.class);
         startActivity(a);
         finish();
     }
@@ -142,16 +135,9 @@ public class BukuActivity extends AppCompatActivity implements IBukuView , BukuA
     }
 
 
-//    @OnClick(R.id.mDonasi)
-//    public void gootDonasi(){
-//        Intent i = new Intent(this, AddDonasiActivity.class);
-//        startActivity(i);
-//        finish();
-//    }
-
     @Override
-    public void edit(Buku data) {
-        Intent i = new Intent(this, AddBukuActivity.class);
+    public void onDonasi(Buku data) {
+        Intent i = new Intent(this, AddDonasiActivity.class);
         i.putExtra("className", "edit");
         i.putExtra("data", (Serializable) data);
         startActivity(i);
@@ -159,12 +145,7 @@ public class BukuActivity extends AppCompatActivity implements IBukuView , BukuA
     }
 
     @Override
-    public void delete(Buku data) {
-        presenter.deleteBuku(data.getId());
-    }
-
-    @Override
-    public void onDeleteSuccess() {
+    public void onDonasiSuccess() {
         SweetDialogs.commonSuccessWithIntent(this , "Berhasil Memuat Permintaan" , view->this.refresh());
     }
 }

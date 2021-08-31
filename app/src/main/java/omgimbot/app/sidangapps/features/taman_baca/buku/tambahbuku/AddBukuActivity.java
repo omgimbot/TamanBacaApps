@@ -2,19 +2,15 @@ package omgimbot.app.sidangapps.features.taman_baca.buku.tambahbuku;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
-import androidx.recyclerview.widget.LinearLayoutManager;
 
 import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.MenuItem;
 import android.widget.EditText;
-import android.widget.Toast;
 
 import com.google.gson.Gson;
 import com.ontbee.legacyforks.cn.pedant.SweetAlert.SweetAlertDialog;
-
-import java.util.List;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -24,7 +20,6 @@ import omgimbot.app.sidangapps.Prefs;
 import omgimbot.app.sidangapps.R;
 import omgimbot.app.sidangapps.Utils.GsonHelper;
 import omgimbot.app.sidangapps.features.auth.login.model.LoginResponse;
-import omgimbot.app.sidangapps.features.dashboard.DashboardAdminActivity;
 import omgimbot.app.sidangapps.features.taman_baca.buku.listbuku.BukuActivity;
 import omgimbot.app.sidangapps.features.taman_baca.buku.model.Buku;
 import omgimbot.app.sidangapps.ui.SweetDialogs;
@@ -46,7 +41,7 @@ public class AddBukuActivity extends AppCompatActivity implements IAddBukuView {
     EditText mJumlah;
     AddBukuPresenter presenter;
     LoginResponse mProfile;
-    String nama , id;
+    String nama , id , idUser;
     SweetAlertDialog sweetAlertDialog;
     Bundle bundle;
     String className = "default" ;
@@ -69,6 +64,8 @@ public class AddBukuActivity extends AppCompatActivity implements IAddBukuView {
         );
         nama = (mProfile.getResult().getNama().contains(" "))
                 ? mProfile.getResult().getNama() : mProfile.getResult().getNama();
+        idUser = (mProfile.getResult().get_id().contains(" "))
+                ? mProfile.getResult().get_id() : mProfile.getResult().get_id();
         Intent intent = this.getIntent();
         bundle = intent.getExtras();
         if (bundle != null) {
@@ -112,6 +109,7 @@ public class AddBukuActivity extends AppCompatActivity implements IAddBukuView {
                         Buku model = new Buku();
                         model.setNama(nama);
                         model.setJudul(judul);
+                        model.setIdUser(idUser);
                         model.setDeskripsi(deskripsi);
                         model.setKategori(kategori);
                         model.setJumlah(Integer.parseInt(jumlah));
