@@ -38,6 +38,12 @@ public interface NetworkService {
     @POST("donasi/create")
     Call<ResponDonatur> donasi(@Body Donasi model);
 
+    @GET("donasi/listDonasiDonatur/{id}")
+    Call<ResponDonatur> listDonasiDonatur(@Path("id") String id);
+
+    @GET("donasi/listDonasiTamanBaca/{id}")
+    Call<ResponDonatur> listDonasiTamanBaca(@Path("id") String id);
+
     @POST("buku/create")
     Call<Respon> createBuku(@Body Buku model);
 

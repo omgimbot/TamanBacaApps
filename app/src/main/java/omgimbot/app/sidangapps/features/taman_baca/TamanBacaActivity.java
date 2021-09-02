@@ -23,7 +23,6 @@ import butterknife.ButterKnife;
 import omgimbot.app.sidangapps.App;
 import omgimbot.app.sidangapps.R;
 import omgimbot.app.sidangapps.features.dashboard.DashboardTamanBacaActivity;
-import omgimbot.app.sidangapps.features.donasi.list_donasi.ListDonasiActivity;
 import omgimbot.app.sidangapps.features.taman_baca.model.TamanBaca;
 import omgimbot.app.sidangapps.ui.SweetDialogs;
 
@@ -125,9 +124,9 @@ public class TamanBacaActivity extends AppCompatActivity implements TamanBacaAda
     @Override
     public void onClick(TamanBaca data) {
         Log.d("datanya : ", new Gson().toJson(data));
-        Intent i = new Intent(this, ListDonasiActivity.class);
-        startActivity(i);
-        finish();
+//        Intent i = new Intent(this, ListDonasiActivity.class);
+//        startActivity(i);
+//        finish();
     }
 
 

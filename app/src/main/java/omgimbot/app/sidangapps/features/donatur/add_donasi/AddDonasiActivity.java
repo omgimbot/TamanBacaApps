@@ -123,10 +123,14 @@ public class AddDonasiActivity extends AppCompatActivity implements IDonasiView 
                 String jenisPengiriman = pengiriman;
                 int jumlah = Integer.parseInt(mJumlah.getText().toString());
                 Donasi model = new Donasi();
-                model.setIdBuku(idBuku);
+                model.setJudul(data.getJudul());
+                model.setKategori(data.getKategori());
+                model.setTamanBaca(data.getNama());
                 model.setPengiriman(jenisPengiriman);
                 model.setJumlah(jumlah);
                 model.setIdUser(idUser);
+                model.setIdTamanBaca(data.getIdUser());
+
                 Log.d("submitnya" , new Gson().toJson(model));
                 presenter.CreateDonasi(model);
             } else

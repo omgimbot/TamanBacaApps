@@ -31,8 +31,7 @@ import omgimbot.app.sidangapps.R;
 import omgimbot.app.sidangapps.Utils.AdapterSliderBanner;
 import omgimbot.app.sidangapps.Utils.ModelSliderBanner;
 import omgimbot.app.sidangapps.features.auth.login.LoginActivity;
-import omgimbot.app.sidangapps.features.donasi.list_donasi.ListDonasiActivity;
-import omgimbot.app.sidangapps.features.donasi.riwayat_donasi.RiwayatDonasiActivity;
+import omgimbot.app.sidangapps.features.donasi.RiwayatDonasiActivity;
 import omgimbot.app.sidangapps.features.taman_baca.TamanBacaActivity;
 import omgimbot.app.sidangapps.features.taman_baca.buku.listbuku.BukuActivity;
 import omgimbot.app.sidangapps.ui.DrawerHeader;
@@ -182,8 +181,10 @@ public class DashboardTamanBacaActivity extends AppCompatActivity {
 
 
     @OnClick(R.id.mRiwayat)
-    void goToSempro() {
-        startActivity(new Intent(this , RiwayatDonasiActivity.class));
+    void gotoRiwayat() {
+        Intent a = new Intent(this, RiwayatDonasiActivity.class);
+        a.putExtra("className" , this.getClass().getSimpleName());
+        startActivity(a);
         finish();
     }
 

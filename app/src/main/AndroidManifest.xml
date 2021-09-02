@@ -18,14 +18,13 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
         android:usesCleartextTraffic="true">
-        <activity android:name=".features.donatur.buku.BukuActivity"></activity>
+        <activity android:name=".features.donasi.RiwayatDonasiActivity"/>
+        <activity android:name=".features.donatur.buku.BukuActivity" />
         <activity android:name=".features.taman_baca.buku.listbuku.BukuActivity" />
         <activity android:name=".features.taman_baca.buku.tambahbuku.AddBukuActivity" />
         <activity android:name=".features.dashboard.DashboardDonaturActivity" />
-        <activity android:name=".features.donasi.riwayat_donasi.RiwayatDonasiActivity" />
         <activity android:name=".features.donatur.add_donasi.AddDonasiActivity" />
         <activity android:name=".features.taman_baca.add_taman_baca.AddTamanBacaActivity" />
-        <activity android:name=".features.donasi.list_donasi.ListDonasiActivity" />
         <activity android:name=".features.taman_baca.TamanBacaActivity" />
         <activity android:name=".features.dashboard.DashboardTamanBacaActivity" />
         <activity android:name=".features.auth.regist.RegisterActivity" />

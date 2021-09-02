@@ -24,8 +24,8 @@ import butterknife.OnClick;
 import omgimbot.app.sidangapps.R;
 import omgimbot.app.sidangapps.Utils.AdapterSliderBanner;
 import omgimbot.app.sidangapps.features.auth.login.LoginActivity;
+import omgimbot.app.sidangapps.features.donasi.RiwayatDonasiActivity;
 import omgimbot.app.sidangapps.features.donatur.buku.BukuActivity;
-import omgimbot.app.sidangapps.features.taman_baca.buku.tambahbuku.AddBukuActivity;
 import omgimbot.app.sidangapps.ui.DrawerHeader;
 import omgimbot.app.sidangapps.ui.DrawerMenuItem;
 
@@ -46,7 +46,7 @@ public class DashboardDonaturActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_admin);
+        setContentView(R.layout.activity_dashboard_donatur);
         ButterKnife.bind(this);
         this.initViews();
     }
@@ -83,6 +83,14 @@ public class DashboardDonaturActivity extends AppCompatActivity {
     @OnClick(R.id.mBuku)
     public void gotoInputBuku() {
         Intent a = new Intent(this, BukuActivity.class);
+        startActivity(a);
+        finish();
+    }
+
+    @OnClick(R.id.mRiwayat)
+    public void gotoRiwayat() {
+        Intent a = new Intent(this, RiwayatDonasiActivity.class);
+        a.putExtra("className" , this.getClass().getSimpleName());
         startActivity(a);
         finish();
     }

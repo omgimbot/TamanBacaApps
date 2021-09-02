@@ -1,10 +1,12 @@
 package omgimbot.app.sidangapps.features.donatur.buku;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.SearchView;
 import androidx.appcompat.widget.Toolbar;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import android.annotation.SuppressLint;
 import android.app.Activity;
 import android.content.Intent;
 import android.graphics.Color;
@@ -20,7 +22,9 @@ import com.google.gson.Gson;
 import com.ontbee.legacyforks.cn.pedant.SweetAlert.SweetAlertDialog;
 
 import java.io.Serializable;
+import java.util.ArrayList;
 import java.util.List;
+import java.util.Scanner;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -31,33 +35,65 @@ import omgimbot.app.sidangapps.features.donatur.add_donasi.AddDonasiActivity;
 import omgimbot.app.sidangapps.features.taman_baca.buku.model.Buku;
 import omgimbot.app.sidangapps.ui.SweetDialogs;
 
-public class BukuActivity extends AppCompatActivity implements IBukuView , omgimbot.app.sidangapps.features.donatur.buku.BukuAdapter.onSelected {
+public class BukuActivity extends AppCompatActivity implements IBukuView, omgimbot.app.sidangapps.features.donatur.buku.BukuAdapter.onSelected {
     @BindView(R.id.recycler_view)
     RecyclerView mRecyclerView;
     @BindView(R.id.mTambah)
     Button mTambah;
-    @BindView(R.id.toolbar_default_in)
-    Toolbar mToolbar;
+
+    @BindView(R.id.mSearch)
+    SearchView mSearch;
     SweetAlertDialog sweetAlertDialog;
-    BukuAdapter adapter ;
-    BukuPresenter presenter ;
+    BukuAdapter adapter;
+    BukuPresenter presenter;
+    List<Buku> product = null;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_buku_donatur);
         ButterKnife.bind(this);
-        presenter= new omgimbot.app.sidangapps.features.donatur.buku.BukuPresenter(this);
-        setSupportActionBar(mToolbar);
-        getSupportActionBar().setTitle("Buku");
-        mToolbar.setTitleTextColor(getResources().getColor(R.color.color_default_blue));
-        getSupportActionBar().setHomeAsUpIndicator(getResources().getDrawable(R.drawable.ic_back_left));
-        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+        presenter = new omgimbot.app.sidangapps.features.donatur.buku.BukuPresenter(this);
         this.initView();
         presenter.showBuku();
     }
 
     @Override
     public void initView() {
+        mSearch.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
+            @SuppressLint("SetTextI18n")
+            @Override
+            public boolean onQueryTextSubmit(String query) {
+                ArrayList<Buku> dataFilter = new ArrayList<>();
+                for (Buku data : product) {
+                    String nama = data.getJudul().toLowerCase();
+                    int position = bruteforce(nama, query);
+                    int endindex = position + 1;
+                    if (position > -1) {
+                        dataFilter.add(data);
+                    }
+                }
+                adapter.setFilter(dataFilter);
+                if(dataFilter.isEmpty())
+                    Toast.makeText(BukuActivity.this, "Data tidak ditemukan", Toast.LENGTH_SHORT).show();
+                return false;
+            }
+
+            @Override
+            public boolean onQueryTextChange(String nextText) {
+                //Data akan berubah saat user menginputkan text/kata kunci pada SearchView
+//                nextText = nextText.toLowerCase();
+                if (nextText.length() < 1) {
+                    ArrayList<Buku> dataFilter = new ArrayList<>();
+                    for (Buku data : product) {
+                        dataFilter.add(data);
+
+                    }
+                    adapter.setFilter(dataFilter);
+                }
+                return true;
+            }
+        });
         sweetAlertDialog = new SweetAlertDialog(this, SweetAlertDialog.PROGRESS_TYPE);
         sweetAlertDialog.setTitleText(App.getApplication().getString(R.string.loading));
         sweetAlertDialog.setCancelable(false);
@@ -66,6 +102,24 @@ public class BukuActivity extends AppCompatActivity implements IBukuView , omgim
         mRecyclerView.setLayoutManager(linearLayoutManager);
         mRecyclerView.clearFocus();
 //        mTambah.setOnClickListener(view ->this.goToAddBuku());
+    }
+
+    public static int bruteforce(String text, String tobematched) {
+        int length = text.length() + 1;//length of the text
+        int plength = tobematched.length();//length of the pattern;
+        //loop condition
+        for (int i = 0; i < length - plength; i++) {
+            //initialization of j
+            int j = 0;
+            while ((j < plength) && (text.charAt(i + j) == tobematched.charAt(j))) {
+                j++;
+            }
+            if (j == plength) {
+                return i;
+            }
+        }
+
+        return -1;
     }
 
     @Override
@@ -88,8 +142,9 @@ public class BukuActivity extends AppCompatActivity implements IBukuView , omgim
 
     @Override
     public void onDataReady(List<Buku> result) {
-        Log.d("data" , new Gson().toJson(result));
-        adapter = new omgimbot.app.sidangapps.features.donatur.buku.BukuAdapter(result, this,this);
+        Log.d("data", new Gson().toJson(result));
+        product = result;
+        adapter = new omgimbot.app.sidangapps.features.donatur.buku.BukuAdapter(product, this, this);
         mRecyclerView.setAdapter(adapter);
         adapter.notifyDataSetChanged();
     }
@@ -146,6 +201,6 @@ public class BukuActivity extends AppCompatActivity implements IBukuView , omgim
 
     @Override
     public void onDonasiSuccess() {
-        SweetDialogs.commonSuccessWithIntent(this , "Berhasil Memuat Permintaan" , view->this.refresh());
+        SweetDialogs.commonSuccessWithIntent(this, "Berhasil Memuat Permintaan", view -> this.refresh());
     }
 }

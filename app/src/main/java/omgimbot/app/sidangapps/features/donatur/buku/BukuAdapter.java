@@ -13,6 +13,7 @@ import android.widget.TextView;
 import androidx.appcompat.app.AlertDialog;
 import androidx.recyclerview.widget.RecyclerView;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import omgimbot.app.sidangapps.R;
@@ -56,6 +57,11 @@ public class BukuAdapter extends RecyclerView.Adapter<BukuAdapter.ViewHolder> {
 
         holder.mDonasi.setOnClickListener(View -> listener.onDonasi(data));
 
+    }
+    public void setFilter(ArrayList<Buku> filterList) {
+        ruts = new ArrayList<>();
+        ruts.addAll(filterList);
+        notifyDataSetChanged();
     }
 
     @Override
