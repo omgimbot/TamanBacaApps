@@ -10,6 +10,7 @@ import android.view.MenuItem;
 import android.widget.EditText;
 
 import com.google.gson.Gson;
+import com.muddzdev.styleabletoastlibrary.StyleableToast;
 import com.ontbee.legacyforks.cn.pedant.SweetAlert.SweetAlertDialog;
 
 import butterknife.BindView;
@@ -54,20 +55,24 @@ public class AddBukuActivity extends AppCompatActivity implements IAddBukuView {
         ButterKnife.bind(this);
         presenter = new AddBukuPresenter(this);
         setSupportActionBar(mToolbar);
-        getSupportActionBar().setTitle("Input Buku");
-        mToolbar.setTitleTextColor(getResources().getColor(R.color.color_default_blue));
+        getSupportActionBar().setTitle("Tambah Kebutuhan Buku");
+        mToolbar.setTitleTextColor(getResources().getColor(R.color.white));
         getSupportActionBar().setHomeAsUpIndicator(getResources().getDrawable(R.drawable.ic_back_left));
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+
         mProfile = (LoginResponse) GsonHelper.parseGson(
                 App.getPref().getString(Prefs.PREF_STORE_PROFILE, ""),
                 new LoginResponse()
         );
+
         nama = (mProfile.getResult().getNama().contains(" "))
                 ? mProfile.getResult().getNama() : mProfile.getResult().getNama();
         idUser = (mProfile.getResult().get_id().contains(" "))
                 ? mProfile.getResult().get_id() : mProfile.getResult().get_id();
+
         Intent intent = this.getIntent();
         bundle = intent.getExtras();
+
         if (bundle != null) {
             className = getIntent().getExtras().getString("className");
             if (className.equals("edit")) {
@@ -88,7 +93,6 @@ public class AddBukuActivity extends AppCompatActivity implements IAddBukuView {
         sweetAlertDialog = new SweetAlertDialog(this, SweetAlertDialog.PROGRESS_TYPE);
         sweetAlertDialog.setTitleText(App.getApplication().getString(R.string.loading));
         sweetAlertDialog.setCancelable(false);
-
     }
 
     @OnClick(R.id.mSubmit)
@@ -131,14 +135,13 @@ public class AddBukuActivity extends AppCompatActivity implements IAddBukuView {
 
     @Override
     public void onSuccess() {
-        SweetDialogs.commonSuccess(this, "Berhasil Memuat Permintaan", true);
+        SweetDialogs.commonSuccessWithIntent(this, "Berhasil Memuat Permintaan", View->startActivity(new Intent(this, BukuActivity.class)));
     }
 
     @Override
     public void onFailed(String rm) {
         SweetDialogs.commonWarning(this, "Gagal Memuat Permintaan", rm, false);
     }
-
 
     @Override
     public void onNetworkError(String cause) {

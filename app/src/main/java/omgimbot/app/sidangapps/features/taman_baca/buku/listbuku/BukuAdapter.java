@@ -52,7 +52,7 @@ public class BukuAdapter extends RecyclerView.Adapter<BukuAdapter.ViewHolder> {
         final Buku data = ruts.get(position);
         holder.mNama.setText(data.getJudul());
         holder.mDeskripsi.setText(data.getDeskripsi());
-        holder.mKategori.setText(data.getDeskripsi());
+        holder.mKategori.setText(data.getKategori());
 
         holder.mDelete.setOnClickListener(View -> listener.delete(data));
         holder.mEdit.setOnClickListener(View -> listener.edit(data));

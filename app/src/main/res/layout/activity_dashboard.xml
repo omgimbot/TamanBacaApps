@@ -24,7 +24,7 @@
 
             <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="match_parent"
+                android:layout_height="0dp"
                 android:layout_weight="2">
 
                 <androidx.core.widget.NestedScrollView
@@ -57,23 +57,24 @@
                             android:id="@+id/bannerDot"
                             android:layout_width="match_parent"
                             android:layout_height="20dp"
-                            android:gravity="right|center"
+                            android:gravity="end|center"
                             android:orientation="horizontal"
-                            android:paddingRight="20dp">
+                            android:paddingEnd="20dp">
 
                         </LinearLayout>
 
                         <LinearLayout
                             android:layout_width="match_parent"
                             android:layout_height="50dp"
-                            android:gravity="center|left"
+                            android:background="@color/white_smoke"
+                            android:gravity="center|start"
                             android:orientation="horizontal"
                             android:padding="5dp">
 
                             <LinearLayout
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
-                                android:layout_marginLeft="10dp">
+                                android:layout_marginStart="10dp">
 
                                 <ImageView
                                     android:layout_width="wrap_content"
@@ -85,7 +86,7 @@
                             <LinearLayout
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
-                                android:layout_marginLeft="10dp">
+                                android:layout_marginStart="10dp">
 
                                 <TextView
                                     android:layout_width="wrap_content"
@@ -101,119 +102,283 @@
 
                         <LinearLayout
                             android:layout_width="match_parent"
-                            android:layout_height="130dp">
+                            android:layout_height="match_parent"
+                            android:orientation="vertical"
+                            android:padding="10dp">
 
                             <LinearLayout
                                 android:layout_width="match_parent"
                                 android:layout_height="match_parent"
-                                android:gravity="center"
-                                android:orientation="horizontal"
-                                android:weightSum="3">
+                                android:orientation="vertical">
 
-                                <LinearLayout
+                                <androidx.cardview.widget.CardView
+                                    android:id="@+id/mBuku"
                                     android:layout_width="match_parent"
-                                    android:layout_height="match_parent"
-                                    android:layout_marginLeft="10dp"
-                                    android:layout_weight="1"
-                                    android:gravity="center"
-                                    android:orientation="vertical"
-                                    android:padding="8dp">
+                                    android:layout_height="75dp"
+                                    app:cardBackgroundColor="@color/blue_violet"
+                                    app:cardCornerRadius="5dp"
+                                    app:cardElevation="2dp"
+                                    app:cardUseCompatPadding="true"
+                                    app:contentPadding="12dp">
 
-                                    <androidx.cardview.widget.CardView
-                                        android:id="@+id/mBuku"
-                                        android:layout_width="95dp"
-                                        android:layout_height="75dp"
-                                        app:cardBackgroundColor="@color/white"
-                                        app:cardCornerRadius="5dp"
-                                        app:cardElevation="2dp"
-                                        app:cardUseCompatPadding="true"
-                                        app:contentPadding="12dp">
+                                    <LinearLayout
+                                        android:layout_width="match_parent"
+                                        android:layout_height="match_parent"
+                                        android:gravity="center_vertical"
+                                        android:orientation="horizontal"
+                                        android:weightSum="3">
 
                                         <ImageView
-                                            android:layout_width="match_parent"
+                                            android:layout_width="40dp"
                                             android:layout_height="match_parent"
                                             app:srcCompat="@drawable/ic_bookmark" />
 
-                                    </androidx.cardview.widget.CardView>
+                                        <View
+                                            android:layout_width="1dp"
+                                            android:layout_height="match_parent"
+                                            android:layout_marginStart="15dp"
+                                            android:layout_marginEnd="15dp"
+                                            android:background="@color/yellow" />
 
-                                    <TextView
-                                        android:layout_width="wrap_content"
-                                        android:layout_height="wrap_content"
-                                        android:layout_marginTop="3dp"
-                                        android:text="Buku"
-                                        android:textColor="#999C9E" />
+                                        <LinearLayout
+                                            android:layout_width="0dp"
+                                            android:layout_height="match_parent"
+                                            android:layout_weight="3"
+                                            android:orientation="vertical">
 
-                                </LinearLayout>
+                                            <TextView
+                                                android:layout_width="wrap_content"
+                                                android:layout_height="wrap_content"
+                                                android:text="Daftar Kebutuhan"
+                                                android:textColor="@color/white"
+                                                android:textStyle="bold" />
 
-                                <LinearLayout
-                                    android:layout_width="match_parent"
-                                    android:layout_height="match_parent"
-                                    android:layout_marginLeft="10dp"
-                                    android:layout_weight="1"
-                                    android:gravity="center"
-                                    android:orientation="vertical"
-                                    android:padding="8dp">
+                                            <TextView
+                                                android:layout_width="wrap_content"
+                                                android:layout_height="wrap_content"
+                                                android:layout_marginTop="3dp"
+                                                android:text="Buku yang dibutuhkan taman baca"
+                                                android:textColor="@color/white"
+                                                android:textSize="11sp" />
 
-                                    <androidx.cardview.widget.CardView
-                                        android:id="@+id/mRiwayat"
-                                        android:layout_width="95dp"
-                                        android:layout_height="75dp"
-                                        app:cardBackgroundColor="@color/white"
-                                        app:cardCornerRadius="5dp"
-                                        app:cardElevation="2dp"
-                                        app:cardUseCompatPadding="true"
-                                        app:contentPadding="12dp">
+                                        </LinearLayout>
 
                                         <ImageView
-                                            android:layout_width="match_parent"
+                                            android:layout_width="25dp"
+                                            android:layout_height="match_parent"
+                                            android:tint="@color/white_smoke"
+                                            app:srcCompat="@drawable/right_arrow" />
+
+                                    </LinearLayout>
+
+                                </androidx.cardview.widget.CardView>
+
+                            </LinearLayout>
+
+                            <LinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent"
+                                android:orientation="vertical">
+
+                                <androidx.cardview.widget.CardView
+                                    android:id="@+id/mRiwayat"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="75dp"
+                                    app:cardBackgroundColor="@color/dark_orange"
+                                    app:cardCornerRadius="5dp"
+                                    app:cardElevation="2dp"
+                                    app:cardUseCompatPadding="true"
+                                    app:contentPadding="12dp">
+
+                                    <LinearLayout
+                                        android:layout_width="match_parent"
+                                        android:layout_height="match_parent"
+                                        android:gravity="center_vertical"
+                                        android:orientation="horizontal"
+                                        android:weightSum="3">
+
+                                        <ImageView
+                                            android:layout_width="40dp"
                                             android:layout_height="match_parent"
                                             app:srcCompat="@drawable/ic_reload" />
 
-                                    </androidx.cardview.widget.CardView>
+                                        <View
+                                            android:layout_width="1dp"
+                                            android:layout_height="match_parent"
+                                            android:layout_marginStart="15dp"
+                                            android:layout_marginEnd="15dp"
+                                            android:background="@color/yellow" />
 
-                                    <TextView
-                                        android:layout_width="wrap_content"
-                                        android:layout_height="wrap_content"
-                                        android:layout_marginTop="3dp"
-                                        android:text="Riwayat Donasi"
-                                        android:textColor="#999C9E" />
+                                        <LinearLayout
+                                            android:layout_width="0dp"
+                                            android:layout_height="match_parent"
+                                            android:layout_weight="3"
+                                            android:orientation="vertical">
 
-                                </LinearLayout>
+                                            <TextView
+                                                android:layout_width="wrap_content"
+                                                android:layout_height="wrap_content"
+                                                android:text="Riwayat Donasi"
+                                                android:textColor="@color/white"
+                                                android:textStyle="bold" />
 
-                                <LinearLayout
-                                    android:layout_width="match_parent"
-                                    android:layout_height="match_parent"
-                                    android:layout_marginLeft="10dp"
-                                    android:layout_weight="1"
-                                    android:gravity="center"
-                                    android:orientation="vertical"
-                                    android:padding="8dp">
+                                            <TextView
+                                                android:layout_width="wrap_content"
+                                                android:layout_height="wrap_content"
+                                                android:layout_marginTop="3dp"
+                                                android:text="Daftar buku yang diterima"
+                                                android:textColor="@color/white"
+                                                android:textSize="11sp" />
 
-                                    <androidx.cardview.widget.CardView
-                                        android:id="@+id/mAbout"
-                                        android:layout_width="95dp"
-                                        android:layout_height="75dp"
-                                        app:cardBackgroundColor="@color/white"
-                                        app:cardCornerRadius="5dp"
-                                        app:cardElevation="2dp"
-                                        app:cardUseCompatPadding="true"
-                                        app:contentPadding="12dp">
+                                        </LinearLayout>
 
                                         <ImageView
-                                            android:layout_width="match_parent"
+                                            android:layout_width="25dp"
+                                            android:layout_height="match_parent"
+                                            android:tint="@color/white_smoke"
+                                            app:srcCompat="@drawable/right_arrow" />
+
+                                    </LinearLayout>
+
+                                </androidx.cardview.widget.CardView>
+
+                            </LinearLayout>
+
+                            <LinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent"
+                                android:orientation="vertical">
+
+                                <androidx.cardview.widget.CardView
+                                    android:id="@+id/mAduan"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="75dp"
+                                    app:cardBackgroundColor="@color/lime_green"
+                                    app:cardCornerRadius="5dp"
+                                    app:cardElevation="2dp"
+                                    app:cardUseCompatPadding="true"
+                                    app:contentPadding="12dp">
+
+                                    <LinearLayout
+                                        android:layout_width="match_parent"
+                                        android:layout_height="match_parent"
+                                        android:gravity="center_vertical"
+                                        android:orientation="horizontal"
+                                        android:weightSum="3">
+
+                                        <ImageView
+                                            android:layout_width="40dp"
+                                            android:layout_height="match_parent"
+                                            app:srcCompat="@drawable/ic_report" />
+
+                                        <View
+                                            android:layout_width="1dp"
+                                            android:layout_height="match_parent"
+                                            android:layout_marginStart="15dp"
+                                            android:layout_marginEnd="15dp"
+                                            android:background="@color/yellow" />
+
+                                        <LinearLayout
+                                            android:layout_width="0dp"
+                                            android:layout_height="match_parent"
+                                            android:layout_weight="3"
+                                            android:orientation="vertical">
+
+                                            <TextView
+                                                android:layout_width="wrap_content"
+                                                android:layout_height="wrap_content"
+                                                android:text="Pengaduan Layanan"
+                                                android:textColor="@color/white"
+                                                android:textStyle="bold" />
+
+                                            <TextView
+                                                android:layout_width="wrap_content"
+                                                android:layout_height="wrap_content"
+                                                android:layout_marginTop="3dp"
+                                                android:text="Laporkan tindakan penyalah gunaan layanan"
+                                                android:textColor="@color/white"
+                                                android:textSize="11sp" />
+
+                                        </LinearLayout>
+
+                                        <ImageView
+                                            android:layout_width="25dp"
+                                            android:layout_height="match_parent"
+                                            android:tint="@color/white_smoke"
+                                            app:srcCompat="@drawable/right_arrow" />
+
+                                    </LinearLayout>
+
+                                </androidx.cardview.widget.CardView>
+
+                            </LinearLayout>
+
+                            <LinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent"
+                                android:orientation="vertical">
+
+                                <androidx.cardview.widget.CardView
+                                    android:id="@+id/mAbout"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="75dp"
+                                    app:cardBackgroundColor="@color/orange_red"
+                                    app:cardCornerRadius="5dp"
+                                    app:cardElevation="2dp"
+                                    app:cardUseCompatPadding="true"
+                                    app:contentPadding="12dp">
+
+                                    <LinearLayout
+                                        android:layout_width="match_parent"
+                                        android:layout_height="match_parent"
+                                        android:gravity="center_vertical"
+                                        android:orientation="horizontal"
+                                        android:weightSum="3">
+
+                                        <ImageView
+                                            android:layout_width="40dp"
                                             android:layout_height="match_parent"
                                             app:srcCompat="@drawable/ic_sticky_notes" />
 
-                                    </androidx.cardview.widget.CardView>
+                                        <View
+                                            android:layout_width="1dp"
+                                            android:layout_height="match_parent"
+                                            android:layout_marginStart="15dp"
+                                            android:layout_marginEnd="15dp"
+                                            android:background="@color/yellow" />
 
-                                    <TextView
-                                        android:layout_width="wrap_content"
-                                        android:layout_height="wrap_content"
-                                        android:layout_marginTop="3dp"
-                                        android:text="Tentang Aplikasi"
-                                        android:textColor="#999C9E" />
+                                        <LinearLayout
+                                            android:layout_width="0dp"
+                                            android:layout_height="match_parent"
+                                            android:layout_weight="3"
+                                            android:orientation="vertical">
 
-                                </LinearLayout>
+                                            <TextView
+                                                android:layout_width="wrap_content"
+                                                android:layout_height="wrap_content"
+                                                android:text="Tentang Aplikasi"
+                                                android:textColor="@color/white"
+                                                android:textStyle="bold" />
+
+                                            <TextView
+                                                android:layout_width="wrap_content"
+                                                android:layout_height="wrap_content"
+                                                android:layout_marginTop="3dp"
+                                                android:text="Penjelasan singkat aplikasi"
+                                                android:textColor="@color/white"
+                                                android:textSize="11sp" />
+
+                                        </LinearLayout>
+
+                                        <ImageView
+                                            android:layout_width="25dp"
+                                            android:layout_height="match_parent"
+                                            android:tint="@color/white_smoke"
+                                            app:srcCompat="@drawable/right_arrow" />
+
+                                    </LinearLayout>
+
+                                </androidx.cardview.widget.CardView>
 
                             </LinearLayout>
 
@@ -225,36 +390,9 @@
 
             </LinearLayout>
 
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="30dp"
-                android:layout_weight="0"
-                android:gravity="center">
-
-                <TextView
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:gravity="center"
-                    android:text="@string/copyright" />
-
-            </LinearLayout>
-
         </LinearLayout>
 
     </LinearLayout>
-
-    <!--    <com.google.android.material.navigation.NavigationView-->
-    <!--        android:id="@+id/navigation"-->
-    <!--        android:layout_width="wrap_content"-->
-    <!--        android:layout_height="match_parent"-->
-    <!--        android:layout_gravity="end"-->
-    <!--        android:background="@color/white_transparant"-->
-    <!--        app:headerLayout="@layout/header"-->
-    <!--        app:itemIconTint="@color/color_default_black"-->
-    <!--        app:itemTextColor="@color/color_default_blue"-->
-    <!--        app:menu="@menu/dashboard">-->
-
-    <!--    </com.google.android.material.navigation.NavigationView>-->
 
     <FrameLayout
         android:layout_width="300dp"

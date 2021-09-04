@@ -31,7 +31,6 @@ public class BukuAdapter extends RecyclerView.Adapter<BukuAdapter.ViewHolder> {
         void onDonasi(Buku data);
     }
 
-
     public BukuAdapter(List<Buku> data, Activity context, BukuAdapter.onSelected listener) {
         this.ruts = data;
         this.context = context;
@@ -53,11 +52,11 @@ public class BukuAdapter extends RecyclerView.Adapter<BukuAdapter.ViewHolder> {
         holder.mEdit.setVisibility(View.GONE);
         holder.mNama.setText(data.getJudul());
         holder.mDeskripsi.setText(data.getDeskripsi());
-        holder.mKategori.setText(data.getDeskripsi());
+        holder.mKategori.setText(data.getKategori());
 
         holder.mDonasi.setOnClickListener(View -> listener.onDonasi(data));
-
     }
+
     public void setFilter(ArrayList<Buku> filterList) {
         ruts = new ArrayList<>();
         ruts.addAll(filterList);
@@ -76,7 +75,7 @@ public class BukuAdapter extends RecyclerView.Adapter<BukuAdapter.ViewHolder> {
         RelativeLayout onClick;
         TextView mNama, mKategori,mDeskripsi;
         ImageView icon_image;
-        Button mDelete , mEdit , mDonasi ;
+        Button mDelete , mEdit , mDonasi;
 
 
         ViewHolder(View view) {

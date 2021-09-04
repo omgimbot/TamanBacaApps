@@ -42,7 +42,6 @@ public class AdapterSliderBanner extends PagerAdapter {
         View view = layoutInflater.inflate(R.layout.item_card_banner, container, false);
 
         CardView imageView;
-        TextView title, desc;
 
         imageView = view.findViewById(R.id.cardInfoBeasiswa);
         imageView.setBackgroundResource(models.get(position).getImage());

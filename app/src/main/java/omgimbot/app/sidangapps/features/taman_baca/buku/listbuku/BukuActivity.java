@@ -14,7 +14,9 @@ import android.util.Log;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
+import android.widget.LinearLayout;
 
+import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.gson.Gson;
 import com.ontbee.legacyforks.cn.pedant.SweetAlert.SweetAlertDialog;
 
@@ -34,8 +36,10 @@ import omgimbot.app.sidangapps.ui.SweetDialogs;
 public class BukuActivity extends AppCompatActivity implements IBukuView , BukuAdapter.onSelected {
     @BindView(R.id.recycler_view)
     RecyclerView mRecyclerView;
+    @BindView(R.id.empty_store)
+    LinearLayout empty_store;
     @BindView(R.id.mTambah)
-    Button mTambah;
+    FloatingActionButton mTambah;
     @BindView(R.id.toolbar_default_in)
     Toolbar mToolbar;
     SweetAlertDialog sweetAlertDialog;
@@ -48,8 +52,8 @@ public class BukuActivity extends AppCompatActivity implements IBukuView , BukuA
         ButterKnife.bind(this);
         presenter= new BukuPresenter(this);
         setSupportActionBar(mToolbar);
-        getSupportActionBar().setTitle("Buku");
-        mToolbar.setTitleTextColor(getResources().getColor(R.color.color_default_blue));
+        getSupportActionBar().setTitle("Daftar Kebutuhan");
+        mToolbar.setTitleTextColor(getResources().getColor(R.color.white));
         getSupportActionBar().setHomeAsUpIndicator(getResources().getDrawable(R.drawable.ic_back_left));
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         this.initView();
@@ -92,6 +96,13 @@ public class BukuActivity extends AppCompatActivity implements IBukuView , BukuA
         adapter = new BukuAdapter(result, this,this);
         mRecyclerView.setAdapter(adapter);
         adapter.notifyDataSetChanged();
+        if (result.isEmpty()){
+            empty_store.setVisibility(View.VISIBLE);
+            mRecyclerView.setVisibility(View.GONE);
+        }else {
+            empty_store.setVisibility(View.GONE);
+            mRecyclerView.setVisibility(View.VISIBLE);
+        }
     }
 
 
@@ -140,14 +151,6 @@ public class BukuActivity extends AppCompatActivity implements IBukuView , BukuA
         this.goToDashboard();
         super.onBackPressed();
     }
-
-
-//    @OnClick(R.id.mDonasi)
-//    public void gootDonasi(){
-//        Intent i = new Intent(this, AddDonasiActivity.class);
-//        startActivity(i);
-//        finish();
-//    }
 
     @Override
     public void edit(Buku data) {

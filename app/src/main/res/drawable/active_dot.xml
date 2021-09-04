@@ -8,10 +8,10 @@
         android:width="10dp"
         android:height="10dp" />
 
-    <solid android:color="#06E196" />
+    <solid android:color="@color/yellow" />
 
     <stroke
         android:width="0.1dp"
-        android:color="#00FCA6" />
+        android:color="@color/blue" />
 
 </shape>

@@ -10,218 +10,50 @@
 
     <include layout="@layout/toolbar_default_in" />
 
-    <LinearLayout
-        android:visibility="visible"
-        android:id="@+id/statusHide"
+    <FrameLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:background="@color/grey">
+        android:layout_height="match_parent">
 
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/recycler_view"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
+            android:layout_margin="10dp"
+            android:visibility="gone"
             tools:itemCount="1"
             tools:listitem="@layout/item_riwayat_donasi">
 
         </androidx.recyclerview.widget.RecyclerView>
 
-    </LinearLayout>
+        <LinearLayout
+            android:id="@+id/empty_store"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:orientation="vertical">
 
-<!--    <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"-->
-<!--        xmlns:app="http://schemas.android.com/apk/res-auto"-->
-<!--        android:layout_width="match_parent"-->
-<!--        android:layout_height="wrap_content"-->
-<!--        android:gravity="center"-->
-<!--        android:layout_margin="10dp"-->
-<!--        android:orientation="vertical">-->
+            <com.airbnb.lottie.LottieAnimationView
+                android:layout_width="match_parent"
+                android:layout_height="250dp"
+                android:layout_gravity="center|top"
+                android:padding="25dp"
+                app:lottie_autoPlay="true"
+                app:lottie_loop="true"
+                app:lottie_rawRes="@raw/empty_data" />
 
-<!--        <androidx.cardview.widget.CardView-->
-<!--            android:layout_width="match_parent"-->
-<!--            android:layout_height="wrap_content"-->
-<!--            android:foreground="?android:attr/selectableItemBackground"-->
-<!--            app:cardCornerRadius="5dp"-->
-<!--            app:cardUseCompatPadding="true">-->
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:paddingLeft="10dp"
+                android:paddingRight="10dp"
+                android:text="Sepertinya kamu belum memiliki donasi"
+                android:textAlignment="center"
+                android:textColor="@color/blue"
+                android:textSize="15sp"
+                android:textStyle="bold" />
 
-<!--            <LinearLayout-->
-<!--                android:layout_width="match_parent"-->
-<!--                android:layout_height="wrap_content"-->
-<!--                android:orientation="vertical"-->
-<!--                android:weightSum="1">-->
+        </LinearLayout>
 
-<!--                <LinearLayout-->
-<!--                    android:layout_width="match_parent"-->
-<!--                    android:layout_height="wrap_content"-->
-<!--                    android:orientation="vertical"-->
-<!--                    android:padding="10dp">-->
-
-<!--                    <RelativeLayout-->
-<!--                        android:id="@+id/main_layout"-->
-<!--                        android:layout_width="match_parent"-->
-<!--                        android:layout_height="wrap_content"-->
-<!--                        android:gravity="center"-->
-<!--                        android:orientation="vertical">-->
-
-<!--                        <ImageView-->
-<!--                            android:id="@+id/icon_image"-->
-<!--                            android:layout_width="80dp"-->
-<!--                            android:layout_height="80dp"-->
-<!--                            android:layout_alignParentStart="false"-->
-<!--                            android:layout_centerVertical="true"-->
-<!--                            android:layout_gravity="center_vertical"-->
-<!--                            android:padding="8dp"-->
-<!--                            app:srcCompat="@drawable/ic_book" />-->
-
-<!--                        <LinearLayout-->
-<!--                            android:layout_width="match_parent"-->
-<!--                            android:layout_height="wrap_content"-->
-<!--                            android:layout_centerVertical="true"-->
-<!--                            android:layout_marginStart="10dp"-->
-<!--                            android:layout_toRightOf="@id/icon_image"-->
-<!--                            android:gravity="center_vertical"-->
-<!--                            android:orientation="vertical"-->
-<!--                            android:padding="3dp">-->
-
-<!--                            <TextView-->
-<!--                                android:id="@+id/mJudulBuku"-->
-<!--                                android:layout_width="match_parent"-->
-<!--                                android:layout_height="wrap_content"-->
-<!--                                android:maxLines="1"-->
-<!--                                android:text="Judul Buku : Pemrograman I"-->
-<!--                                android:textSize="15sp" />-->
-
-<!--                            <TextView-->
-<!--                                android:id="@+id/mJumlah"-->
-<!--                                android:layout_width="match_parent"-->
-<!--                                android:layout_height="wrap_content"-->
-<!--                                android:maxLines="1"-->
-<!--                                android:text="Jumlah : 1"-->
-<!--                                android:textColor="@color/c_black"-->
-<!--                                android:textSize="12sp" />-->
-
-<!--                            <TextView-->
-<!--                                android:layout_weight="1"-->
-<!--                                android:id="@+id/mTamanBaca"-->
-<!--                                android:layout_width="match_parent"-->
-<!--                                android:layout_height="wrap_content"-->
-<!--                                android:layout_alignParentLeft="true"-->
-<!--                                android:backgroundTint="@color/c_black"-->
-<!--                                android:text="Taman Baca : xxxx"-->
-<!--                                android:textSize="10sp" />-->
-
-<!--                            <TextView-->
-<!--                                android:layout_weight="1"-->
-<!--                                android:id="@+id/mPengiriman"-->
-<!--                                android:layout_width="match_parent"-->
-<!--                                android:layout_height="wrap_content"-->
-<!--                                android:layout_alignParentLeft="true"-->
-<!--                                android:backgroundTint="@color/c_black"-->
-<!--                                android:text="Metode Pengiriman : Diantar"-->
-<!--                                android:textSize="10sp" />-->
-
-<!--                        </LinearLayout>-->
-
-<!--                    </RelativeLayout>-->
-
-<!--                </LinearLayout>-->
-
-<!--            </LinearLayout>-->
-
-<!--        </androidx.cardview.widget.CardView>-->
-
-<!--        <androidx.cardview.widget.CardView-->
-<!--            android:layout_width="match_parent"-->
-<!--            android:layout_height="wrap_content"-->
-<!--            android:foreground="?android:attr/selectableItemBackground"-->
-<!--            app:cardCornerRadius="5dp"-->
-<!--            app:cardUseCompatPadding="true">-->
-
-<!--            <LinearLayout-->
-<!--                android:layout_width="match_parent"-->
-<!--                android:layout_height="wrap_content"-->
-<!--                android:orientation="vertical"-->
-<!--                android:weightSum="1">-->
-
-<!--                <LinearLayout-->
-<!--                    android:layout_width="match_parent"-->
-<!--                    android:layout_height="wrap_content"-->
-<!--                    android:orientation="vertical"-->
-<!--                    android:padding="10dp">-->
-
-<!--                    <RelativeLayout-->
-<!--                        android:id="@+id/main_layout"-->
-<!--                        android:layout_width="match_parent"-->
-<!--                        android:layout_height="wrap_content"-->
-<!--                        android:gravity="center"-->
-<!--                        android:orientation="vertical">-->
-
-<!--                        <ImageView-->
-<!--                            android:id="@+id/icon_image"-->
-<!--                            android:layout_width="80dp"-->
-<!--                            android:layout_height="80dp"-->
-<!--                            android:layout_alignParentStart="false"-->
-<!--                            android:layout_centerVertical="true"-->
-<!--                            android:layout_gravity="center_vertical"-->
-<!--                            android:padding="8dp"-->
-<!--                            app:srcCompat="@drawable/ic_book" />-->
-
-<!--                        <LinearLayout-->
-<!--                            android:layout_width="match_parent"-->
-<!--                            android:layout_height="wrap_content"-->
-<!--                            android:layout_centerVertical="true"-->
-<!--                            android:layout_marginStart="10dp"-->
-<!--                            android:layout_toRightOf="@id/icon_image"-->
-<!--                            android:gravity="center_vertical"-->
-<!--                            android:orientation="vertical"-->
-<!--                            android:padding="3dp">-->
-
-<!--                            <TextView-->
-<!--                                android:id="@+id/mJudulBuku"-->
-<!--                                android:layout_width="match_parent"-->
-<!--                                android:layout_height="wrap_content"-->
-<!--                                android:maxLines="1"-->
-<!--                                android:text="Judul Buku : Bahasa Indonesia"-->
-<!--                                android:textSize="15sp" />-->
-
-<!--                            <TextView-->
-<!--                                android:id="@+id/mJumlah"-->
-<!--                                android:layout_width="match_parent"-->
-<!--                                android:layout_height="wrap_content"-->
-<!--                                android:maxLines="1"-->
-<!--                                android:text="Jumlah : 5"-->
-<!--                                android:textColor="@color/c_black"-->
-<!--                                android:textSize="12sp" />-->
-
-<!--                            <TextView-->
-<!--                                android:layout_weight="1"-->
-<!--                                android:id="@+id/mTamanBaca"-->
-<!--                                android:layout_width="match_parent"-->
-<!--                                android:layout_height="wrap_content"-->
-<!--                                android:layout_alignParentLeft="true"-->
-<!--                                android:backgroundTint="@color/c_black"-->
-<!--                                android:text="Taman Baca : xxxx"-->
-<!--                                android:textSize="10sp" />-->
-
-<!--                            <TextView-->
-<!--                                android:layout_weight="1"-->
-<!--                                android:id="@+id/mPengiriman"-->
-<!--                                android:layout_width="match_parent"-->
-<!--                                android:layout_height="wrap_content"-->
-<!--                                android:layout_alignParentLeft="true"-->
-<!--                                android:backgroundTint="@color/c_black"-->
-<!--                                android:text="Metode Pengiriman : Diantar"-->
-<!--                                android:textSize="10sp" />-->
-
-<!--                        </LinearLayout>-->
-
-<!--                    </RelativeLayout>-->
-
-<!--                </LinearLayout>-->
-
-<!--            </LinearLayout>-->
-
-<!--        </androidx.cardview.widget.CardView>-->
-
-<!--    </LinearLayout>-->
+    </FrameLayout>
 
 </LinearLayout>

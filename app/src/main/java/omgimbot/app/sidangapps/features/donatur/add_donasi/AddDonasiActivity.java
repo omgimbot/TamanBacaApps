@@ -65,7 +65,7 @@ public class AddDonasiActivity extends AppCompatActivity implements IDonasiView 
         presenter = new DonasiPresenter(this);
         setSupportActionBar(mToolbar);
         getSupportActionBar().setTitle("Donasi Buku");
-        mToolbar.setTitleTextColor(getResources().getColor(R.color.color_default_blue));
+        mToolbar.setTitleTextColor(getResources().getColor(R.color.white));
         getSupportActionBar().setHomeAsUpIndicator(getResources().getDrawable(R.drawable.ic_back_left));
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         Intent intent = this.getIntent();
@@ -83,7 +83,6 @@ public class AddDonasiActivity extends AppCompatActivity implements IDonasiView 
         this.initView();
     }
 
-
     @Override
     public void initView() {
         sweetAlertDialog = new SweetAlertDialog(this, SweetAlertDialog.PROGRESS_TYPE);
@@ -97,21 +96,18 @@ public class AddDonasiActivity extends AppCompatActivity implements IDonasiView 
                 ? mProfile.getResult().get_id() : mProfile.getResult().get_id();
 
         radioGroup.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
-                                                  @Override
-                                                  public void onCheckedChanged(RadioGroup group, int checkedId) {
-                                                      switch (checkedId) {
-                                                          case R.id.radioAmbil:
-                                                              pengiriman = "Diambil";
-                                                              break;
-                                                          case R.id.radioAntar:
-                                                              pengiriman = "Diantar";
-                                                              break;
-
-                                                      }
-
-                                                  }
-                                              }
-        );
+            @Override
+            public void onCheckedChanged(RadioGroup group, int checkedId) {
+                switch (checkedId) {
+                    case R.id.radioAmbil:
+                        pengiriman = "Diambil";
+                        break;
+                    case R.id.radioAntar:
+                        pengiriman = "Diantar";
+                        break;
+                }
+            }
+        });
         mSubmit.setOnClickListener(view -> this.onCreateDonasi());
     }
 
@@ -137,8 +133,6 @@ public class AddDonasiActivity extends AppCompatActivity implements IDonasiView 
                 TopSnakbar.showWarning(this, "anda belum memilih jenis pengiriman");
         else
             TopSnakbar.showWarning(this, "anda belum mengisi jumlah buku");
-
-
     }
 
     @Override
@@ -151,13 +145,11 @@ public class AddDonasiActivity extends AppCompatActivity implements IDonasiView 
         sweetAlertDialog.dismiss();
     }
 
-
     @Override
     public void onNetworkError(String cause) {
         Log.d("Error", cause);
         SweetDialogs.endpointError(this);
     }
-
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {

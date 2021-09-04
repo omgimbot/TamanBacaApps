@@ -11,27 +11,58 @@
     <application
         android:name=".App"
         android:allowBackup="true"
-        android:icon="@mipmap/ic_launcher"
+        android:icon="@mipmap/ic_launcher_new"
         android:label="@string/app_name"
         android:requestLegacyExternalStorage="true"
-        android:roundIcon="@mipmap/ic_launcher_round"
+        android:roundIcon="@mipmap/ic_launcher_new_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
         android:usesCleartextTraffic="true">
-        <activity android:name=".features.donasi.RiwayatDonasiActivity"/>
-        <activity android:name=".features.donatur.buku.BukuActivity" />
-        <activity android:name=".features.taman_baca.buku.listbuku.BukuActivity" />
-        <activity android:name=".features.taman_baca.buku.tambahbuku.AddBukuActivity" />
-        <activity android:name=".features.dashboard.DashboardDonaturActivity" />
-        <activity android:name=".features.donatur.add_donasi.AddDonasiActivity" />
-        <activity android:name=".features.taman_baca.add_taman_baca.AddTamanBacaActivity" />
-        <activity android:name=".features.taman_baca.TamanBacaActivity" />
-        <activity android:name=".features.dashboard.DashboardTamanBacaActivity" />
-        <activity android:name=".features.auth.regist.RegisterActivity" />
+        <activity android:name=".AddDonasiLain"></activity>
+        <activity
+            android:name=".AddPengaduan"
+            android:theme="@style/AppThemeLogin" />
+        <activity
+            android:name=".Pengaduan"
+            android:theme="@style/AppThemeLogin" />
+        <activity
+            android:name=".About"
+            android:theme="@style/AppThemeLogin" />
+        <activity
+            android:name=".Profile"
+            android:theme="@style/AppThemeLogin" />
         <activity
             android:name=".features.auth.login.LoginActivity"
-            android:screenOrientation="portrait"
-            android:theme="@style/AppThemeSubs"
+            android:theme="@style/AppThemeLogin" />
+        <activity
+            android:name=".features.donasi.RiwayatDonasiActivity"
+            android:theme="@style/AppThemeLogin" />
+        <activity
+            android:name=".features.donatur.buku.BukuActivity"
+            android:theme="@style/AppThemeLogin" />
+        <activity
+            android:name=".features.taman_baca.buku.listbuku.BukuActivity"
+            android:theme="@style/AppThemeLogin" />
+        <activity
+            android:name=".features.taman_baca.buku.tambahbuku.AddBukuActivity"
+            android:theme="@style/AppThemeLogin" />
+        <activity
+            android:name=".features.dashboard.DashboardDonaturActivity"
+            android:theme="@style/AppThemeLogin" />
+        <activity
+            android:name=".features.donatur.add_donasi.AddDonasiActivity"
+            android:theme="@style/AppThemeLogin" />
+        <activity android:name=".features.taman_baca.add_taman_baca.AddTamanBacaActivity" />
+        <activity android:name=".features.taman_baca.TamanBacaActivity" />
+        <activity
+            android:name=".features.dashboard.DashboardTamanBacaActivity"
+            android:theme="@style/AppThemeLogin" />
+        <activity
+            android:name=".features.auth.regist.RegisterActivity"
+            android:theme="@style/AppThemeLogin" />
+        <activity
+            android:name=".SplashScreen"
+            android:theme="@style/AppThemeLogin"
             android:windowSoftInputMode="adjustResize">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

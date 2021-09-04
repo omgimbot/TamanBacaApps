@@ -10,6 +10,13 @@
         <item name="windowNoTitle">true</item>
     </style>
 
+    <style name="AppThemeLogin" parent="Theme.AppCompat.Light.NoActionBar">
+        <!-- Customize your theme here. -->
+        <item name="colorPrimary">@color/blue</item>
+        <item name="colorPrimaryDark">@color/blue</item>
+        <item name="colorAccent">@color/blue</item>
+    </style>
+
     <style name="AppThemeMain" parent="Theme.MaterialComponents.Light.DarkActionBar">
         <!-- Customize your theme here. -->
         <item name="colorPrimary">@color/colorPrimary</item>
@@ -99,5 +106,46 @@
         <item name="android:paddingRight">21dp</item>
         <item name="android:textColor">@color/button_text_color</item>
     </style>
+
+    <style name="toastStyleSuccess">
+        <item name="colorBackground">@color/green</item>
+        <item name="textColor">@color/white</item>
+        <item name="length">LONG</item>
+        <item name="cornerRadius">50dp</item>
+        <item name="iconRight">@drawable/ic_sentiment_very_satisfied_black_24dp</item>
+        <item name="iconTint">@color/white</item>
+    </style>
+
+    <style name="toastStyleDanger">
+        <item name="colorBackground">@color/red</item>
+        <item name="textColor">@color/white</item>
+        <item name="length">LONG</item>
+        <item name="cornerRadius">50dp</item>
+        <item name="iconRight">@drawable/ic_sentiment_very_dissatisfied_black_24dp</item>
+        <item name="iconTint">@color/white</item>
+    </style>
+
+    <style name="toastStyleWarning">
+        <item name="colorBackground">@color/orange</item>
+        <item name="textColor">@color/white</item>
+        <item name="length">LONG</item>
+        <item name="cornerRadius">50dp</item>
+        <item name="iconRight">@drawable/ic_error_outline_black_24dp</item>
+        <item name="iconTint">@color/white</item>
+    </style>
+
+    <style name="toastStyleDefault">
+        <item name="colorBackground">@color/green</item>
+        <item name="textColor">@color/white</item>
+        <item name="length">LONG</item>
+        <item name="cornerRadius">50dp</item>
+        <item name="iconRight">@drawable/ic_sentiment_dissatisfied_black_24dp</item>
+        <item name="iconTint">@color/white</item>
+    </style>
+
+    <style name="Toolbar.TitleText" parent="TextAppearance.Widget.AppCompat.Toolbar.Title">
+        <item name="android:textSize">14sp</item>
+    </style>
+
 
 </resources>

@@ -1,12 +1,10 @@
 package omgimbot.app.sidangapps.features.donasi;
 
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.appcompat.widget.SearchView;
 import androidx.appcompat.widget.Toolbar;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
-import android.annotation.SuppressLint;
 import android.app.Activity;
 import android.content.Intent;
 import android.graphics.Color;
@@ -15,13 +13,11 @@ import android.os.Bundle;
 import android.util.Log;
 import android.view.MenuItem;
 import android.view.View;
-import android.widget.Toast;
+import android.widget.LinearLayout;
 
 import com.google.gson.Gson;
 import com.ontbee.legacyforks.cn.pedant.SweetAlert.SweetAlertDialog;
 
-import java.io.Serializable;
-import java.util.ArrayList;
 import java.util.List;
 
 import butterknife.BindView;
@@ -33,10 +29,6 @@ import omgimbot.app.sidangapps.Utils.GsonHelper;
 import omgimbot.app.sidangapps.features.auth.login.model.LoginResponse;
 import omgimbot.app.sidangapps.features.dashboard.DashboardDonaturActivity;
 import omgimbot.app.sidangapps.features.dashboard.DashboardTamanBacaActivity;
-import omgimbot.app.sidangapps.features.donatur.add_donasi.AddDonasiActivity;
-import omgimbot.app.sidangapps.features.donatur.buku.BukuActivity;
-import omgimbot.app.sidangapps.features.donatur.buku.BukuAdapter;
-import omgimbot.app.sidangapps.features.donatur.buku.BukuPresenter;
 import omgimbot.app.sidangapps.features.donatur.model.Donasi;
 import omgimbot.app.sidangapps.features.taman_baca.buku.model.Buku;
 import omgimbot.app.sidangapps.ui.SweetDialogs;
@@ -46,6 +38,8 @@ public class RiwayatDonasiActivity extends AppCompatActivity implements IRiwayat
     RecyclerView mRecyclerView;
     @BindView(R.id.toolbar_default_in)
     Toolbar mToolbar;
+    @BindView(R.id.empty_store)
+    LinearLayout empty_store;
     SweetAlertDialog sweetAlertDialog;
     DonasiAdapter adapter;
     RiwayatDonasiPresenter presenter;
@@ -62,7 +56,7 @@ public class RiwayatDonasiActivity extends AppCompatActivity implements IRiwayat
         ButterKnife.bind(this);
         setSupportActionBar(mToolbar);
         getSupportActionBar().setTitle("Riwayat Donasi");
-        mToolbar.setTitleTextColor(getResources().getColor(R.color.color_default_blue));
+        mToolbar.setTitleTextColor(getResources().getColor(R.color.white));
         getSupportActionBar().setHomeAsUpIndicator(getResources().getDrawable(R.drawable.ic_back_left));
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         this.initView();
@@ -76,7 +70,6 @@ public class RiwayatDonasiActivity extends AppCompatActivity implements IRiwayat
             else
                 presenter.listDonasiTamanBaca(idUser);
         }
-
     }
 
     @Override
@@ -94,7 +87,6 @@ public class RiwayatDonasiActivity extends AppCompatActivity implements IRiwayat
         mRecyclerView.setHasFixedSize(true);
         mRecyclerView.setLayoutManager(linearLayoutManager);
         mRecyclerView.clearFocus();
-//        mTambah.setOnClickListener(view ->this.goToAddBuku());
     }
 
     @Override
@@ -121,8 +113,14 @@ public class RiwayatDonasiActivity extends AppCompatActivity implements IRiwayat
         adapter = new DonasiAdapter(result, this, className);
         mRecyclerView.setAdapter(adapter);
         adapter.notifyDataSetChanged();
+        if (result.isEmpty()){
+            empty_store.setVisibility(View.VISIBLE);
+            mRecyclerView.setVisibility(View.GONE);
+        }else {
+            empty_store.setVisibility(View.GONE);
+            mRecyclerView.setVisibility(View.VISIBLE);
+        }
     }
-
 
     @Override
     public void onNetworkError(String cause) {
@@ -164,19 +162,4 @@ public class RiwayatDonasiActivity extends AppCompatActivity implements IRiwayat
             this.goToDashboardTamanBaca();
         super.onBackPressed();
     }
-
-
-//    @Override
-//    public void onDonasi(Buku data) {
-//        Intent i = new Intent(this, AddDonasiActivity.class);
-//        i.putExtra("className", "edit");
-//        i.putExtra("data", (Serializable) data);
-//        startActivity(i);
-//        finish();
-//    }
-//
-//    @Override
-//    public void onDonasiSuccess() {
-//        SweetDialogs.commonSuccessWithIntent(this, "Berhasil Memuat Permintaan", view -> this.refresh());
-//    }
 }

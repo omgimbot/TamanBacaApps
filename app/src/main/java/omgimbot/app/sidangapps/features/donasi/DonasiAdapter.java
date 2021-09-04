@@ -57,9 +57,9 @@ public class DonasiAdapter extends RecyclerView.Adapter<DonasiAdapter.ViewHolder
         final Donasi data = ruts.get(position);
 
         holder.mJudul.setText(data.getJudul());
-        holder.mJumlah.setText("Jumlah : " + String.valueOf(data.getJumlah()));
-        holder.mTamanBaca.setText("Taman Baca : " + data.getTamanBaca());
-        holder.mPengiriman.setText("Pengiriman : " + data.getPengiriman());
+        holder.mJumlah.setText(String.valueOf(data.getJumlah()));
+//        holder.mTamanBaca.setText("Taman Baca : " + data.getTamanBaca());
+        holder.mPengiriman.setText(data.getPengiriman());
         holder.mTime.setText(Utils.convertMongoDate(data.getCreated_at()));
         if (classname.equals("DashboardDonaturActivity")) {
             holder.layoutButton.setVisibility(View.GONE);
@@ -78,12 +78,12 @@ public class DonasiAdapter extends RecyclerView.Adapter<DonasiAdapter.ViewHolder
 
             if (data.getStatus().equals("Dikirim")) {
                 if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
-                    holder.mSubmit.setBackground(App.getApplication().getDrawable(R.drawable.blue_button_background));
+                    holder.mSubmit.setBackground(App.getApplication().getDrawable(R.drawable.button_confirm));
                 }
                 holder.mSubmit.setEnabled(true);
             } else {
                 if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
-                    holder.mSubmit.setBackground(App.getApplication().getDrawable(R.drawable.gray_button_background));
+                    holder.mSubmit.setBackground(App.getApplication().getDrawable(R.drawable.button_confirm));
                 }
                 holder.mSubmit.setEnabled(false);
             }
@@ -115,15 +115,13 @@ public class DonasiAdapter extends RecyclerView.Adapter<DonasiAdapter.ViewHolder
             mJumlah = view.findViewById(R.id.mJumlah);
             mStatus = view.findViewById(R.id.mStatus);
             mTime = view.findViewById(R.id.mTime);
-            mTamanBaca = view.findViewById(R.id.mTamanBaca);
+//            mTamanBaca = view.findViewById(R.id.mTamanBaca);
             icon_image = view.findViewById(R.id.icon_image);
             indicator = view.findViewById(R.id.indicator);
             mPengiriman = view.findViewById(R.id.mPengiriman);
             layoutButton = view.findViewById(R.id.layoutButton);
             layoutStatus = view.findViewById(R.id.layoutStatus);
             mSubmit = view.findViewById(R.id.mSubmit);
-
-
         }
 
     }

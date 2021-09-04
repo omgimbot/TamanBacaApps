@@ -16,6 +16,7 @@ import android.util.Log;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
+import android.widget.LinearLayout;
 import android.widget.Toast;
 
 import com.google.gson.Gson;
@@ -40,6 +41,8 @@ public class BukuActivity extends AppCompatActivity implements IBukuView, omgimb
     RecyclerView mRecyclerView;
     @BindView(R.id.mTambah)
     Button mTambah;
+    @BindView(R.id.empty_store)
+    LinearLayout empty_store;
 
     @BindView(R.id.mSearch)
     SearchView mSearch;
@@ -118,7 +121,6 @@ public class BukuActivity extends AppCompatActivity implements IBukuView, omgimb
                 return i;
             }
         }
-
         return -1;
     }
 
@@ -147,8 +149,14 @@ public class BukuActivity extends AppCompatActivity implements IBukuView, omgimb
         adapter = new omgimbot.app.sidangapps.features.donatur.buku.BukuAdapter(product, this, this);
         mRecyclerView.setAdapter(adapter);
         adapter.notifyDataSetChanged();
+        if (result.isEmpty()){
+            empty_store.setVisibility(View.VISIBLE);
+            mRecyclerView.setVisibility(View.GONE);
+        }else {
+            empty_store.setVisibility(View.GONE);
+            mRecyclerView.setVisibility(View.VISIBLE);
+        }
     }
-
 
     @Override
     public void onNetworkError(String cause) {
@@ -188,7 +196,6 @@ public class BukuActivity extends AppCompatActivity implements IBukuView, omgimb
         this.goToDashboard();
         super.onBackPressed();
     }
-
 
     @Override
     public void onDonasi(Buku data) {

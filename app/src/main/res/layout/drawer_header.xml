@@ -13,14 +13,7 @@
         <RelativeLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:background="#0B1733">
-
-            <ImageView
-                android:id="@+id/carousel"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:scaleType="centerCrop"
-                app:srcCompat="@drawable/user_header_bg" />
+            android:background="@color/blue">
 
         </RelativeLayout>
 
@@ -41,30 +34,27 @@
                     android:orientation="vertical"
                     android:padding="20dp">
 
-                    <de.hdodenhof.circleimageview.CircleImageView
-                        android:id="@+id/profileImageView"
+                    <ImageView
                         android:layout_width="70dp"
                         android:layout_height="70dp"
-                        app:srcCompat="@drawable/ic_userz"
-                        app:civ_border_color="@color/color_default_green"
-                        app:civ_border_width="2dp" />
+                        app:srcCompat="@drawable/fav" />
 
                     <TextView
                         android:id="@+id/nameTxt"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="Adi Permana"
-                        android:textColor="#CC464141"
-                        android:textSize="14sp"
+                        android:text="Fullname"
+                        android:textColor="@color/white"
+                        android:textSize="20sp"
                         android:textStyle="bold" />
 
                     <TextView
                         android:id="@+id/emailTxt"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="xxxx@email.com"
-                        android:textColor="#CC464141"
-                        android:textSize="14sp"
+                        android:text="mail@mail.com"
+                        android:textColor="@color/white"
+                        android:textSize="15sp"
                         android:textStyle="normal" />
 
                 </LinearLayout>

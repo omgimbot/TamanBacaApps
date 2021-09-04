@@ -11,146 +11,177 @@
         android:layout_height="wrap_content"
         android:foreground="?android:attr/selectableItemBackground"
         app:cardCornerRadius="5dp"
-        app:cardUseCompatPadding="true">
+        app:cardUseCompatPadding="true"
+        app:contentPadding="8dp">
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="vertical"
-            android:weightSum="1">
+            android:orientation="vertical">
 
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:orientation="vertical"
-                android:padding="10dp">
+                android:orientation="horizontal">
 
-                <RelativeLayout
-                    android:id="@+id/main_layout"
+                <ImageView
+                    android:id="@+id/icon_image"
+                    android:layout_width="50dp"
+                    android:layout_height="50dp"
+                    android:layout_gravity="center_vertical"
+                    android:padding="5dp"
+                    app:srcCompat="@drawable/ic_book" />
+
+                <LinearLayout
+                    android:id="@+id/layoutList"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:gravity="center"
+                    android:layout_marginStart="10dp"
+                    android:gravity="center_vertical"
                     android:orientation="vertical">
-
-                    <ImageView
-                        android:id="@+id/icon_image"
-                        android:layout_width="80dp"
-                        android:layout_height="80dp"
-                        android:layout_alignParentStart="false"
-                        android:layout_centerVertical="true"
-                        android:layout_gravity="center_vertical"
-                        android:padding="8dp"
-                        app:srcCompat="@drawable/ic_book" />
 
                     <LinearLayout
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:layout_centerVertical="true"
-                        android:layout_marginStart="10dp"
-                        android:layout_toRightOf="@id/icon_image"
                         android:gravity="center_vertical"
-                        android:orientation="vertical"
-                        android:padding="3dp">
+                        android:orientation="horizontal">
 
                         <TextView
                             android:id="@+id/mJudulBuku"
-                            android:layout_width="match_parent"
+                            android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:maxLines="1"
-                            android:text="Judul Buku : Pemrograman I"
-                            android:textSize="15dp" />
+                            android:maxLines="2"
+                            android:text="Judul Buku..."
+                            android:textSize="15sp"
+                            android:textStyle="bold" />
 
                         <TextView
-                            android:id="@+id/mJumlah"
+                            android:id="@+id/mTime"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:maxLines="1"
-                            android:text="Jumlah : 1"
-                            android:textColor="@color/c_black"
-                            android:textSize="12dp" />
+                            android:gravity="end"
+                            android:maxLines="2"
+                            android:text="00/januari/0000"
+                            android:textSize="11sp" />
 
-                        <TextView
-                            android:id="@+id/mTamanBaca"
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:layout_alignParentLeft="true"
-                            android:layout_weight="1"
-                            android:backgroundTint="@color/c_black"
-                            android:text="Taman Baca : xxxx"
-                            android:textSize="10dp" />
+                    </LinearLayout>
 
-                        <TextView
-                            android:id="@+id/mPengiriman"
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal"
+                        android:weightSum="2">
+
+                        <LinearLayout
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:layout_alignParentLeft="true"
-                            android:layout_weight="1"
-                            android:backgroundTint="@color/c_black"
-                            android:text="Metode Pengiriman : Diantar"
-                            android:textSize="10dp" />
+                            android:layout_weight="2"
+                            android:orientation="horizontal">
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:maxLines="1"
+                                android:text="Status pengiriman : "
+                                android:textColor="@color/color_default_blue"
+                                android:textSize="12sp" />
+
+                            <TextView
+                                android:id="@+id/mPengiriman"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:maxLines="2"
+                                android:text="status"
+                                android:textColor="@color/color_default_blue"
+                                android:textSize="12sp" />
+
+                        </LinearLayout>
 
                         <LinearLayout
                             android:id="@+id/layoutStatus"
-                            android:layout_width="match_parent"
+                            android:layout_width="80dp"
                             android:layout_height="wrap_content"
-                            android:gravity="right|center_vertical"
-                            android:orientation="horizontal">
+                            android:background="@drawable/shape_status"
+                            android:gravity="center"
+                            android:orientation="horizontal"
+                            android:paddingTop="2dp"
+                            android:paddingBottom="2dp">
+
+                            <ImageView
+                                android:id="@+id/indicator"
+                                android:layout_width="8dp"
+                                android:layout_height="8dp"
+                                android:src="@drawable/shape_indicator_active" />
 
                             <TextView
                                 android:id="@+id/mStatus"
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
+                                android:layout_marginStart="5dp"
                                 android:text="Dikirim"
-                                android:textColor="@color/blue"
-                                android:textSize="12sp" />
-
-                            <ImageView
-                                android:id="@+id/indicator"
-                                android:layout_width="10dp"
-                                android:layout_height="10dp"
-                                android:layout_marginLeft="10dp"
-                                android:src="@drawable/shape_indicator_active" />
+                                android:textColor="@color/white"
+                                android:textSize="11sp" />
 
                         </LinearLayout>
-
-                        <LinearLayout
-                            android:id="@+id/layoutButton"
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:gravity="right|center_vertical"
-                            android:orientation="horizontal">
-
-                            <Button
-                                android:id="@+id/mSubmit"
-                                android:layout_width="80dp"
-                                android:layout_height="30dp"
-                                android:background="@drawable/blue_button_background"
-                                android:text="Terima"></Button>
-
-                        </LinearLayout>
-
-                        <LinearLayout
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:gravity="right|center_vertical"
-                            android:orientation="horizontal">
-
-                            <TextView
-                                android:id="@+id/mTime"
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:text="02 Jun, 2020 00:51"
-                                android:textColor="@color/color_default_black"
-                                android:textSize="12sp"
-                                android:textStyle="italic" />
-
-                        </LinearLayout>
-
 
                     </LinearLayout>
 
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal">
 
-                </RelativeLayout>
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Jumlah donasi : "
+                            android:textColor="@color/color_default_blue"
+                            android:textSize="12sp" />
+
+                        <TextView
+                            android:id="@+id/mJumlah"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="000"
+                            android:textColor="@color/color_default_blue"
+                            android:textSize="12sp" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="5dp"
+                            android:text="buku"
+                            android:textColor="@color/color_default_blue"
+                            android:textSize="12sp" />
+
+                    </LinearLayout>
+
+                </LinearLayout>
+
+            </LinearLayout>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:layout_marginTop="10dp"
+                android:layout_marginBottom="10dp"
+                android:background="@color/white_smoke" />
+
+            <LinearLayout
+                android:id="@+id/layoutButton"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="end">
+
+                <Button
+                    android:id="@+id/mSubmit"
+                    android:layout_width="wrap_content"
+                    android:layout_height="25dp"
+                    android:background="@drawable/button_confirm"
+                    android:text="Terima"
+                    android:textAllCaps="false"
+                    android:textColor="@color/blue"
+                    android:textSize="12sp" />
 
             </LinearLayout>
 

@@ -4,12 +4,14 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.os.Handler;
 import android.util.Log;
 import android.widget.Button;
 import android.widget.EditText;
-import android.widget.Toast;
 
+import com.blogspot.atifsoftwares.animatoolib.Animatoo;
 import com.google.gson.Gson;
+import com.muddzdev.styleabletoastlibrary.StyleableToast;
 import com.ontbee.legacyforks.cn.pedant.SweetAlert.SweetAlertDialog;
 
 import butterknife.BindView;
@@ -37,6 +39,7 @@ public class LoginActivity extends AppCompatActivity implements ILoginView {
     LoginPresenter presenter;
     SweetAlertDialog sweetAlertDialog;
     LoginResponse mProfile;
+    boolean backPress = false;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -57,7 +60,6 @@ public class LoginActivity extends AppCompatActivity implements ILoginView {
         } else {
             this.initViews();
         }
-
     }
 
     @Override
@@ -75,12 +77,11 @@ public class LoginActivity extends AppCompatActivity implements ILoginView {
         } else if (response.getResult().getRole().equals("Donatur")) {
             this.gotoDashboardDonatur();
         }
-
     }
 
     @Override
     public void onSigninFailed(String rm) {
-        Toast.makeText(this, rm, Toast.LENGTH_SHORT).show();
+        StyleableToast.makeText(this, rm, R.style.toastStyleDanger).show();
     }
 
     @Override
@@ -104,28 +105,42 @@ public class LoginActivity extends AppCompatActivity implements ILoginView {
         String username = mUsername.getText().toString();
         String pass = mPassword.getText().toString();
         if (username.isEmpty()) {
-            Toast.makeText(getApplicationContext(), "Nik tidak boleh kosong", Toast.LENGTH_LONG).show();
+            StyleableToast.makeText(getApplicationContext(), "Email tidak boleh kosong", R.style.toastStyleWarning).show();
         } else if (pass.isEmpty()) {
-            Toast.makeText(getApplicationContext(), "Password tidak boleh kosong", Toast.LENGTH_LONG).show();
+            StyleableToast.makeText(getApplicationContext(), "Password tidak boleh kosong", R.style.toastStyleWarning).show();
         } else {
             presenter.login(username, pass );
         }
-
     }
 
     public void goToRegist() {
         startActivity(new Intent(this, RegisterActivity.class));
-        finish();
+        Animatoo.animateSlideDown(this);
     }
 
     public void gotoDashboardDonatur() {
         startActivity(new Intent(this, DashboardDonaturActivity.class));
-        finish();
+        Animatoo.animateSlideUp(this);
     }
 
     public void gotoDashboardTamanBaca() {
         startActivity(new Intent(this, DashboardTamanBacaActivity.class));
-        finish();
+        Animatoo.animateSlideUp(this);
     }
 
+    @Override
+    public void onBackPressed() {
+        if (backPress) {
+            super.onBackPressed();
+            return;
+        }
+        this.backPress = true;
+        StyleableToast.makeText(this, "Tekan sekali lagi untuk keluar...", R.style.toastStyleDefault).show();
+        new Handler().postDelayed(new Runnable() {
+            @Override
+            public void run() {
+                backPress = false;
+            }
+        }, 2000);
+    }
 }

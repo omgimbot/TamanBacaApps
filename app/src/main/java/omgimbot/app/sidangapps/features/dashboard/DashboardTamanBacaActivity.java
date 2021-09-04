@@ -17,6 +17,7 @@ import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 
+import com.blogspot.atifsoftwares.animatoolib.Animatoo;
 import com.mindorks.placeholderview.PlaceHolderView;
 
 import java.util.ArrayList;
@@ -27,12 +28,13 @@ import java.util.TimerTask;
 import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
+import omgimbot.app.sidangapps.About;
+import omgimbot.app.sidangapps.Pengaduan;
 import omgimbot.app.sidangapps.R;
 import omgimbot.app.sidangapps.Utils.AdapterSliderBanner;
 import omgimbot.app.sidangapps.Utils.ModelSliderBanner;
 import omgimbot.app.sidangapps.features.auth.login.LoginActivity;
 import omgimbot.app.sidangapps.features.donasi.RiwayatDonasiActivity;
-import omgimbot.app.sidangapps.features.taman_baca.TamanBacaActivity;
 import omgimbot.app.sidangapps.features.taman_baca.buku.listbuku.BukuActivity;
 import omgimbot.app.sidangapps.ui.DrawerHeader;
 import omgimbot.app.sidangapps.ui.DrawerMenuItem;
@@ -67,9 +69,12 @@ public class DashboardTamanBacaActivity extends AppCompatActivity {
         banners = findViewById(R.id.banner);
         viewPager = findViewById(R.id.viewPager);
         indicatorDot = findViewById(R.id.bannerDot);
+
         models = new ArrayList<>();
-        models.add(new ModelSliderBanner(R.drawable.banner_1));
-        models.add(new ModelSliderBanner(R.drawable.banner_2));
+        models.add(new ModelSliderBanner(R.drawable.banners_a));
+        models.add(new ModelSliderBanner(R.drawable.banners_b));
+        models.add(new ModelSliderBanner(R.drawable.banners_c));
+        models.add(new ModelSliderBanner(R.drawable.banners_d));
 
         adapter = new AdapterSliderBanner(models, this);
         dotsCount = adapter.getCount();
@@ -105,38 +110,29 @@ public class DashboardTamanBacaActivity extends AppCompatActivity {
         });
 
         Timer timer = new Timer();
-        timer.scheduleAtFixedRate(new MyTimerTask(), 2000, 4000);
+        timer.scheduleAtFixedRate(new MyTimerTask(), 3000, 5000);
 
         viewPager.setAdapter(adapter);
-        viewPager.setPadding(55, 0, 55, 0);
-
+        viewPager.setPadding(35, 0, 35, 0);
     }
 
     public class MyTimerTask extends TimerTask {
         @Override
         public void run() {
-            if (this != null) {
-                runOnUiThread(new Runnable() {
-                    @Override
-                    public void run() {
-                        try {
-                            if (viewPager.getCurrentItem() == 0) {
-                                viewPager.setCurrentItem(1);
-                            } else if (viewPager.getCurrentItem() == 1) {
-                                viewPager.setCurrentItem(2);
-                            } else if (viewPager.getCurrentItem() == 2) {
-                                viewPager.setCurrentItem(3);
-                            } else if (viewPager.getCurrentItem() == 3) {
-                                viewPager.setCurrentItem(4);
-                            } else {
-                                viewPager.setCurrentItem(0);
-                            }
-                        } catch (Exception e) {
-
-                        }
+            DashboardTamanBacaActivity.this.runOnUiThread(new Runnable() {
+                @Override
+                public void run() {
+                    if (viewPager.getCurrentItem() == 0) {
+                        viewPager.setCurrentItem(1);
+                    } else if (viewPager.getCurrentItem() == 1) {
+                        viewPager.setCurrentItem(2);
+                    } else if (viewPager.getCurrentItem() == 2) {
+                        viewPager.setCurrentItem(3);
+                    } else {
+                        viewPager.setCurrentItem(0);
                     }
-                });
-            }
+                }
+            });
         }
     }
 
@@ -154,7 +150,6 @@ public class DashboardTamanBacaActivity extends AppCompatActivity {
                 .addView(new DrawerHeader(this))
                 .addView(new DrawerMenuItem(this, DrawerMenuItem.DRAWER_MENU_ITEM_PROFILE))
                 .addView(new DrawerMenuItem(this, DrawerMenuItem.DRAWER_MENU_ITEM_ABOUT))
-                .addView(new DrawerMenuItem(this, DrawerMenuItem.DRAWER_MENU_ITEM_RESETPASSWORD))
                 .addView(new DrawerMenuItem(this, DrawerMenuItem.DRAWER_MENU_ITEM_LOGOUT));
 
         mainMenuDashboard.setOnClickListener(new View.OnClickListener() {
@@ -170,28 +165,28 @@ public class DashboardTamanBacaActivity extends AppCompatActivity {
     @OnClick(R.id.mBuku)
     void goToTamanBaca() {
         startActivity(new Intent(this , BukuActivity.class));
-        finish();
+        Animatoo.animateSlideLeft(this);
     }
 
-//    @OnClick(R.id.mDonasi)
-//    void gotoDonasi() {
-//        startActivity(new Intent(this , ListDonasiActivity.class));
-//        finish();
-//    }
+    @OnClick(R.id.mAduan)
+    void goToAduan() {
+        startActivity(new Intent(this , Pengaduan.class));
+        Animatoo.animateSlideLeft(this);
+    }
 
+    @OnClick(R.id.mAbout)
+    void goToAbout() {
+        startActivity(new Intent(this , About.class));
+        Animatoo.animateSlideLeft(this);
+    }
 
     @OnClick(R.id.mRiwayat)
     void gotoRiwayat() {
         Intent a = new Intent(this, RiwayatDonasiActivity.class);
         a.putExtra("className" , this.getClass().getSimpleName());
         startActivity(a);
+        Animatoo.animateSlideLeft(this);
         finish();
-    }
-
-    @OnClick(R.id.mAbout)
-    void goToMunaqosah() {
-//        startActivity(new Intent(this , MunaqosahDosenActivity.class));
-//        finish();
     }
 
     @Override
@@ -206,15 +201,12 @@ public class DashboardTamanBacaActivity extends AppCompatActivity {
     }
 
     public void goToDashboard() {
-        Intent a = new Intent(this, LoginActivity.class);
-        startActivity(a);
-        finish();
+        startActivity(new Intent(this, LoginActivity.class));
+        Animatoo.animateSlideDown(this);
     }
 
     @Override
     public void onBackPressed() {
-        // ...
-
         this.goToDashboard();
         super.onBackPressed();
     }

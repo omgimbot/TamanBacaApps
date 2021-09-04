@@ -11,7 +11,8 @@
         android:layout_height="wrap_content"
         android:foreground="?android:attr/selectableItemBackground"
         app:cardCornerRadius="5dp"
-        app:cardUseCompatPadding="true">
+        app:cardUseCompatPadding="true"
+        app:contentPadding="8dp">
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -22,8 +23,7 @@
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:orientation="vertical"
-                android:padding="10dp">
+                android:orientation="vertical">
 
                 <LinearLayout
                     android:id="@+id/main_layout"
@@ -35,94 +35,109 @@
 
                     <ImageView
                         android:id="@+id/icon_image"
-                        android:layout_width="80dp"
-                        android:layout_height="80dp"
-                        android:layout_alignParentStart="false"
-                        android:layout_centerVertical="true"
+                        android:layout_width="50dp"
+                        android:layout_height="50dp"
                         android:layout_gravity="center_vertical"
-                        android:padding="8dp"
+                        android:padding="5dp"
                         app:srcCompat="@drawable/ic_book" />
 
                     <LinearLayout
-                        android:layout_weight="0.5"
                         android:id="@+id/layoutList"
-                        android:layout_width="fill_parent"
+                        android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:layout_centerVertical="true"
                         android:layout_marginStart="10dp"
-                        android:layout_toRightOf="@id/icon_image"
                         android:gravity="center_vertical"
-                        android:orientation="vertical"
-                        android:padding="3dp">
+                        android:orientation="vertical">
 
                         <TextView
                             android:id="@+id/mNama"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:maxLines="10"
-                            android:text="Perpustakaan A"
-                            android:textSize="15dp" />
+                            android:maxLines="2"
+                            android:text="Judul Buku..."
+                            android:textSize="15sp"
+                            android:textStyle="bold" />
 
                         <TextView
                             android:id="@+id/mDeskripsi"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:maxLines="1"
-                            android:text="Deskripsi"
+                            android:maxLines="2"
+                            android:text="Deskripsi..."
                             android:textColor="@color/c_black"
-                            android:textSize="12dp" />
+                            android:textSize="12sp" />
 
-                        <TextView
-                            android:textColor="@color/color_default_blue"
-                            android:id="@+id/mKategori"
-                            android:layout_width="wrap_content"
+                        <LinearLayout
+                            android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:layout_alignParentLeft="true"
-                            android:layout_weight="1"
-                            android:backgroundTint="@color/c_black"
-                            android:text="Kategori"
-                            android:textSize="10dp" />
+                            android:orientation="horizontal">
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="Kategori : "
+                                android:textColor="@color/color_default_blue"
+                                android:textSize="12sp" />
+
+                            <TextView
+                                android:id="@+id/mKategori"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="Kategori Buku"
+                                android:textColor="@color/color_default_blue"
+                                android:textSize="12sp" />
+
+                        </LinearLayout>
 
                     </LinearLayout>
 
-                    <LinearLayout
-                        android:layout_weight="1"
-                        android:orientation="vertical"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content">
+                </LinearLayout>
 
-                        <Button
-                            android:id="@+id/mEdit"
-                            android:background="@drawable/button_blue"
-                            android:layout_width="wrap_content"
-                            android:layout_height="25dp"
-                            android:layout_toRightOf="@+id/layoutList"
-                            android:text="UBAH"
-                            android:textSize="12sp"
-                            android:textColor="@color/white"/>
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:layout_marginTop="5dp"
+                    android:layout_marginBottom="5dp"
+                    android:background="@color/white_smoke" />
 
-                        <Button
-                            android:layout_marginTop="15dp"
-                            android:id="@+id/mDelete"
-                            android:background="@drawable/button_red"
-                            android:layout_width="wrap_content"
-                            android:layout_height="25dp"
-                            android:layout_toRightOf="@+id/layoutList"
-                            android:text="HAPUS"
-                            android:textSize="12sp"
-                            android:textColor="@color/white"/>
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="5dp"
+                    android:gravity="end"
+                    android:orientation="horizontal">
 
-                        <Button
-                            android:id="@+id/mDonasi"
-                            android:background="@drawable/button_blue"
-                            android:layout_width="wrap_content"
-                            android:layout_height="25dp"
-                            android:layout_toRightOf="@+id/layoutList"
-                            android:text="DONASI"
-                            android:textSize="12sp"
-                            android:textColor="@color/white"/>
+                    <Button
+                        android:id="@+id/mEdit"
+                        android:layout_width="wrap_content"
+                        android:layout_height="25dp"
+                        android:background="@drawable/button_confirm"
+                        android:text="Edit"
+                        android:textAllCaps="false"
+                        android:textColor="@color/blue"
+                        android:textSize="12sp" />
 
-                    </LinearLayout>
+                    <Button
+                        android:id="@+id/mDonasi"
+                        android:layout_width="wrap_content"
+                        android:layout_height="25dp"
+                        android:layout_marginStart="5dp"
+                        android:background="@drawable/button_confirm"
+                        android:text="Donasi"
+                        android:textAllCaps="false"
+                        android:textColor="@color/blue"
+                        android:textSize="12sp" />
+
+                    <Button
+                        android:id="@+id/mDelete"
+                        android:layout_width="wrap_content"
+                        android:layout_height="25dp"
+                        android:layout_marginStart="5dp"
+                        android:background="@drawable/button_red"
+                        android:text="Delete"
+                        android:textAllCaps="false"
+                        android:textColor="@color/white"
+                        android:textSize="12sp" />
 
                 </LinearLayout>
 

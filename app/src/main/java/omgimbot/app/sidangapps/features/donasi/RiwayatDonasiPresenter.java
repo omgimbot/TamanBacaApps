@@ -53,30 +53,4 @@ public class RiwayatDonasiPresenter {
                     }
                 });
     }
-//    public void deleteBuku(String id) {
-//        view.showLoadingIndicator();
-//        restService.create(NetworkService.class).deleteBuku(id)
-//                .enqueue(new Callback<ResponDonatur>() {
-//                    @Override
-//                    public void onResponse(retrofit2.Call<ResponDonatur> call, Response<ResponDonatur> response) {
-//                        view.hideLoadingIndicator();
-//                        Log.d("deletednya" , "sukses") ;
-//
-//                        view.onDeleteSuccess();
-//                    }
-//
-//                    @Override
-//                    public void onFailure(retrofit2.Call<ResponDonatur> call, Throwable t) {
-//                        view.hideLoadingIndicator();
-//                        view.onNetworkError(t.getLocalizedMessage());
-//                    }
-//                });
-//    }
-//
-//
-//    @NonNull
-//    private RequestBody createPartFromString(String descriptionString) {
-//        return RequestBody.create(
-//                MultipartBody.FORM, descriptionString);
-//    }
 }
