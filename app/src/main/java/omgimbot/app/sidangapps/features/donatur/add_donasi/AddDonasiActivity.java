@@ -209,7 +209,7 @@ public class AddDonasiActivity extends AppCompatActivity implements IDonasiView 
 
     @OnClick(R.id.mWa)
     public void goToWa() {
-        final String phoneD = "+6282279058667";
+        final String phoneD = tamanBaca.getNoTelpon().replaceFirst("0", "+62");
         String url = "https://api.whatsapp.com/send?phone=" + phoneD;
         Intent i = new Intent(Intent.ACTION_VIEW);
         i.setPackage("com.whatsapp");
