@@ -10,12 +10,14 @@ import androidx.viewpager.widget.ViewPager;
 import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.os.Bundle;
+import android.os.Handler;
 import android.view.Gravity;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
+import android.widget.Toast;
 
 import com.blogspot.atifsoftwares.animatoolib.Animatoo;
 import com.mindorks.placeholderview.PlaceHolderView;
@@ -29,12 +31,13 @@ import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
 import omgimbot.app.sidangapps.About;
-import omgimbot.app.sidangapps.Pengaduan;
+import omgimbot.app.sidangapps.features.pengaduan.list_pengaduan.PengaduanActivity;
 import omgimbot.app.sidangapps.R;
 import omgimbot.app.sidangapps.Utils.AdapterSliderBanner;
 import omgimbot.app.sidangapps.Utils.ModelSliderBanner;
 import omgimbot.app.sidangapps.features.auth.login.LoginActivity;
 import omgimbot.app.sidangapps.features.donasi.RiwayatDonasiActivity;
+import omgimbot.app.sidangapps.features.pengaduan.model.Pengaduan;
 import omgimbot.app.sidangapps.features.taman_baca.buku.listbuku.BukuActivity;
 import omgimbot.app.sidangapps.ui.DrawerHeader;
 import omgimbot.app.sidangapps.ui.DrawerMenuItem;
@@ -58,7 +61,7 @@ public class DashboardTamanBacaActivity extends AppCompatActivity {
     List<ModelSliderBanner> models;
     private int dotsCount;
     private ImageView[] dots;
-
+    boolean BackPress = false;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -170,8 +173,11 @@ public class DashboardTamanBacaActivity extends AppCompatActivity {
 
     @OnClick(R.id.mAduan)
     void goToAduan() {
-        startActivity(new Intent(this , Pengaduan.class));
+        Intent a = new Intent(this, PengaduanActivity.class);
+        a.putExtra("className" , this.getClass().getSimpleName());
+        startActivity(a);
         Animatoo.animateSlideLeft(this);
+        finish();
     }
 
     @OnClick(R.id.mAbout)
@@ -201,14 +207,27 @@ public class DashboardTamanBacaActivity extends AppCompatActivity {
     }
 
     public void goToDashboard() {
-        startActivity(new Intent(this, LoginActivity.class));
+       finish();
         Animatoo.animateSlideDown(this);
     }
 
     @Override
     public void onBackPressed() {
-        this.goToDashboard();
-        super.onBackPressed();
+        // ...
+
+        if (BackPress) {
+            finishAffinity();
+            return;
+        }
+        BackPress = true;
+        Toast.makeText(this, "Tekan sekali lagi untuk keluar", Toast.LENGTH_SHORT).show();
+        new Handler().postDelayed(new Runnable() {
+            @Override
+            public void run() {
+                BackPress = false;
+            }
+        }, 2000);
+//        super.onBackPressed();
     }
 
 }

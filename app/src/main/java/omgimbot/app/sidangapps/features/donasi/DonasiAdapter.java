@@ -21,6 +21,7 @@ import java.util.List;
 import omgimbot.app.sidangapps.App;
 import omgimbot.app.sidangapps.R;
 import omgimbot.app.sidangapps.Utils.Utils;
+import omgimbot.app.sidangapps.features.donatur.buku.BukuAdapter;
 import omgimbot.app.sidangapps.features.donatur.model.Donasi;
 import omgimbot.app.sidangapps.features.taman_baca.buku.model.Buku;
 
@@ -31,18 +32,18 @@ public class DonasiAdapter extends RecyclerView.Adapter<DonasiAdapter.ViewHolder
     AlertDialog.Builder dialogBuilder;
     AlertDialog alertDialog;
     String classname;
-//    private DonasiAdapter.onSelected listener;
+    private DonasiAdapter.onSelected listener;
 
-//    public interface onSelected {
-//        void onDonasi(Buku data);
-//    }
+    public interface onSelected {
+        void onTerima(Donasi data);
+    }
 
 
-    public DonasiAdapter(List<Donasi> data, Activity context, String classname) {
+    public DonasiAdapter(List<Donasi> data, Activity context, String classname, DonasiAdapter.onSelected listener) {
         this.ruts = data;
         this.context = context;
         this.classname = classname;
-//        this.listener = listener ;
+        this.listener = listener ;
     }
 
     @Override
@@ -83,11 +84,12 @@ public class DonasiAdapter extends RecyclerView.Adapter<DonasiAdapter.ViewHolder
                 holder.mSubmit.setEnabled(true);
             } else {
                 if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
-                    holder.mSubmit.setBackground(App.getApplication().getDrawable(R.drawable.button_confirm));
+                    holder.mSubmit.setBackground(App.getApplication().getDrawable(R.drawable.gray_button_background));
                 }
                 holder.mSubmit.setEnabled(false);
             }
         }
+        holder.mSubmit.setOnClickListener(View ->listener.onTerima(data));
 
 
     }

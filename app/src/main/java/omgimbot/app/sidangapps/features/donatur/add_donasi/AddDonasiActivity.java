@@ -24,7 +24,9 @@ import omgimbot.app.sidangapps.Prefs;
 import omgimbot.app.sidangapps.R;
 import omgimbot.app.sidangapps.Utils.GsonHelper;
 import omgimbot.app.sidangapps.features.auth.login.model.LoginResponse;
+import omgimbot.app.sidangapps.features.auth.login.model.Users;
 import omgimbot.app.sidangapps.features.donatur.buku.BukuActivity;
+import omgimbot.app.sidangapps.features.donatur.donasi_lain.DonasiLain;
 import omgimbot.app.sidangapps.features.donatur.model.Donasi;
 import omgimbot.app.sidangapps.features.taman_baca.TamanBacaActivity;
 import omgimbot.app.sidangapps.features.taman_baca.buku.model.Buku;
@@ -55,7 +57,8 @@ public class AddDonasiActivity extends AppCompatActivity implements IDonasiView 
     String className = "default";
     String pengiriman = "kosong";
     Buku data;
-    DonasiPresenter presenter ;
+    Users tamanBaca;
+    DonasiPresenter presenter;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -78,6 +81,9 @@ public class AddDonasiActivity extends AppCompatActivity implements IDonasiView 
                 mJudulBuku.setText(data.getJudul());
                 mDeskripsi.setText(data.getDeskripsi());
                 mDeskripsi.setEnabled(false);
+                mJudulBuku.setEnabled(false);
+            } else {
+                tamanBaca = (Users) getIntent().getExtras().getSerializable("data");
             }
         }
         this.initView();
@@ -113,21 +119,32 @@ public class AddDonasiActivity extends AppCompatActivity implements IDonasiView 
 
     @Override
     public void onCreateDonasi() {
+
         if (!mJumlah.getText().toString().equals(""))
             if (!pengiriman.equals("kosong")) {
-                String idBuku = data.getId();
+                Donasi model = new Donasi();
                 String jenisPengiriman = pengiriman;
                 int jumlah = Integer.parseInt(mJumlah.getText().toString());
-                Donasi model = new Donasi();
-                model.setJudul(data.getJudul());
-                model.setKategori(data.getKategori());
-                model.setTamanBaca(data.getNama());
-                model.setPengiriman(jenisPengiriman);
-                model.setJumlah(jumlah);
-                model.setIdUser(idUser);
-                model.setIdTamanBaca(data.getIdUser());
+                if (className.equals("edit")) {
+                    String idBuku = data.getId();
 
-                Log.d("submitnya" , new Gson().toJson(model));
+
+                    model.setJudul(data.getJudul());
+                    model.setKategori(data.getKategori());
+                    model.setTamanBaca(data.getNama());
+                    model.setPengiriman(jenisPengiriman);
+                    model.setJumlah(jumlah);
+                    model.setIdUser(idUser);
+                    model.setIdTamanBaca(data.getIdUser());
+                }else{
+                    model.setJudul(mJudulBuku.getText().toString());
+                    model.setKategori("Umum");
+                    model.setTamanBaca(tamanBaca.getNama());
+                    model.setPengiriman(jenisPengiriman);
+                    model.setJumlah(jumlah);
+                    model.setIdUser(idUser);
+                    model.setIdTamanBaca(tamanBaca.get_id());
+                }
                 presenter.CreateDonasi(model);
             } else
                 TopSnakbar.showWarning(this, "anda belum memilih jenis pengiriman");
@@ -167,6 +184,11 @@ public class AddDonasiActivity extends AppCompatActivity implements IDonasiView 
         startActivity(a);
         finish();
     }
+    public void gotoDonasiLain() {
+        Intent a = new Intent(this, DonasiLain.class);
+        startActivity(a);
+        finish();
+    }
 
     @Override
     public void onCreateDonasiSuccess() {
@@ -176,8 +198,12 @@ public class AddDonasiActivity extends AppCompatActivity implements IDonasiView 
     @Override
     public void onBackPressed() {
         // ...
+        if(className.equals("edit"))
+            this.goToDashboard();
+        else
+            this.gotoDonasiLain();
 
-        this.goToDashboard();
+//        this.goToDashboard();
         super.onBackPressed();
     }
 

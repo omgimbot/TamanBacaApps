@@ -67,13 +67,13 @@
                         android:layout_height="wrap_content"
                         android:orientation="vertical">
 
-                        <TextView
+                        <EditText
                             android:id="@+id/mJudulBuku"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:paddingLeft="10dp"
                             android:paddingRight="10dp"
-                            android:text="Judul Buku"
+                            android:hint="Judul Buku"
                             android:textColor="@color/blue"
                             android:textSize="15sp"
                             android:textStyle="bold" />
@@ -127,7 +127,7 @@
                                 android:id="@+id/mDeskripsi"
                                 android:layout_width="match_parent"
                                 android:layout_height="match_parent"
-                                android:inputType="number"
+                                android:inputType="text"
                                 android:padding="5dp"
                                 android:textColor="@color/blue"
                                 android:textSize="15sp" />

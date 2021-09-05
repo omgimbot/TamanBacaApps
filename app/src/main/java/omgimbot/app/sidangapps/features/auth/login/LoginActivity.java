@@ -8,6 +8,7 @@ import android.os.Handler;
 import android.util.Log;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.Toast;
 
 import com.blogspot.atifsoftwares.animatoolib.Animatoo;
 import com.google.gson.Gson;
@@ -81,7 +82,8 @@ public class LoginActivity extends AppCompatActivity implements ILoginView {
 
     @Override
     public void onSigninFailed(String rm) {
-        StyleableToast.makeText(this, rm, R.style.toastStyleDanger).show();
+        Toast.makeText(this, rm, Toast.LENGTH_SHORT).show();
+//        StyleableToast.makeText(this, rm, R.style.toastStyleDanger).show();
     }
 
     @Override

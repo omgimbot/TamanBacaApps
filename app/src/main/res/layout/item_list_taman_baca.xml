@@ -51,7 +51,7 @@
                             android:textStyle="bold" />
 
                         <TextView
-                            android:id="@+id/mDeskripsi"
+                            android:id="@+id/mNotlp"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:maxLines="2"

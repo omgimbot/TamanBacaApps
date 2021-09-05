@@ -13,7 +13,6 @@ import com.mindorks.placeholderview.annotations.Click;
 import com.mindorks.placeholderview.annotations.Layout;
 import com.mindorks.placeholderview.annotations.Resolve;
 import com.mindorks.placeholderview.annotations.View;
-import com.muddzdev.styleabletoastlibrary.StyleableToast;
 
 import omgimbot.app.sidangapps.About;
 import omgimbot.app.sidangapps.App;
@@ -109,7 +108,9 @@ public class DrawerMenuItem {
     }
 
     public void goToProfile(){
-        mContext.startActivity(new Intent(mContext, Profile.class).addFlags(Intent.FLAG_ACTIVITY_NEW_TASK));
+        Intent i =  new Intent(mContext , Profile.class).addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+        i.putExtra("className" , mContext.getClass().getSimpleName());
+        mContext.startActivity(i);
         ((Activity)mContext).finish();
     }
 

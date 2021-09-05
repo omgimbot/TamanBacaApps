@@ -1,7 +1,6 @@
-package omgimbot.app.sidangapps.features.donasi;
+package omgimbot.app.sidangapps.features.pengaduan.list_pengaduan;
 
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.appcompat.widget.Toolbar;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
@@ -13,8 +12,9 @@ import android.os.Bundle;
 import android.util.Log;
 import android.view.MenuItem;
 import android.view.View;
-import android.widget.LinearLayout;
 
+import com.blogspot.atifsoftwares.animatoolib.Animatoo;
+import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.gson.Gson;
 import com.ontbee.legacyforks.cn.pedant.SweetAlert.SweetAlertDialog;
 
@@ -22,55 +22,64 @@ import java.util.List;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
-import omgimbot.app.sidangapps.App;
 import omgimbot.app.sidangapps.Prefs;
-import omgimbot.app.sidangapps.R;
 import omgimbot.app.sidangapps.Utils.GsonHelper;
 import omgimbot.app.sidangapps.features.auth.login.model.LoginResponse;
+import omgimbot.app.sidangapps.features.pengaduan.tambah_pengaduan.AddPengaduan;
+import omgimbot.app.sidangapps.App;
+import omgimbot.app.sidangapps.R;
 import omgimbot.app.sidangapps.features.dashboard.DashboardDonaturActivity;
 import omgimbot.app.sidangapps.features.dashboard.DashboardTamanBacaActivity;
-import omgimbot.app.sidangapps.features.donatur.model.Donasi;
-import omgimbot.app.sidangapps.features.taman_baca.buku.model.Buku;
+import omgimbot.app.sidangapps.features.pengaduan.model.Pengaduan;
+import omgimbot.app.sidangapps.features.taman_baca.buku.listbuku.BukuActivity;
+import omgimbot.app.sidangapps.features.taman_baca.buku.tambahbuku.AddBukuActivity;
 import omgimbot.app.sidangapps.ui.SweetDialogs;
 
-public class RiwayatDonasiActivity extends AppCompatActivity implements IRiwayatDonasiView , DonasiAdapter.onSelected {
+public class PengaduanActivity extends AppCompatActivity implements IPengaduanView{
     @BindView(R.id.recycler_view)
     RecyclerView mRecyclerView;
-    @BindView(R.id.toolbar_default_in)
-    Toolbar mToolbar;
-    @BindView(R.id.empty_store)
-    LinearLayout empty_store;
+    FloatingActionButton addAduan;
     SweetAlertDialog sweetAlertDialog;
-    DonasiAdapter adapter;
-    RiwayatDonasiPresenter presenter;
-    List<Buku> product = null;
+    PengaduanAdapter adapter ;
+    PengaduanPresenter presenter ;
+    Bundle bundle ;
+    String className ;
     LoginResponse mProfile;
-    String idUser;
-    Bundle bundle;
-    String className;
-
+    String idUser ;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_riwayat_donasi);
+        setContentView(R.layout.activity_pengaduan);
         ButterKnife.bind(this);
-        setSupportActionBar(mToolbar);
-        getSupportActionBar().setTitle("Riwayat Donasi");
-        mToolbar.setTitleTextColor(getResources().getColor(R.color.white));
-        getSupportActionBar().setHomeAsUpIndicator(getResources().getDrawable(R.drawable.ic_back_left));
-        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
-        this.initView();
-        presenter = new RiwayatDonasiPresenter(this);
+        presenter = new PengaduanPresenter(this) ;
         Intent intent = this.getIntent();
         bundle = intent.getExtras();
         if (bundle != null) {
             className = getIntent().getExtras().getString("className");
-            if (className.equals("DashboardDonaturActivity"))
-                presenter.listDonasiDonatur(idUser);
-            else
-                presenter.listDonasiTamanBaca(idUser);
         }
+
+        addAduan = findViewById(R.id.mTambah);
+        addAduan.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent ac= new Intent(PengaduanActivity.this, AddPengaduan.class);
+                ac.putExtra("className" , className);
+                startActivity(ac);
+                finish();
+                Animatoo.animateSlideLeft(PengaduanActivity.this);
+            }
+        });
+
+        this.initView();
+        presenter.showPengaduan(idUser);
     }
+
+//    @Override
+//    public void onBackPressed() {
+//        startActivity(new Intent(Pengaduan.this, DashboardTamanBacaActivity.class));
+//        Animatoo.animateSlideRight(Pengaduan.this);
+//
+//    }
 
     @Override
     public void initView() {
@@ -87,6 +96,7 @@ public class RiwayatDonasiActivity extends AppCompatActivity implements IRiwayat
         mRecyclerView.setHasFixedSize(true);
         mRecyclerView.setLayoutManager(linearLayoutManager);
         mRecyclerView.clearFocus();
+//        addAduan.setOnClickListener(view ->this.goToAddPengaduan());
     }
 
     @Override
@@ -108,19 +118,20 @@ public class RiwayatDonasiActivity extends AppCompatActivity implements IRiwayat
     }
 
     @Override
-    public void onDataReady(List<Donasi> result) {
-        Log.d("dataDonasi", new Gson().toJson(result));
-        adapter = new DonasiAdapter(result, this, className,this);
+    public void onDataReady(List<Pengaduan> result) {
+        Log.d("data" , new Gson().toJson(result));
+        adapter = new PengaduanAdapter(result, this);
         mRecyclerView.setAdapter(adapter);
         adapter.notifyDataSetChanged();
         if (result.isEmpty()){
-            empty_store.setVisibility(View.VISIBLE);
+//            empty_store.setVisibility(View.VISIBLE);
             mRecyclerView.setVisibility(View.GONE);
         }else {
-            empty_store.setVisibility(View.GONE);
+//            empty_store.setVisibility(View.GONE);
             mRecyclerView.setVisibility(View.VISIBLE);
         }
     }
+
 
     @Override
     public void onNetworkError(String cause) {
@@ -140,13 +151,6 @@ public class RiwayatDonasiActivity extends AppCompatActivity implements IRiwayat
     }
 
     @Override
-    public void goToDashboardDonatur() {
-        Intent a = new Intent(this, DashboardDonaturActivity.class);
-        startActivity(a);
-        finish();
-    }
-
-    @Override
     public void goToDashboardTamanBaca() {
         Intent a = new Intent(this, DashboardTamanBacaActivity.class);
         startActivity(a);
@@ -154,9 +158,22 @@ public class RiwayatDonasiActivity extends AppCompatActivity implements IRiwayat
     }
 
     @Override
+    public void goToDashboardDonatur() {
+        Intent a = new Intent(this, DashboardDonaturActivity.class);
+        startActivity(a);
+        finish();
+    }
+
+    @Override
+    public void goToAddPengaduan() {
+        Intent a = new Intent(this, AddBukuActivity.class);
+        startActivity(a);
+        finish();
+    }
+
+    @Override
     public void refresh() {
-        Intent a = new Intent(this, RiwayatDonasiActivity.class);
-        a.putExtra("className" , className);
+        Intent a = new Intent(this, BukuActivity.class);
         startActivity(a);
         finish();
     }
@@ -164,21 +181,13 @@ public class RiwayatDonasiActivity extends AppCompatActivity implements IRiwayat
     @Override
     public void onBackPressed() {
         // ...
-        if (className.equals("DashboardDonaturActivity"))
+        if (className.equals("DashboardDonaturActivity")) {
             this.goToDashboardDonatur();
-        else
+            Animatoo.animateSlideRight(this);
+        } else {
             this.goToDashboardTamanBaca();
+            Animatoo.animateSlideRight(this);
+        }
         super.onBackPressed();
-    }
-
-    @Override
-    public void onTerima(Donasi data) {
-        data.setStatus("Diterima");
-        presenter.onTerima(data.getId(),data);
-    }
-
-    @Override
-    public void onSuccess() {
-        SweetDialogs.commonSuccessWithIntent(this,"Berhasil Memuat Permintaan" , view->this.refresh());
     }
 }

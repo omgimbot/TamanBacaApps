@@ -53,4 +53,22 @@ public class RiwayatDonasiPresenter {
                     }
                 });
     }
+
+    public void onTerima(String id ,Donasi model) {
+        view.showLoadingIndicator();
+        restService.create(NetworkService.class).terima(id,model)
+                .enqueue(new Callback<ResponDonatur>() {
+                    @Override
+                    public void onResponse(retrofit2.Call<ResponDonatur> call, Response<ResponDonatur> response) {
+                        view.hideLoadingIndicator();
+                        view.onSuccess();
+                    }
+
+                    @Override
+                    public void onFailure(retrofit2.Call<ResponDonatur> call, Throwable t) {
+                        view.hideLoadingIndicator();
+                        view.onNetworkError(t.getLocalizedMessage());
+                    }
+                });
+    }
 }

@@ -9,8 +9,11 @@ import omgimbot.app.sidangapps.Utils.CommonRespon;
 import omgimbot.app.sidangapps.features.auth.login.model.Listdosen;
 import omgimbot.app.sidangapps.features.auth.login.model.LoginResponse;
 import omgimbot.app.sidangapps.features.auth.login.model.Users;
+import omgimbot.app.sidangapps.features.auth.login.model.UsersResponse;
 import omgimbot.app.sidangapps.features.donatur.model.Donasi;
 import omgimbot.app.sidangapps.features.donatur.model.ResponDonatur;
+import omgimbot.app.sidangapps.features.pengaduan.model.Pengaduan;
+import omgimbot.app.sidangapps.features.pengaduan.model.PengaduanRespon;
 import omgimbot.app.sidangapps.features.taman_baca.buku.model.Buku;
 import omgimbot.app.sidangapps.features.taman_baca.buku.model.Respon;
 import omgimbot.app.sidangapps.features.taman_baca.model.Response;
@@ -47,11 +50,23 @@ public interface NetworkService {
     @POST("buku/create")
     Call<Respon> createBuku(@Body Buku model);
 
+    @POST("pengaduan/create")
+    Call<PengaduanRespon> createPengaduan(@Body Pengaduan model);
+
     @PUT("buku/update/{id}")
     Call<Respon> updateBuku(@Path("id") String id,@Body Buku model);
 
+    @PUT("donasi/update/{id}")
+    Call<ResponDonatur> terima(@Path("id") String id,@Body Donasi model);
+
     @GET("buku")
     Call<Respon> showBuku();
+
+    @GET("tamanBaca")
+    Call<UsersResponse> showTamanBaca();
+
+    @GET("pengaduan/{id}")
+    Call<PengaduanRespon> showPengaduan(@Path("id") String id);
 
     @DELETE("buku/delete/{id}")
     Call<Respon> deleteBuku(@Path("id") String id);

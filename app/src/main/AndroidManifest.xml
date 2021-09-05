@@ -18,12 +18,12 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
         android:usesCleartextTraffic="true">
-        <activity android:name=".AddDonasiLain"></activity>
+        <activity android:name=".features.donatur.donasi_lain.DonasiLain"></activity>
         <activity
-            android:name=".AddPengaduan"
+            android:name=".features.pengaduan.tambah_pengaduan.AddPengaduan"
             android:theme="@style/AppThemeLogin" />
         <activity
-            android:name=".Pengaduan"
+            android:name=".features.pengaduan.list_pengaduan.PengaduanActivity"
             android:theme="@style/AppThemeLogin" />
         <activity
             android:name=".About"

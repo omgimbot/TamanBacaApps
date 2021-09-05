@@ -1,12 +1,12 @@
-package omgimbot.app.sidangapps.features.donasi;
+package omgimbot.app.sidangapps.features.pengaduan.list_pengaduan;
 
 import android.app.Activity;
 
 import java.util.List;
 
-import omgimbot.app.sidangapps.features.donatur.model.Donasi;
+import omgimbot.app.sidangapps.features.pengaduan.model.Pengaduan;
 
-public interface IRiwayatDonasiView {
+public interface IPengaduanView {
     void initView();
 
     void clearLightStatusBar(Activity activity);
@@ -15,14 +15,17 @@ public interface IRiwayatDonasiView {
 
     void hideLoadingIndicator();
 
-    void onDataReady(List<Donasi> result);
+    void onDataReady(List<Pengaduan> result);
 
     void onNetworkError(String cause);
 
-    void goToDashboardDonatur();
+
     void goToDashboardTamanBaca();
+
+    void goToDashboardDonatur();
+
+    void goToAddPengaduan();
 
     void refresh();
 
-    void onSuccess();
 }

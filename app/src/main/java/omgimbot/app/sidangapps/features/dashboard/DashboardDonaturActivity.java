@@ -10,12 +10,14 @@ import androidx.viewpager.widget.ViewPager;
 import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.os.Bundle;
+import android.os.Handler;
 import android.view.Gravity;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
+import android.widget.Toast;
 
 import com.mindorks.placeholderview.PlaceHolderView;
 
@@ -28,7 +30,8 @@ import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
 import omgimbot.app.sidangapps.About;
-import omgimbot.app.sidangapps.Pengaduan;
+import omgimbot.app.sidangapps.features.donatur.donasi_lain.DonasiLain;
+import omgimbot.app.sidangapps.features.pengaduan.list_pengaduan.PengaduanActivity;
 import omgimbot.app.sidangapps.R;
 import omgimbot.app.sidangapps.Utils.AdapterSliderBanner;
 import omgimbot.app.sidangapps.Utils.ModelSliderBanner;
@@ -56,7 +59,7 @@ public class DashboardDonaturActivity extends AppCompatActivity {
     List<ModelSliderBanner> models;
     private int dotsCount;
     private ImageView[] dots;
-
+    boolean BackPress = false;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -169,10 +172,17 @@ public class DashboardDonaturActivity extends AppCompatActivity {
         startActivity(a);
         finish();
     }
+    @OnClick(R.id.mBukuLain)
+    public void gotomBukuLain() {
+        Intent a = new Intent(this, DonasiLain.class);
+        startActivity(a);
+        finish();
+    }
 
     @OnClick(R.id.mAduan)
     public void gotoPengaduan() {
-        Intent a = new Intent(this, Pengaduan.class);
+        Intent a = new Intent(this, PengaduanActivity.class);
+        a.putExtra("className" , this.getClass().getSimpleName());
         startActivity(a);
         finish();
     }
@@ -213,7 +223,18 @@ public class DashboardDonaturActivity extends AppCompatActivity {
     public void onBackPressed() {
         // ...
 
-        this.goToDashboard();
-        super.onBackPressed();
+        if (BackPress) {
+            finishAffinity();
+            return;
+        }
+        BackPress = true;
+        Toast.makeText(this, "Tekan sekali lagi untuk keluar", Toast.LENGTH_SHORT).show();
+        new Handler().postDelayed(new Runnable() {
+            @Override
+            public void run() {
+                BackPress = false;
+            }
+        }, 2000);
+//        super.onBackPressed();
     }
 }

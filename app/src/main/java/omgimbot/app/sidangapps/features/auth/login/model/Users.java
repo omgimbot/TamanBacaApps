@@ -2,7 +2,9 @@ package omgimbot.app.sidangapps.features.auth.login.model;
 
 import com.google.gson.annotations.SerializedName;
 
-public class Users {
+import java.io.Serializable;
+
+public class Users implements Serializable {
     @SerializedName("namaLengkap")
     private String nama;
 
