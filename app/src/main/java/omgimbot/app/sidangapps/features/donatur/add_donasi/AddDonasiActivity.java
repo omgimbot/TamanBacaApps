@@ -11,9 +11,7 @@ import android.view.MenuItem;
 import android.widget.Button;
 import android.widget.RadioGroup;
 import android.widget.TextView;
-import android.widget.Toast;
 
-import com.google.gson.Gson;
 import com.ontbee.legacyforks.cn.pedant.SweetAlert.SweetAlertDialog;
 
 import butterknife.BindView;
@@ -28,7 +26,6 @@ import omgimbot.app.sidangapps.features.auth.login.model.Users;
 import omgimbot.app.sidangapps.features.donatur.buku.BukuActivity;
 import omgimbot.app.sidangapps.features.donatur.donasi_lain.DonasiLain;
 import omgimbot.app.sidangapps.features.donatur.model.Donasi;
-import omgimbot.app.sidangapps.features.taman_baca.TamanBacaActivity;
 import omgimbot.app.sidangapps.features.taman_baca.buku.model.Buku;
 import omgimbot.app.sidangapps.ui.SweetDialogs;
 import omgimbot.app.sidangapps.ui.TopSnakbar;
@@ -128,7 +125,6 @@ public class AddDonasiActivity extends AppCompatActivity implements IDonasiView 
                 if (className.equals("edit")) {
                     String idBuku = data.getId();
 
-
                     model.setJudul(data.getJudul());
                     model.setKategori(data.getKategori());
                     model.setTamanBaca(data.getNama());
@@ -203,7 +199,6 @@ public class AddDonasiActivity extends AppCompatActivity implements IDonasiView 
         else
             this.gotoDonasiLain();
 
-//        this.goToDashboard();
         super.onBackPressed();
     }
 

@@ -1,11 +1,5 @@
 package omgimbot.app.sidangapps.features.donatur.buku;
 
-import android.util.Log;
-
-import androidx.annotation.NonNull;
-
-import okhttp3.MultipartBody;
-import okhttp3.RequestBody;
 import omgimbot.app.sidangapps.features.taman_baca.buku.model.Respon;
 import omgimbot.app.sidangapps.network.NetworkService;
 import omgimbot.app.sidangapps.network.RestService;
@@ -24,7 +18,7 @@ public class BukuPresenter {
 
     public void showBuku() {
         view.showLoadingIndicator();
-        restService.create(NetworkService.class).showBuku()
+        restService.create(NetworkService.class).showBukuDonatur()
                 .enqueue(new Callback<Respon>() {
                     @Override
                     public void onResponse(retrofit2.Call<Respon> call, Response<Respon> response) {
@@ -39,31 +33,4 @@ public class BukuPresenter {
                     }
                 });
     }
-
-//    public void deleteBuku(String id) {
-//        view.showLoadingIndicator();
-//        restService.create(NetworkService.class).deleteBuku(id)
-//                .enqueue(new Callback<Respon>() {
-//                    @Override
-//                    public void onResponse(retrofit2.Call<Respon> call, Response<Respon> response) {
-//                        view.hideLoadingIndicator();
-//                        Log.d("deletednya" , "sukses") ;
-//
-//                        view.onDeleteSuccess();
-//                    }
-//
-//                    @Override
-//                    public void onFailure(retrofit2.Call<Respon> call, Throwable t) {
-//                        view.hideLoadingIndicator();
-//                        view.onNetworkError(t.getLocalizedMessage());
-//                    }
-//                });
-//    }
-//
-//
-//    @NonNull
-//    private RequestBody createPartFromString(String descriptionString) {
-//        return RequestBody.create(
-//                MultipartBody.FORM, descriptionString);
-//    }
 }

@@ -3,12 +3,9 @@
     <string name="app_name_detail">Taman Baca</string>
     <string name="app_id">v2.2</string>
     <string name="app_name_country">Provinsi Lampung</string>
-    <!--        <string name="end_point">http://150.107.142.62:5050</string>-->
-    <!--    <string name="end_point">http://192.168.18.36:5050/</string>-->
-<!--    <string name="end_point">http://192.168.18.36:5050/</string>-->
-    <string name="end_point">http://192.168.18.5:5050/</string>
-    <!--    <string name="end_point">http://192.168.18.9:5050/</string>-->
-    <string name="img_end_point">http://testing.kartupetaniberjaya.com/admin/gambar_barang/</string>
+
+<!--    <string name="end_point">http://192.168.18.5:5050/</string>-->
+    <string name="end_point">http://studio81.co.id:5056/</string>
 
     <string name="descrip_a">Peduli Buku adalah aplikasi untuk memberikan bantuan buku kepada Taman Baca di kota Bandar Lampung.</string>
     <string name="descrip_b">Peduli Buku adalah aplikasi yang ditujukan untuk memberikan bantuan sosial berupa buku yang difokuskan untuk membantu Taman Baca yang ada di Bandar Lampung yang mebutuhkan buku.</string>
@@ -38,232 +35,16 @@
     <string name="item_vertical_stepper">Vertical Stepper (Item View)</string>
     <string name="item_vertical_stepper_adapter">Vertical Stepper (Adapter)</string>
 
-    <!-- Vertical Stepper View Sample Item -->
-    <string name="content_step_0">This is the first step. Click OK button to next step.\n\nTest Message.</string>
-    <string name="content_step_1">This is the second step. Click OK button to next step or Cancel button to previous step.\n\nThe summary text of each step is optional. If you haven\'t set, summary view won\'t be displayed.</string>
-    <string name="content_step_2">This is the last step. You can finish steps now.</string>
-
-    <string name="termCondition"> <![CDATA[
-        <b><p>1. Membuka rekening Bank pada Bank yang telah bekerjasama dengan aplikasi Kartu Petani Berjaya ( Bank Lampung, Bank Mandiri, Bank BRI dan Bank BNI ). </p>
-        <p>2. Jika sudah memiliki rekening salah satu Bank tersebut, maka wajib mengosongkan rekening yang ada untuk keperluan transaksi pada program kartu petani Berjaya.</p>
-        <p>3. Memasukan Nomor Rekening Kedalam Akun Aplikasi KPB</p>
-        <p>4. Bersedia menyiapkan modal untuk Usaha Tani sesuai dengan yang tertera dalam Rencana Usaha Tani (RUT) dalam aplikasi KPB</p>
-        <p>5. Bersedia untuk mengajukan akses Permodalan baik KUR dari Bank ataupun lembaga keuangan lain yang telah menjadi Member KPB</p>
-        <p>6. Bersedia untuk melakukan standing instruction  untuk transaksi pembayaran yang ada dalam Rencana Usaha Tani pada aplikasi KPB</p>
-        <p>7. Dana  yang telah disimpan di bank atau dana hasil Pinjaman dari KUR maupun dari lembaga keuangan lainnya bersedia disimpan ( hold ) sementara untuk keperluan rencana usaha tani</p>
-        <p>8. Bersedia menjual hasil panen kepada member KPB sesuai harga pasar yang berlaku.</p>
-        <p>9. Pengambilan Produk-Produk usaha Tani yang dipesan sesuai dengan Rencana Usaha Tani seperti : Pupuk/Pestisida dan benih dilakukan satu kali diawal masa tanam.</p>
-        <p>10. Mengikuti segala persyaratan dan ketentuan yang berlaku dalam Aplikasi Kartu Petani Berjaya.</p></b>
-        ]]>
-        </string>
-
-
     <string name="toggle_animation_button">Toggle Animation</string>
     <string-array name="stepView">
         <item></item>
         <item></item>
         <item></item>
     </string-array>
-    <string-array name="anak">
-        <item>Anak ke 1</item>
-        <item>Anak ke 2</item>
-        <item>Anak ke 3</item>
-        <item>Anak ke 4</item>
-        <item>Anak ke 5</item>
-        <item>Anak ke 6</item>
-        <item>Anak ke 7</item>
-        <item>Anak ke 8</item>
-        <item>Anak ke 9</item>
-        <item>Anak ke 10</item>
-        <item>Anak ke 11</item>
-        <item>Anak ke 12</item>
-        <item>Anak ke 13</item>
-        <item>Anak ke 14</item>
-        <item>Anak ke 15</item>
-        <item>Anak ke 16</item>
-        <item>Anak ke 17</item>
-        <item>Anak ke 18</item>
-    </string-array>
-    <string-array name="agama">
-        <item>Islam</item>
-        <item>Kristen Protestan</item>
-        <item>Katolik</item>
-        <item>Hindu</item>
-        <item>Buddha</item>
-        <item>Kong Hu Cu</item>
-        <item>Lainnya</item>
-    </string-array>
-    <string-array name="pendidikan">
-        <item>SD / Sederajat</item>
-        <item>SMP / Sederajat</item>
-        <item>SMA / Sederajat</item>
-        <item>S1</item>
-        <item>S2</item>
-        <item>S3</item>
-        <item>Lainnya</item>
-    </string-array>
-
-    <string-array name="PendidikanAnak">
-        <item>Belum Sekolah</item>
-        <item>TK/ PAUD</item>
-        <item>SD/ MI</item>
-        <item>SMP / MT</item>
-        <item>SMA/SMK/MA</item>
-        <item>Perguruan Tinggi</item>
-        <item>Berhenti Sekolah</item>
-        <item>Lainnya</item>
-    </string-array>
-
-    <string-array name="perkawinan">
-        <item>Menikah</item>
-        <item>Belum Menikah</item>
-    </string-array>
-
-    <string-array name="HubKeluarga">
-        <item>Orang Tua Kandung/ Mertua</item>
-        <item>Saudara</item>
-    </string-array>
-
-    <string-array name="statusRumah">
-        <item>Milik Sendiri</item>
-        <item>Milik Keluarga</item>
-        <item>Sewa</item>
-        <item>Menumpang</item>
-    </string-array>
-
-    <string-array name="statusLahan">
-        <item>Milik Sendiri</item>
-        <item>Milik Keluarga</item>
-        <item>Sewa</item>
-        <item>Menumpang</item>
-        <item>Bekerja di lahan orang lain</item>
-    </string-array>
-
-    <string-array name="fasilitasListrik">
-        <item>Ada - PLN</item>
-        <item>Ada - Bukan PLN</item>
-        <item>Tidak Ada</item>
-    </string-array>
-
-    <string-array name="kendaraan">
-        <item>Sepeda</item>
-        <item>Sepeda Motor</item>
-        <item>Mobil</item>
-        <item>Tidak Ada</item>
-    </string-array>
-
-    <string-array name="ternak">
-        <item>Ikan - Kolam</item>
-        <item>Unggas</item>
-        <item>Sapi/ Kerbau/ Kambing</item>
-        <item>Tidak Ada</item>
-    </string-array>
-
-    <string-array name="provinsi">
-        <item>14</item>
-        <item>15</item>
-        <item>16</item>
-        <item>17</item>
-        <item>18</item>
-    </string-array>
-
-    <string-array name="fakultas">
-        <item>Fakultas Adab</item>
-        <item>Fakultas Tarbiyah dan Keguruan</item>
-        <item>Fakultas Ekonomi dan Bisnis Islam</item>
-        <item>Fakultas Dakwah dan Ilmu Komunikasi</item>
-        <item>Fakultas Ushuluddin dan Studi Agama</item>
-        <item>Fakultas Syariah</item>
-        <item>Program S2</item>
-        <item>Program S3</item>
-    </string-array>
-
-    <string-array name="adab">
-        <item>Ilmu Perpustakaan dan Informasi Islam</item>
-        <item>Sejarah Peradaban Islam</item>
-    </string-array>
-
-    <string-array name="tarbiyah">
-        <item>Pendidikan Agama Islam</item>
-        <item>Pendidikan Bahasa Arab</item>
-        <item>Manajemen Pendidikan Islam</item>
-        <item>Pendidikan Bahasa Inggris</item>
-        <item>Pendidikan Biologi</item>
-        <item>Pendidikan Fisika</item>
-        <item>Bimbingan dan Konseling</item>
-        <item>Pendidikan Matematika</item>
-        <item>Pendidikan Anak Usia Dini</item>
-        <item>Pendidikan Guru Madrasah Ibtidaiyah</item>
-    </string-array>
-
-    <string-array name="ekonomi">
-        <item>Akuntansi Syariah</item>
-        <item>Perbankan Syariah</item>
-        <item>Ekonomi Syariah</item>
-        <item>Manajemen Bisnis Syariah</item>
-    </string-array>
-
-    <string-array name="dakwah">
-        <item>Komunikasi dan Penyiaran Islam</item>
-        <item>Pengembangan Masyarakat Islam</item>
-        <item>Manajemen Dakwah</item>
-        <item>Bimbingan Konseling Islam</item>
-    </string-array>
-
-    <string-array name="ushuluddin">
-        <item>Aqidah dan Filsafat Islam</item>
-        <item>Ilmu Alquran dan Tafsir</item>
-        <item>Pemikiran Politik Islam</item>
-        <item>Psikologi Islam</item>
-        <item>Sosiologi Agama</item>
-        <item>Studi Agama-Agama</item>
-        <item>Tawasuf dan Psikoterapi</item>
-    </string-array>
-
-    <string-array name="syariah">
-        <item>Hukum Keluarga(Ahwal Syakhshiyah)</item>
-        <item>Hukum Tata Negara</item>
-        <item>Hukum Ekonomi</item>
-
-    </string-array>
-
-    <string-array name="s2">
-        <item>Ekonomi Syariah</item>
-        <item>Filsafat Agama</item>
-        <item>Hukum Ekonomi Syariah</item>
-        <item>Hukum Keluarga (Akhwal Syahsiyyah)</item>
-        <item>Ilmu Al-Quran dan Tafsir</item>
-        <item>Manajemen Pendidikan Islam</item>
-        <item>Pendidikan Agama Islam</item>
-        <item>Pengembangan Masyarakat Islam</item>
-        <item>Pendidikan Bahasa Arab</item>
-    </string-array>
-
-    <string-array name="s3">
-        <item>Hukum Keluarga (Akhwal Syahsiyyah) S3</item>
-        <item>Manajemen Pendidikan Islam S3</item>
-        <item>Pengembangan Masyarakat Islam S3</item>
-    </string-array>
-
 
     <string name="title_activity_detail_profile">detailProfile</string>
-    <string name="title_activity_asset">Subsektor anda</string>
 
     <string name="new_message_notification_title_template">New message: %1$s</string>
-
-    <!-- TODO: remove this placeholder text -->
-    <string name="new_message_notification_placeholder_text_template">You said %1$s and lorem ipsum
-        dolor sit amet, consectetur adipiscing elit. Etiam non enim magna. Morbi dictum, velit vel
-        semper venenatis, magna odio volutpat velit, at ullamcorper nulla lacus sed turpis.
-        Pellentesque vitae metus elit, nec tincidunt tellus. Integer sed nisl sem, ullamcorper
-        ornare lacus. Duis ac mauris sed massa congue volutpat. Donec sed erat sit amet turpis
-        viverra rhoncus sit amet nec magna. Donec lacinia ligula at libero volutpat volutpat nec nec
-        tortor.
-    </string>
-    <string-array name="role">
-        <item>DOSEN</item>
-        <item>MAHASISWA</item>
-    </string-array>
 
     <string name="action_share">Share</string>
     <string name="action_reply">Reply</string>
@@ -274,87 +55,35 @@
     <string name="close">Close</string>
 
     <string name="menu_a">Layanan Kami</string>
+    <string name="notfound">Tidak ditemukan</string>
     <string name="menu_b">Layanan Lainnya</string>
     <string name="menu_c">Dukungan</string>
     <string name="find">Pengguna Ditemukan</string>
-    <string name="poktan">POKTAN PENGGUNA</string>
     <string name="nama">Nama Lengkap</string>
     <string name="nama_lengkap">Nama Lengkap</string>
     <string name="nik">Nomor Induk Kependudukan</string>
     <string name="pass">Kata Sandi</string>
-    <string name="provinsi">Provinsi</string>
-    <string name="kabupaten">Kabupaten</string>
-    <string name="kecamatan">Kecamatan</string>
-    <string name="desa">Desa</string>
     <string name="alamat">Alamat Lengkap</string>
     <string name="confirm_pass">Ulangi Kata Sandi</string>
-    <string name="gender">Jenis Kelamin</string>
-
-    <string name="menu_rut">RUT</string>
-    <string name="menu_rut_desc">Rencana Usaha Tani</string>
-    <string name="menu_pupuk">Pupuk</string>
-    <string name="menu_pasar">Pasar Tani</string>
-    <string name="menu_keuangan">Keuangan</string>
-    <string name="menu_transaksi">Transaksi</string>
-    <string name="menu_kartu">Kartu Petani</string>
-    <string name="menu_kur">KUR</string>
-    <string name="menu_beasiswa">Informasi Beasiswa</string>
-    <string name="menu_beasiswa_desc">Kami menyediakan informasi tentang fakultas.</string>
-    <string name="menu_portal">Portal Informasi</string>
-    <string name="menu_portal_desc">Jelajahi berbagai macam informasi mengenai layanan yang dapat anda nikmati.</string>
 
     <string name="back">Kembali</string>
-    <!--    <string name="next">Selanjutnya</string>-->
-    <!--    <string name="skip">Lewati</string>-->
     <string name="add">Tambah</string>
     <string name="get_started">Mulai</string>
-    <string name="check">Masukan NIK Anda</string>
     <string name="signin">Masuk</string>
     <string name="signup">Daftar</string>
     <string name="go_login">Sudah punya akun ? silahkan masuk !</string>
     <string name="go_regist">Belum punya akun ? Daftar Sekarang !</string>
-    <string name="popup_a">Keuntungan bergabung dengan KPB ?</string>
-    <string name="popup_b">Syarat untuk bergabung KPB !</string>
 
     <string name="lorem_title">Lorem Ipsum</string>
     <string name="lorem_desc">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.</string>
 
-    <string name="menu_komoditi">komoditas Tersedia</string>
-
-    <string name="total_aset">TOTAL SUBSEKTOR</string>
-    <string name="sub_sektor">SUB SEKTOR</string>
     <string name="count">01</string>
-    <string name="atur_rut">ATUR RUT</string>
     <string name="tambah_aset">TAMBAH</string>
-    <string name="tambah_komoditas">Tambah Data Komoditas</string>
-    <string name="luas_tanah">Luas Tanah</string>
-    <string name="banyaknya">Banyaknya</string>
-    <string name="masa_tanam">Masa Tanam</string>
     <string name="selesai">selesai</string>
-    <string name="masa_tanam_01">Masa Tanam 01</string>
-    <string name="luas_lahan">Luas Lahan</string>
     <string name="jumlah">Jumlah</string>
-    <string name="tambah_masatanam">Tambah Masa Tanam</string>
-    <string name="info_1">Luas Lahan / Banyak komoditas</string>
-    <string name="setuju">Setuju</string>
     <string name="Ubah">Ubah</string>
-    <string name="rincian">Rincian</string>
-    <string name="profile">Rincian data diri</string>
-    <string name="lta">Luas Tanah 1</string>
-    <string name="ltb">Luas Tanah 2</string>
-    <string name="ltc">Luas Tanah 3</string>
     <string name="edit">Perbaharui</string>
     <string name="telp">Nomor Telephone</string>
-    <string name="telp_number">+62 877 7625 0855</string>
-    <string name="detail">Lihat detail</string>
-    <string name="place_birth">Tempat Lahir</string>
-    <string name="date_birth">Tanggal Lahir</string>
-    <string name="mom">Nama Ibu Kandung</string>
-    <string name="no_kk">Nomor Kartu Keluarga</string>
-    <string name="nama_kk">Nama Kepala Keluarga</string>
-    <string name="anak_ke">Anak ke</string>
-    <string name="nama_anak">Nama Anak</string>
-
 
     <!-- TODO: Remove or change this placeholder text -->
     <!--    <string name="hello_blank_fragment">Hello blank fragment</string>-->

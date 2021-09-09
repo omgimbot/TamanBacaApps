@@ -24,7 +24,6 @@ public class AddBukuPresenter {
         restService = RestService.getRetrofitInstance();
     }
 
-
     void inputBuku(Buku model) {
         view.showLoadingIndicator();
         restService.create(NetworkService.class).createBuku(model)

@@ -5,9 +5,7 @@ import android.util.Log;
 import com.google.gson.Gson;
 
 import omgimbot.app.sidangapps.features.pengaduan.model.Pengaduan;
-import omgimbot.app.sidangapps.features.taman_baca.buku.model.Buku;
 import omgimbot.app.sidangapps.features.pengaduan.model.PengaduanRespon;
-import omgimbot.app.sidangapps.features.taman_baca.buku.tambahbuku.IAddBukuView;
 import omgimbot.app.sidangapps.network.NetworkService;
 import omgimbot.app.sidangapps.network.RestService;
 import retrofit2.Callback;
@@ -22,7 +20,6 @@ public class AddPengaduanPresenter {
         this.view = view;
         restService = RestService.getRetrofitInstance();
     }
-
 
     void inputPengaduan(Pengaduan model) {
         view.showLoadingIndicator();
@@ -47,7 +44,4 @@ public class AddPengaduanPresenter {
                     }
                 });
     }
-
-
-
 }

@@ -19,18 +19,14 @@ import omgimbot.app.sidangapps.R;
 import omgimbot.app.sidangapps.Utils.Utils;
 import omgimbot.app.sidangapps.features.taman_baca.model.TamanBaca;
 
-
 public class TamanBacaAdapter extends RecyclerView.Adapter<TamanBacaAdapter.ViewHolder> {
     public List<TamanBaca> ruts;
     Activity context;
-    AlertDialog.Builder dialogBuilder;
-    AlertDialog alertDialog;
     private TamanBacaAdapter.onSelected listener;
 
     public interface onSelected {
         void onClick(TamanBaca data);
     }
-
 
     public TamanBacaAdapter(List<TamanBaca> data, Activity context, TamanBacaAdapter.onSelected listener) {
         this.ruts = data;
@@ -52,11 +48,7 @@ public class TamanBacaAdapter extends RecyclerView.Adapter<TamanBacaAdapter.View
         holder.mNama.setText(data.getNamaPerpus());
         holder.mAlamat.setText(data.getAlamat());
         holder.mDeskripsi.setText(data.getDeskripsi());
-
-
-
         holder.onClick.setOnClickListener(View -> listener.onClick(data));
-
     }
 
     @Override
@@ -72,7 +64,6 @@ public class TamanBacaAdapter extends RecyclerView.Adapter<TamanBacaAdapter.View
         TextView mNama, mAlamat,mDeskripsi;
         ImageView icon_image;
 
-
         ViewHolder(View view) {
             super(view);
             onClick = view.findViewById(R.id.main_layout);
@@ -80,10 +71,6 @@ public class TamanBacaAdapter extends RecyclerView.Adapter<TamanBacaAdapter.View
             mAlamat = view.findViewById(R.id.mAlamat);
             mDeskripsi = view.findViewById(R.id.mDeskripsi);
             icon_image = view.findViewById(R.id.icon_image);
-
         }
-
     }
-
-
 }

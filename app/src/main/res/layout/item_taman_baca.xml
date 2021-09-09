@@ -57,7 +57,7 @@
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:maxLines="1"
-                            android:text="Taman Baca"
+                            android:text="@string/notfound"
                             android:textSize="15dp" />
 
                         <TextView

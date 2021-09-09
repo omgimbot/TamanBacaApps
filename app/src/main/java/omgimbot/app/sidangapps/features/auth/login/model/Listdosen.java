@@ -3,6 +3,7 @@ package omgimbot.app.sidangapps.features.auth.login.model;
 import com.google.gson.annotations.SerializedName;
 
 public class Listdosen {
+
     @SerializedName("nama")
     private String nama;
     @SerializedName("nidn")
@@ -23,4 +24,5 @@ public class Listdosen {
     public void setUsername(String username) {
         this.username = username;
     }
+
 }

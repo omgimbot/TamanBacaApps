@@ -22,10 +22,6 @@ import omgimbot.app.sidangapps.features.pengaduan.model.Pengaduan;
 public class PengaduanAdapter extends RecyclerView.Adapter<PengaduanAdapter.ViewHolder> {
     public List<Pengaduan> ruts;
     Activity context;
-    AlertDialog.Builder dialogBuilder;
-    AlertDialog alertDialog;
-
-
 
     public PengaduanAdapter(List<Pengaduan> data, Activity context) {
         this.ruts = data;
@@ -53,8 +49,6 @@ public class PengaduanAdapter extends RecyclerView.Adapter<PengaduanAdapter.View
             holder.mStatus.setText(data.getStatus());
         }
 
-
-
     }
 
     @Override
@@ -71,7 +65,6 @@ public class PengaduanAdapter extends RecyclerView.Adapter<PengaduanAdapter.View
         ImageView icon_image , indicator;
         Button mDelete , mEdit ,mDonasi;
 
-
         ViewHolder(View view) {
             super(view);
             mNama = view.findViewById(R.id.mNama);
@@ -83,6 +76,4 @@ public class PengaduanAdapter extends RecyclerView.Adapter<PengaduanAdapter.View
         }
 
     }
-
-
 }

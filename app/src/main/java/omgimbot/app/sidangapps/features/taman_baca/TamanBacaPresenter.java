@@ -39,7 +39,6 @@ public class TamanBacaPresenter {
                 });
     }
 
-
     @NonNull
     private RequestBody createPartFromString(String descriptionString) {
         return RequestBody.create(

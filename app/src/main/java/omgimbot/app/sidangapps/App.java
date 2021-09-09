@@ -8,10 +8,6 @@ import android.text.TextUtils;
 import androidx.appcompat.app.AppCompatDelegate;
 import androidx.multidex.MultiDex;
 
-/*
- * 	We are creating a Application Singleton Object by extending Application, so it should be declared as a application in the "AndroidMainFests" file
- * */
-
 public class App extends Application
 {
     public static final String TAG = App.class.getSimpleName();
@@ -47,7 +43,6 @@ public class App extends Application
         AppCompatDelegate.setCompatVectorFromResourcesEnabled(true);
 
     }
-
 
     public static synchronized App getInstance()
     {

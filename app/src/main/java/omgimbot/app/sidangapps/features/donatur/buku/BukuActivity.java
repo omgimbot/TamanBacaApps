@@ -2,7 +2,6 @@ package omgimbot.app.sidangapps.features.donatur.buku;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.SearchView;
-import androidx.appcompat.widget.Toolbar;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
@@ -25,7 +24,6 @@ import com.ontbee.legacyforks.cn.pedant.SweetAlert.SweetAlertDialog;
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Scanner;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -84,8 +82,6 @@ public class BukuActivity extends AppCompatActivity implements IBukuView, omgimb
 
             @Override
             public boolean onQueryTextChange(String nextText) {
-                //Data akan berubah saat user menginputkan text/kata kunci pada SearchView
-//                nextText = nextText.toLowerCase();
                 if (nextText.length() < 1) {
                     ArrayList<Buku> dataFilter = new ArrayList<>();
                     for (Buku data : product) {
@@ -104,7 +100,6 @@ public class BukuActivity extends AppCompatActivity implements IBukuView, omgimb
         mRecyclerView.setHasFixedSize(true);
         mRecyclerView.setLayoutManager(linearLayoutManager);
         mRecyclerView.clearFocus();
-//        mTambah.setOnClickListener(view ->this.goToAddBuku());
     }
 
     public static int bruteforce(String text, String tobematched) {

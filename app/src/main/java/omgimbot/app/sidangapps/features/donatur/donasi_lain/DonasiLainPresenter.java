@@ -1,7 +1,6 @@
 package omgimbot.app.sidangapps.features.donatur.donasi_lain;
 
 import omgimbot.app.sidangapps.features.auth.login.model.UsersResponse;
-import omgimbot.app.sidangapps.features.donatur.buku.IBukuView;
 import omgimbot.app.sidangapps.network.NetworkService;
 import omgimbot.app.sidangapps.network.RestService;
 import retrofit2.Callback;
@@ -34,31 +33,4 @@ public class DonasiLainPresenter {
                     }
                 });
     }
-
-//    public void deleteBuku(String id) {
-//        view.showLoadingIndicator();
-//        restService.create(NetworkService.class).deleteBuku(id)
-//                .enqueue(new Callback<UsersResponse>() {
-//                    @Override
-//                    public void onResponse(retrofit2.Call<UsersResponse> call, Response<UsersResponse> response) {
-//                        view.hideLoadingIndicator();
-//                        Log.d("deletednya" , "sukses") ;
-//
-//                        view.onDeleteSuccess();
-//                    }
-//
-//                    @Override
-//                    public void onFailure(retrofit2.Call<UsersResponse> call, Throwable t) {
-//                        view.hideLoadingIndicator();
-//                        view.onNetworkError(t.getLocalizedMessage());
-//                    }
-//                });
-//    }
-//
-//
-//    @NonNull
-//    private RequestBody createPartFromString(String descriptionString) {
-//        return RequestBody.create(
-//                MultipartBody.FORM, descriptionString);
-//    }
 }

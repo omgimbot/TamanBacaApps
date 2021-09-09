@@ -74,13 +74,6 @@ public class PengaduanActivity extends AppCompatActivity implements IPengaduanVi
         presenter.showPengaduan(idUser);
     }
 
-//    @Override
-//    public void onBackPressed() {
-//        startActivity(new Intent(Pengaduan.this, DashboardTamanBacaActivity.class));
-//        Animatoo.animateSlideRight(Pengaduan.this);
-//
-//    }
-
     @Override
     public void initView() {
         mProfile = (LoginResponse) GsonHelper.parseGson(
@@ -96,7 +89,6 @@ public class PengaduanActivity extends AppCompatActivity implements IPengaduanVi
         mRecyclerView.setHasFixedSize(true);
         mRecyclerView.setLayoutManager(linearLayoutManager);
         mRecyclerView.clearFocus();
-//        addAduan.setOnClickListener(view ->this.goToAddPengaduan());
     }
 
     @Override
@@ -124,10 +116,8 @@ public class PengaduanActivity extends AppCompatActivity implements IPengaduanVi
         mRecyclerView.setAdapter(adapter);
         adapter.notifyDataSetChanged();
         if (result.isEmpty()){
-//            empty_store.setVisibility(View.VISIBLE);
             mRecyclerView.setVisibility(View.GONE);
         }else {
-//            empty_store.setVisibility(View.GONE);
             mRecyclerView.setVisibility(View.VISIBLE);
         }
     }

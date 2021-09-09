@@ -18,9 +18,4 @@ public class RestService {
         }
         return retrofit;
     }
-
-//    public static RestService getAPIService(){
-//        return RetrofitClient.getClient(BASK_URL).create(RestService.class);
-//
-//    }
 }

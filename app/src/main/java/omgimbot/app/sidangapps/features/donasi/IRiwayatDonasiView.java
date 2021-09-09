@@ -7,6 +7,7 @@ import java.util.List;
 import omgimbot.app.sidangapps.features.donatur.model.Donasi;
 
 public interface IRiwayatDonasiView {
+
     void initView();
 
     void clearLightStatusBar(Activity activity);

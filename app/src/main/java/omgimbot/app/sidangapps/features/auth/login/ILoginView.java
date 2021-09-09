@@ -3,6 +3,7 @@ package omgimbot.app.sidangapps.features.auth.login;
 import omgimbot.app.sidangapps.features.auth.login.model.LoginResponse;
 
 public interface ILoginView {
+
     void initViews();
 
     void onSigninSuccess(LoginResponse response);
@@ -14,4 +15,5 @@ public interface ILoginView {
     void showLoadingIndicator();
 
     void hideLoadingIndicator();
+
 }

@@ -35,9 +35,7 @@ import omgimbot.app.sidangapps.features.pengaduan.list_pengaduan.PengaduanActivi
 import omgimbot.app.sidangapps.R;
 import omgimbot.app.sidangapps.Utils.AdapterSliderBanner;
 import omgimbot.app.sidangapps.Utils.ModelSliderBanner;
-import omgimbot.app.sidangapps.features.auth.login.LoginActivity;
 import omgimbot.app.sidangapps.features.donasi.RiwayatDonasiActivity;
-import omgimbot.app.sidangapps.features.pengaduan.model.Pengaduan;
 import omgimbot.app.sidangapps.features.taman_baca.buku.listbuku.BukuActivity;
 import omgimbot.app.sidangapps.ui.DrawerHeader;
 import omgimbot.app.sidangapps.ui.DrawerMenuItem;
@@ -213,8 +211,6 @@ public class DashboardTamanBacaActivity extends AppCompatActivity {
 
     @Override
     public void onBackPressed() {
-        // ...
-
         if (BackPress) {
             finishAffinity();
             return;
@@ -227,7 +223,6 @@ public class DashboardTamanBacaActivity extends AppCompatActivity {
                 BackPress = false;
             }
         }, 2000);
-//        super.onBackPressed();
     }
 
 }

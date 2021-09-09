@@ -20,7 +20,6 @@ public class Respon {
     @SerializedName("result")
     private List<Buku> result;
 
-
     public String getmRc() {
         return mRc;
     }

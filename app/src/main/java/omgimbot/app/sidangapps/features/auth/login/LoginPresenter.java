@@ -1,14 +1,9 @@
 package omgimbot.app.sidangapps.features.auth.login;
 
-import android.util.Base64;
-
 import java.util.HashMap;
 
-import okhttp3.OkHttpClient;
-import okhttp3.Request;
 import omgimbot.app.sidangapps.App;
 import omgimbot.app.sidangapps.Prefs;
-import omgimbot.app.sidangapps.R;
 import omgimbot.app.sidangapps.features.auth.login.model.LoginResponse;
 import omgimbot.app.sidangapps.network.NetworkService;
 import omgimbot.app.sidangapps.network.RestService;
@@ -19,6 +14,7 @@ import retrofit2.Retrofit;
 public class LoginPresenter {
     final ILoginView view;
     public final Retrofit restService;
+
     public LoginPresenter(ILoginView view) {
         this.view = view;
         restService = RestService.getRetrofitInstance();
@@ -39,8 +35,8 @@ public class LoginPresenter {
 
     void login(String username, String password) {
         HashMap<String, Object> params = new HashMap<>();
-        params.put("email", username );
-        params.put("password", password );
+        params.put("email", username);
+        params.put("password", password);
         view.showLoadingIndicator();
         restService.create(NetworkService.class).signin(params).enqueue(new Callback<LoginResponse>() {
             @Override

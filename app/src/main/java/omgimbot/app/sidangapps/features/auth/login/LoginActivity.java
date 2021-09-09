@@ -83,7 +83,6 @@ public class LoginActivity extends AppCompatActivity implements ILoginView {
     @Override
     public void onSigninFailed(String rm) {
         Toast.makeText(this, rm, Toast.LENGTH_SHORT).show();
-//        StyleableToast.makeText(this, rm, R.style.toastStyleDanger).show();
     }
 
     @Override
@@ -111,7 +110,7 @@ public class LoginActivity extends AppCompatActivity implements ILoginView {
         } else if (pass.isEmpty()) {
             StyleableToast.makeText(getApplicationContext(), "Password tidak boleh kosong", R.style.toastStyleWarning).show();
         } else {
-            presenter.login(username, pass );
+            presenter.login(username, pass);
         }
     }
 

@@ -18,7 +18,6 @@ public class Response {
     @SerializedName("result")
     private List<TamanBaca> result;
 
-
     public String getmRc() {
         return mRc;
     }

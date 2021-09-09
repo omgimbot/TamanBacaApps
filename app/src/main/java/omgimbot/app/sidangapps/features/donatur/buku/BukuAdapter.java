@@ -19,12 +19,9 @@ import java.util.List;
 import omgimbot.app.sidangapps.R;
 import omgimbot.app.sidangapps.features.taman_baca.buku.model.Buku;
 
-
 public class BukuAdapter extends RecyclerView.Adapter<BukuAdapter.ViewHolder> {
     public List<Buku> ruts;
     Activity context;
-    AlertDialog.Builder dialogBuilder;
-    AlertDialog alertDialog;
     private BukuAdapter.onSelected listener;
 
     public interface onSelected {
@@ -80,7 +77,6 @@ public class BukuAdapter extends RecyclerView.Adapter<BukuAdapter.ViewHolder> {
 
         ViewHolder(View view) {
             super(view);
-//            onClick = view.findViewById(R.id.main_layout);
             mNama = view.findViewById(R.id.mNama);
             mKategori = view.findViewById(R.id.mKategori);
             mDeskripsi = view.findViewById(R.id.mDeskripsi);

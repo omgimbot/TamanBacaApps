@@ -1,6 +1,5 @@
 package omgimbot.app.sidangapps.features.donasi;
 
-import omgimbot.app.sidangapps.features.donatur.add_donasi.IDonasiView;
 import omgimbot.app.sidangapps.features.donatur.model.Donasi;
 import omgimbot.app.sidangapps.features.donatur.model.ResponDonatur;
 import omgimbot.app.sidangapps.network.NetworkService;

@@ -26,7 +26,10 @@ import java.util.List;
 import butterknife.BindView;
 import butterknife.ButterKnife;
 import omgimbot.app.sidangapps.App;
+import omgimbot.app.sidangapps.Prefs;
 import omgimbot.app.sidangapps.R;
+import omgimbot.app.sidangapps.Utils.GsonHelper;
+import omgimbot.app.sidangapps.features.auth.login.model.LoginResponse;
 import omgimbot.app.sidangapps.features.dashboard.DashboardDonaturActivity;
 import omgimbot.app.sidangapps.features.dashboard.DashboardTamanBacaActivity;
 import omgimbot.app.sidangapps.features.taman_baca.buku.model.Buku;
@@ -45,6 +48,8 @@ public class BukuActivity extends AppCompatActivity implements IBukuView , BukuA
     SweetAlertDialog sweetAlertDialog;
     BukuAdapter adapter ;
     BukuPresenter presenter ;
+    String idUser;
+    LoginResponse mProfile;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -57,11 +62,17 @@ public class BukuActivity extends AppCompatActivity implements IBukuView , BukuA
         getSupportActionBar().setHomeAsUpIndicator(getResources().getDrawable(R.drawable.ic_back_left));
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         this.initView();
-        presenter.showBuku();
+        presenter.showBuku(idUser);
     }
 
     @Override
     public void initView() {
+        mProfile = (LoginResponse) GsonHelper.parseGson(
+                App.getPref().getString(Prefs.PREF_STORE_PROFILE, ""),
+                new LoginResponse()
+        );
+        idUser = (mProfile.getResult().get_id().contains(" "))
+                ? mProfile.getResult().get_id() : mProfile.getResult().get_id();
         sweetAlertDialog = new SweetAlertDialog(this, SweetAlertDialog.PROGRESS_TYPE);
         sweetAlertDialog.setTitleText(App.getApplication().getString(R.string.loading));
         sweetAlertDialog.setCancelable(false);
@@ -104,7 +115,6 @@ public class BukuActivity extends AppCompatActivity implements IBukuView , BukuA
             mRecyclerView.setVisibility(View.VISIBLE);
         }
     }
-
 
     @Override
     public void onNetworkError(String cause) {

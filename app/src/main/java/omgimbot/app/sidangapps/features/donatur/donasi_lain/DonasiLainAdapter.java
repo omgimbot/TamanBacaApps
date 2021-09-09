@@ -19,12 +19,9 @@ import java.util.List;
 import omgimbot.app.sidangapps.R;
 import omgimbot.app.sidangapps.features.auth.login.model.Users;
 
-
 public class DonasiLainAdapter extends RecyclerView.Adapter<DonasiLainAdapter.ViewHolder> {
     public List<Users> ruts;
     Activity context;
-    AlertDialog.Builder dialogBuilder;
-    AlertDialog alertDialog;
     private DonasiLainAdapter.onSelected listener;
 
     public interface onSelected {
@@ -77,7 +74,6 @@ public class DonasiLainAdapter extends RecyclerView.Adapter<DonasiLainAdapter.Vi
 
         ViewHolder(View view) {
             super(view);
-//            onClick = view.findViewById(R.id.main_layout);
             mNama = view.findViewById(R.id.mNama);
             mNotlp = view.findViewById(R.id.mNotlp);
             mAlamat = view.findViewById(R.id.mAlamat);

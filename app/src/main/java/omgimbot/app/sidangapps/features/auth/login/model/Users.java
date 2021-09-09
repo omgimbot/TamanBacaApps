@@ -5,6 +5,7 @@ import com.google.gson.annotations.SerializedName;
 import java.io.Serializable;
 
 public class Users implements Serializable {
+
     @SerializedName("namaLengkap")
     private String nama;
 
@@ -81,4 +82,5 @@ public class Users implements Serializable {
     public void setNoTelpon(String noTelpon) {
         this.noTelpon = noTelpon;
     }
+
 }

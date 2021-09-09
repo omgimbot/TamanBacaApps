@@ -51,8 +51,6 @@ public class AddPengaduan extends AppCompatActivity implements IAddPengaduanView
         if (bundle != null) {
             className = getIntent().getExtras().getString("className");
         }
-
-
     }
 
     @Override
@@ -88,7 +86,6 @@ public class AddPengaduan extends AppCompatActivity implements IAddPengaduanView
                 TopSnakbar.showWarning(this, "Jumlah Tidak Boleh Kosong !");
         else
             TopSnakbar.showWarning(this, "Judul Tidak Boleh Kosong !");
-
     }
 
     @Override
@@ -150,6 +147,4 @@ public class AddPengaduan extends AppCompatActivity implements IAddPengaduanView
         Animatoo.animateSlideRight(AddPengaduan.this);
         super.onBackPressed();
     }
-
-
 }

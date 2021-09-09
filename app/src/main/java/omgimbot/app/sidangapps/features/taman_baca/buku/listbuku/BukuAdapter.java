@@ -19,7 +19,6 @@ import omgimbot.app.sidangapps.R;
 import omgimbot.app.sidangapps.features.taman_baca.buku.model.Buku;
 import omgimbot.app.sidangapps.features.taman_baca.model.TamanBaca;
 
-
 public class BukuAdapter extends RecyclerView.Adapter<BukuAdapter.ViewHolder> {
     public List<Buku> ruts;
     Activity context;
@@ -31,7 +30,6 @@ public class BukuAdapter extends RecyclerView.Adapter<BukuAdapter.ViewHolder> {
         void edit(Buku data);
         void delete(Buku data);
     }
-
 
     public BukuAdapter(List<Buku> data, Activity context, BukuAdapter.onSelected listener) {
         this.ruts = data;
@@ -57,7 +55,6 @@ public class BukuAdapter extends RecyclerView.Adapter<BukuAdapter.ViewHolder> {
         holder.mDelete.setOnClickListener(View -> listener.delete(data));
         holder.mEdit.setOnClickListener(View -> listener.edit(data));
         holder.mDonasi.setVisibility(View.GONE);
-
     }
 
     @Override
@@ -74,10 +71,8 @@ public class BukuAdapter extends RecyclerView.Adapter<BukuAdapter.ViewHolder> {
         ImageView icon_image;
         Button mDelete , mEdit ,mDonasi;
 
-
         ViewHolder(View view) {
             super(view);
-//            onClick = view.findViewById(R.id.main_layout);
             mNama = view.findViewById(R.id.mNama);
             mKategori = view.findViewById(R.id.mKategori);
             mDeskripsi = view.findViewById(R.id.mDeskripsi);
@@ -89,6 +84,4 @@ public class BukuAdapter extends RecyclerView.Adapter<BukuAdapter.ViewHolder> {
         }
 
     }
-
-
 }

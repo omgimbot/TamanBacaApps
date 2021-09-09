@@ -5,6 +5,7 @@ import com.google.gson.annotations.SerializedName;
 import java.util.List;
 
 public class UsersResponse {
+
     @SerializedName("rc")
     private String mRc;
 
@@ -34,6 +35,5 @@ public class UsersResponse {
     public void setRm(String rm) { mRm = rm; }
     public Boolean getSuccess() { return mStatus; }
     public void  setSuccess(Boolean success) { mStatus = success; }
-
 
 }

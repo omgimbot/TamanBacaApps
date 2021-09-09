@@ -23,9 +23,9 @@ public class BukuPresenter {
         restService = RestService.getRetrofitInstance();
     }
 
-    public void showBuku() {
+    public void showBuku(String idUser) {
         view.showLoadingIndicator();
-        restService.create(NetworkService.class).showBuku()
+        restService.create(NetworkService.class).showBuku(idUser)
                 .enqueue(new Callback<Respon>() {
                     @Override
                     public void onResponse(retrofit2.Call<Respon> call, Response<Respon> response) {
@@ -60,7 +60,6 @@ public class BukuPresenter {
                     }
                 });
     }
-
 
     @NonNull
     private RequestBody createPartFromString(String descriptionString) {

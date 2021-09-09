@@ -28,7 +28,6 @@ public class SweetDialogs {
         void onClosed(String string);
     }
 
-
     public static void commonWarning(Activity context, String title, String content, boolean close) {
         SweetAlertDialog dialog = new SweetAlertDialog(context, SweetAlertDialog.WARNING_TYPE);
         dialog.setCancelable(true);
@@ -160,29 +159,6 @@ public class SweetDialogs {
         btnC.setScaleY((float) 0.8);
         btnC.setTextSize((float) 16.5);
     }
-
-//    public static void commonInvalidToken(Activity context, String title, String content) {
-//        SweetAlertDialog dialog = new SweetAlertDialog(context, SweetAlertDialog.ERROR_TYPE);
-//        dialog.setCancelable(false);
-//        dialog.setTitleText(title);
-//        dialog.setContentText(content);
-//        dialog.setConfirmText("OK");
-//        dialog.setConfirmClickListener(sweetAlertDialog -> {
-//            sweetAlertDialog.dismissWithAnimation();
-//            App.getPref().clear();
-//            context.startActivity(new Intent(context, Login.class).addFlags(Intent.FLAG_ACTIVITY_NEW_TASK));
-//            context.finish();
-//        });
-//        dialog.show();
-//
-//        Button btnC = (Button) dialog.findViewById(R.id.confirm_button);
-//
-//        btnC.setBackground(ContextCompat.getDrawable(context.getApplicationContext(), R.drawable.dialogbtn));
-//        btnC.setScaleX((float) 1);
-//        btnC.setScaleY((float) 0.8);
-//        btnC.setTextSize((float) 16.5);
-//    }
-
 
     public static void commonSuccess(Activity context, String body, boolean close) {
         SweetAlertDialog dialog = new SweetAlertDialog(context, SweetAlertDialog.SUCCESS_TYPE);

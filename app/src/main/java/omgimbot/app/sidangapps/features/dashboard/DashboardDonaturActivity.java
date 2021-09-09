@@ -221,8 +221,6 @@ public class DashboardDonaturActivity extends AppCompatActivity {
 
     @Override
     public void onBackPressed() {
-        // ...
-
         if (BackPress) {
             finishAffinity();
             return;
@@ -235,6 +233,5 @@ public class DashboardDonaturActivity extends AppCompatActivity {
                 BackPress = false;
             }
         }, 2000);
-//        super.onBackPressed();
     }
 }

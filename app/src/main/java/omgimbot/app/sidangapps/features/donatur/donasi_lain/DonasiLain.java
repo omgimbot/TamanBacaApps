@@ -22,7 +22,6 @@ import com.ontbee.legacyforks.cn.pedant.SweetAlert.SweetAlertDialog;
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.stream.Collectors;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -30,13 +29,7 @@ import omgimbot.app.sidangapps.App;
 import omgimbot.app.sidangapps.R;
 import omgimbot.app.sidangapps.features.auth.login.model.Users;
 import omgimbot.app.sidangapps.features.dashboard.DashboardDonaturActivity;
-import omgimbot.app.sidangapps.features.donasi.DonasiAdapter;
 import omgimbot.app.sidangapps.features.donatur.add_donasi.AddDonasiActivity;
-import omgimbot.app.sidangapps.features.donatur.add_donasi.IDonasiView;
-import omgimbot.app.sidangapps.features.donatur.buku.BukuActivity;
-import omgimbot.app.sidangapps.features.donatur.buku.BukuPresenter;
-import omgimbot.app.sidangapps.features.donatur.model.Donasi;
-import omgimbot.app.sidangapps.features.taman_baca.buku.model.Buku;
 import omgimbot.app.sidangapps.ui.SweetDialogs;
 
 public class DonasiLain extends AppCompatActivity implements IDonasiLainView , DonasiLainAdapter.onSelected{
@@ -81,19 +74,17 @@ public class DonasiLain extends AppCompatActivity implements IDonasiLainView , D
 
             @Override
             public boolean onQueryTextChange(String nextText) {
-                //Data akan berubah saat user menginputkan text/kata kunci pada SearchView
-//                nextText = nextText.toLowerCase();
                 if (nextText.length() < 1) {
                     ArrayList<Users> dataFilter = new ArrayList<>();
                     for (Users data : product) {
                         dataFilter.add(data);
-
                     }
                     adapter.setFilter(dataFilter);
                 }
                 return true;
             }
         });
+
         sweetAlertDialog = new SweetAlertDialog(this, SweetAlertDialog.PROGRESS_TYPE);
         sweetAlertDialog.setTitleText(App.getApplication().getString(R.string.loading));
         sweetAlertDialog.setCancelable(false);
@@ -101,7 +92,6 @@ public class DonasiLain extends AppCompatActivity implements IDonasiLainView , D
         mRecyclerView.setHasFixedSize(true);
         mRecyclerView.setLayoutManager(linearLayoutManager);
         mRecyclerView.clearFocus();
-//        mTambah.setOnClickListener(view ->this.goToAddBuku());
     }
 
     public static int bruteforce(String text, String tobematched) {
@@ -147,10 +137,8 @@ public class DonasiLain extends AppCompatActivity implements IDonasiLainView , D
         mRecyclerView.setAdapter(adapter);
         adapter.notifyDataSetChanged();
         if (result.isEmpty()){
-//            empty_store.setVisibility(View.VISIBLE);
             mRecyclerView.setVisibility(View.GONE);
         }else {
-//            empty_store.setVisibility(View.GONE);
             mRecyclerView.setVisibility(View.VISIBLE);
         }
     }

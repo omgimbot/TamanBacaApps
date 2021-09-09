@@ -70,7 +70,6 @@ public class Prefs extends TrayPreferences {
 
     public static final String PREFS_LAST_REQUEST_FORGOT_PASSWORD = "last.request.forgot.password";
 
-
     public Prefs(@NonNull Context context) {
         super(context, "myAppPreferencesModule", 1);
     }

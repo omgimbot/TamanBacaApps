@@ -3,6 +3,7 @@ package omgimbot.app.sidangapps.features.auth.login.model;
 import com.google.gson.annotations.SerializedName;
 
 public class LoginResponse {
+
     @SerializedName("rc")
     private String mRc;
 
@@ -28,6 +29,5 @@ public class LoginResponse {
     public void setRm(String rm) { mRm = rm; }
     public Boolean getSuccess() { return mStatus; }
     public void  setSuccess(Boolean success) { mStatus = success; }
-
 
 }
